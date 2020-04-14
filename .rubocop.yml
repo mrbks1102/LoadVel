@@ -1,0 +1,25 @@
+inherit_from:
+- .rubocop_airbnb.yml
+
+
+AllCops:
+  Exclude:
+  - 'db/schema.rb'
+  - 'db/**/*'
+  - 'bin/*'
+  - 'config/environments/*'
+  - 'config/application.rb'
+  - 'config/initializers/*'
+  - 'config/spring.rb'
+  - 'config/routes.rb'
+  - 'spec/spec_helper.rb'
+  - 'lib/tasks/*'
+  - 'vendor/**/*'
+  - 'path/ruby'
+
+RSpec/EmptyLineAfterFinalLet:
+  Enabled: false
+
+Layout/TrailingWhitespace:
+  Description: 'admit trailing whitespace.'
+  Enabled: false

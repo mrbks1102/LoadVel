@@ -1,12 +1,12 @@
 FROM ruby:2.6.3
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
-RUN mkdir /LoadVel
-WORKDIR /LoadVel
-COPY Gemfile /LoadVel/Gemfile
-COPY Gemfile.lock /LoadVel/Gemfile.lock
+RUN mkdir /RoadVel
+WORKDIR /RoadVel
+COPY Gemfile /RoadVel/Gemfile
+COPY Gemfile.lock /RoadVel/Gemfile.lock
 RUN gem install bundler
 RUN bundle install
-COPY . /LoadVel
+COPY . /RoadVel
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/

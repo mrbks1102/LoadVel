@@ -8,9 +8,9 @@ default: &default
 
 development:
   <<: *default
-  database: LoadVel_development
+  database: RoadVel_development
 
 
 test:
   <<: *default
-  database: LoadVel_test
+  database: RoadVel_test

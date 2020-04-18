@@ -68,3 +68,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # devise導入
 gem 'devise'
+
+# slim導入
+gem 'slim-rails'
+gem 'html2slim'

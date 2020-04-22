@@ -12,6 +12,10 @@
  *
  *= require_tree .
  *= require_self
- //= require jquery
- //= require jquery_ujs
+ *= require font-awesome
  */
+ @import "font-awesome-sprockets";
+ @import "font-awesome"; 
+ 
+
+ 

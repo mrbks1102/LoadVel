@@ -72,3 +72,7 @@ gem 'devise'
 # slim導入
 gem 'slim-rails'
 gem 'html2slim'
+
+# font awesome導入
+gem "font-awesome-rails"
+gem 'font-awesome-sass'

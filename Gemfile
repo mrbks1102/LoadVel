@@ -76,3 +76,6 @@ gem 'html2slim'
 # font awesome導入
 gem "font-awesome-rails"
 gem 'font-awesome-sass'
+
+# jqueryの導入
+gem 'jquery-rails'

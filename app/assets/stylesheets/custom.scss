@@ -1,6 +1,7 @@
 body{
   margin: 0;
 }
+
 .header{
   z-index: 10;
   position: fixed;
@@ -9,6 +10,7 @@ body{
   height: 100px;
   background: #ffffff;
   border-bottom: 1px solid #eae6dc;
+  background: rgba(247, 246, 244, 0.3);
 }
 
 .header_heading{

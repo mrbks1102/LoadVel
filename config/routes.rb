@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   }
 
   get 'users/show'
+  resources :posts, only: %i(index new create show) do
+    resources :photos, only: %i(create)
+  end
 end

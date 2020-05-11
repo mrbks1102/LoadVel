@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   get 'users/show'
   resources :posts, only: %i(index new create show) do
+    collection do
+      post :confirm
+    end
     resources :photos, only: %i(create)
   end
+
 end

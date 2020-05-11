@@ -1,0 +1,39 @@
+.contents.contents_midium
+  .form
+    .form_title
+      | 新規観光地投稿 
+    .form_progress
+      ul.cp_stepflow07
+        li.form_active
+          span.bubble
+          span 入力
+        li.bubble
+          span.bubble
+          span 確認
+        li.bubble
+          span.bubble
+          span 完了
+    = form_for :posts, url: confirm_posts_path do |f|
+      .form-group
+        = f.label :place_name, "地名"
+        = f.text_field :place_name, autofocus: true, class: "form-control"
+      .form-group
+        = f.label :area, "エリア"
+        = f.text_field :area, autofocus: true, class: "form-control"
+      .form-group
+        = f.label :image, "写真"
+        = f.file_field :image, autofocus: "off", class: "form-control"
+      .form-group
+        = f.label :street_address, "住所"
+        = f.text_field :street_address, autofocus: "off", class: "form-control"
+      .form-group
+        = f.label :time, "営業時間"
+        = f.text_field :time, autofocus: "off", class: "form-control"
+      .form-group
+        = f.label :regular_holiday, "定休日"
+        = f.text_field :regular_holiday, autofocus: "off", class: "form-control"
+      .form-group
+        = f.label :url, "URL"
+        = f.text_field :url, autofocus: "off", class: "form-control"
+      = f.submit "確認へ進む", class: "btn btn-primary"
+

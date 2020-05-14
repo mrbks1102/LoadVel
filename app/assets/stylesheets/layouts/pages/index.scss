@@ -14,7 +14,20 @@
   background-size: cover;
 }
 
-.contents {
+.contents_main {
   background-color: rgba(0,0,0,0.6);
   height: 900px;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.contents_main h1 {
+  font-size : 100px;
+  margin-top: 250px;
+  margin-left: 270px
+}
+
+.contents_main h2 {
+font-size: 40px;
+margin-left: 140px;
 }

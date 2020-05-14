@@ -3,6 +3,11 @@ body {
   padding: 0;
   font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #e6e6e6;
+  #wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
 }
 //header
 
@@ -68,6 +73,7 @@ footer {
   text-align: center;
   background: #f0aa71;
   box-sizing: border-box;
+  margin-top: auto;
 }
 
 .footer_nav {
@@ -89,7 +95,7 @@ a {
 //show
 .contents{
   height: 100%;
-  padding: 136px 0 220px;
+  padding: 10px;
   margin: 0 auto;
 }
 

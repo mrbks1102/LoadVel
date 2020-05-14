@@ -4,8 +4,10 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
+  root to: 'posts#index'
+
   get 'users/show'
-  resources :posts, only: %i(index new create show) do
+  resources :posts, only: %i(new create show) do
     collection do
       post :confirm
     end

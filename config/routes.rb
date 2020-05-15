@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   root to: 'pages#index'
 
-  get 'users/show'
+  get '/users/:id', to: 'users#show', as: 'user'
+
   resources :posts, only: %i(new index create show) do
     collection do
       post :confirm

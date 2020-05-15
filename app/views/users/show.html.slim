@@ -3,8 +3,8 @@
     .user_image
       = image_tag 'user.png', :size =>'80x80'
     .user_info 
-      .user_info_name
-        | じん
+      .user_info_name 
+        = @user.name
       a.user_info_setting
       .user_info_comment
         | どうもこんにちは

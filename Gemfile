@@ -68,3 +68,14 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # devise導入
 gem 'devise'
+
+# slim導入
+gem 'slim-rails'
+gem 'html2slim'
+
+# font awesome導入
+gem "font-awesome-rails"
+gem 'font-awesome-sass'
+
+# jqueryの導入
+gem 'jquery-rails'

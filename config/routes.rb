@@ -3,4 +3,15 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
+
+  root to: 'pages#index'
+
+  get 'users/show'
+  resources :posts, only: %i(new index create show) do
+    collection do
+      post :confirm
+    end
+    resources :photos, only: %i(create)
+  end
+
 end

@@ -1,0 +1,91 @@
+.contents
+  .microposts
+    .microposts_main
+      .microposts_mainview
+        .microposts_mainview_top
+          .maicro = image_tag 'sample.jpg'
+        .microposts_mainview_icon.flex
+          .item_icon.twitter
+            i.fab.fa-twitter
+          .item_icon.facebook
+            i.fab.fa-facebook
+          .item_icon.mappin
+            i.fas.fa-map-pin
+        .microposts_mainview_info
+          .microposts_mainview_name
+            | 山脈
+          .microposts_mainview_good.inline
+            i.far.fa-thumbs-up
+            | 150  行きたい！
+          .microposts_mainview_comments.inline
+            i.far.fa-comment
+            | 10
+          .microposts_mainview_pin.inline
+            i.far.fa-thumbtack
+            | 5
+          .microposts_mainview_station
+            i.far.fa-map-marker-alt
+            |青梅駅
+          .microposts_mainview_hours
+            i.far.fa-clock
+            | 夜がおすすめ
+      .microposts_item
+        .microposts_item_header
+          p
+            | 口コミ  
+          a.btn.btn--sm href="/" 
+            | 投稿する
+        .reviews
+          .reviews_item
+            .reviews_item_img
+              a href='/'
+            a.reviews_item_info
+              .reviews_item_title
+                | 以外に穴場です
+              .reviews_item_comments
+                | 雪が降っている際に行くと尚良し
+              .reviews_item_date
+                |2020.05.05
+      .microposts_item
+        .microposts_item_header
+          p
+            | 基本情報 
+          a.btn.btn--sm href="/" 
+            | 編集リクエストを送る
+        .microposts_item_detail
+          .microposts_iteme_title
+            | 住所
+          .microposts_item_contents
+            a.micropost_item_place_link href='/' target='_blank'
+              | 東京都
+        .line
+        .microposts_item_detail
+          .microposts_item_title
+            | 営業時間
+          .microposts_item_contents
+            | なし
+        .line
+        .microposts_item_detail
+          .microposts_item_title
+            | 電話番号
+          .microposts_item_contents
+            | 03-xxxx-xxxx
+        .line
+        .microposts_item_detail
+          .microposts_item_title
+            | URL
+          .microposts_item_contents
+            | http://xxxxxxx.com
+        .line
+        .microposts_item_detail
+          .microposts_item_title
+            | 施設情報
+          .microposts_item_contents
+            | なし
+        .line
+        .microposts_item_detail
+          .microposts_item_title
+            | 特徴
+          .microposts_item_contents
+            | なし
+        .line

@@ -1,0 +1,37 @@
+.contents
+  .user
+    .user_image
+      = image_tag 'user.png', :size =>'80x80'
+    .user_info 
+      .user_info_name
+        | じん
+      a.user_info_setting
+      .user_info_comment
+        | どうもこんにちは
+      .user_info_tag
+    .nav
+      i.fas.fa-motorcycle.nav_item.active
+      i.fas.fa-camera.nav_item
+      i.fas.fa-comments.nav_item
+      i.fas.fa-thumbs-up.nav_item
+    .user_contents
+      .user_contents_item.activ
+        .post
+          .users_contents_item
+            | まだ投稿はありません
+      .user_contents_item
+        .camera
+          .users_contents_item
+            | まだ写真はありません
+      .user_contents_item
+        .comments
+          .users_contents_item
+            | まだコメントはありません
+      .user_contents_item
+        .good
+          .users_contents_item
+            | まだいいねはありません
+    = javascript_include_tag "show.js"
+
+
+

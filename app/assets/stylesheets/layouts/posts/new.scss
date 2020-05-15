@@ -18,6 +18,7 @@
 	margin: 0 0 1em;
 	padding: 0;
 }
+
 .cp_stepflow07 > li {
 	position: relative;
 	display: block;
@@ -31,8 +32,9 @@
 	 -ms-flex: 1;
 	-moz-flex: 1;
 	-webkit-box-flex: 1;
-	     flex: 1;
+	flex: 1;
 }
+
 .cp_stepflow07 > li .bubble::after,
 .cp_stepflow07 > li .bubble::before {
 	position: absolute;
@@ -46,24 +48,29 @@
 	transform: translateX(-50%);
 	background-color: #b0bec5;
 }
+
 .cp_stepflow07 > li .bubble + span {
-	display: block;
+  display: block;
 	margin-top: 1em;
 }
+
 .cp_stepflow07 > li.completed,
 .cp_stepflow07 > li.completed .bubble {
 	color: #00acc1;
 }
+
 .cp_stepflow07 > li.completed .bubble,
 .cp_stepflow07 > li.completed .bubble::after,
 .cp_stepflow07 > li.completed .bubble::before {
-	background-color: #4dd0e1;
+  background-color: #4dd0e1;
 }
+
 .cp_stepflow07 > li.active,
 .cp_stepflow07 > li.active .bubble {
 	font-weight: bold;
 	color: #f57c00;
 }
+
 .cp_stepflow07 > li.form_active .bubble,
 .cp_stepflow07 > li.form_active .bubble::after,
 .cp_stepflow07 > li.form_active .bubble::before {

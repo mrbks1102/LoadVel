@@ -1,7 +1,7 @@
 .profile_contents
   .profile-form-wrap
     .form_title
-      | プロフィール編集
+      | アカウント情報編集
     = form_with scope: resource, as: resource_name, url: registration_path(resource_name), local: true, method: :patch do |f|
       .form-group
         = f.label :name, "名前"
@@ -9,6 +9,9 @@
       .form-group
         = f.label :email, "メールアドレス"
         = f.email_field :email, autofocus: true, class: "form-control"
+      .form-group
+        = f.label :profile, "自己紹介文"
+        = f.text_field :profile, autofocus: true, class: "form-control"
       .form-group
         = f.label :password, "パスワード"
         = f.password_field :password, autofocus: "off", class: "form-control"

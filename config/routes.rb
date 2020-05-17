@@ -5,9 +5,7 @@ Rails.application.routes.draw do
   }
 
   root to: 'pages#index'
-
-  get '/users/:id', to: 'users#show', as: 'user'
-
+  resources :users, only: [:show, :edit, :update]
   resources :posts, only: %i(new index create show) do
     collection do
       post :confirm

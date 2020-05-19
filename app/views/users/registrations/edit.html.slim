@@ -11,5 +11,11 @@
         = f.email_field :email, autofocus: true, class: "form-control"
       .form-group
         = f.label :profile, "自己紹介文"
-        = f.text_field :profile, autofocus: true, class: "form-control text_field"
+        = f.text_area :profile, autofocus: true, class: "form-control text-field"
+      .form-group
+        = f.label :password, "パスワード変更(変更しない場合は空白)"
+        = f.password_field :password, autofocus: "off", class: "form-control"
+      .form-group
+        = f.label :password_confirmation, "パスワードの確認"
+        = f.password_field :password_confirmation, autofocus: "off", class: "form-control"
       = f.submit "変更する", class: "btn btn-primary"

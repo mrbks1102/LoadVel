@@ -1,0 +1,17 @@
+.contents.contents_small
+  .form
+    .form_title
+      | 各種セッティング
+    .form-setting
+      = link_to 'アカウント情報編集', edit_user_registration_path
+      = link_to 'アカウント削除'
+    .line
+    .form-setting
+      = link_to 'ROADVELとは'
+      = link_to '利用規約'
+      = link_to 'お問い合わせ'
+      = link_to 'プライバシーポリシー'
+    .line
+    p
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "color-red"
+

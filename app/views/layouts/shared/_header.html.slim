@@ -1,12 +1,14 @@
 header.l-header
   h1
-    a href=""
+    a href="/"
       | ROADVEL
   nav.pc-nav
-    ul
+    - if current_user.nil?
       li
-        a href="#"  ABOUT
-      li
-        a href="#"  CONTACT
-      li
-        a href="#"  | NEWPOST
+        = link_to 'login', new_user_registration_path
+    - else
+      ul
+        li 
+          = link_to 'MYPAGE', user_path(current_user)
+        li 
+          = link_to '| NEW POST', user_path(current_user)

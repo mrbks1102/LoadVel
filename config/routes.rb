@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update, :destroy]
   resources :posts, only: %i(new index create show) do
     collection do
       post :confirm

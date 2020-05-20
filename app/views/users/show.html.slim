@@ -3,11 +3,13 @@
     .user_image
       = image_tag 'user.png', :size =>'80x80'
     .user_info 
-      .user_info_name
-        | じん
+      .user_info_name 
+        = @user.name
+        = link_to edit_user_path
+          i.fas.fa-cog.ml15
       a.user_info_setting
       .user_info_comment
-        | どうもこんにちは
+        = @user.profile
       .user_info_tag
     .nav
       i.fas.fa-motorcycle.nav_item.active

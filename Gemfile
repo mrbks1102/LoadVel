@@ -79,3 +79,6 @@ gem 'font-awesome-sass'
 
 # jqueryの導入
 gem 'jquery-rails'
+
+#画像投稿機能に必要なgemの導入
+gem 'carrierwave', '~> 1.0'

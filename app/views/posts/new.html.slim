@@ -15,9 +15,10 @@
           span 完了
     /= form_with :post, url: confirm_posts_path do |f|
     = form_with model: @post do |f|
-      /.form-group
-        = f.label :place_name, "地名"
-        = f.text_field :place_name, autofocus: true, class: "form-control"
+      .form-group
+        = f.label :place_name, "都道府県"
+        = f.select :place_name, Post.place_names.keys, {}, {class: 'place'}
+        /= f.text_field :place_name, autofocus: true, class: "form-control"
       /.form-group
         = f.label :area, "エリア"
         = f.text_field :area, autofocus: true, class: "form-control"

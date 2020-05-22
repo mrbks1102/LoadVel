@@ -18,23 +18,22 @@
       .form-group
         = f.label :place_name, "都道府県"
         = f.select :place_name, Post.place_names.keys, {}, {class: 'place'}
-        /= f.text_field :place_name, autofocus: true, class: "form-control"
-      /.form-group
+      .form-group
         = f.label :area, "エリア"
-        = f.text_field :area, autofocus: true, class: "form-control"
+        = f.text_field :area, autofocus: true, class: "form-control", placeholder: "(例 千葉フォルニア"
       .form-group
         = f.label :post_photo, "写真"
         = f.file_field :post_photo, autofocus: "off", class: "form-control"
-      /.form-group
+      .form-group
         = f.label :street_address, "住所"
         = f.text_field :street_address, autofocus: "off", class: "form-control"
-      /.form-group
+      .form-group
         = f.label :time, "営業時間"
         = f.text_field :time, autofocus: "off", class: "form-control"
-      /.form-group
+      .form-group
         = f.label :regular_holiday, "定休日"
         = f.text_field :regular_holiday, autofocus: "off", class: "form-control"
-      /.form-group
+      .form-group
         = f.label :url, "URL"
         = f.text_field :url, autofocus: "off", class: "form-control"
       = f.submit "確認へ進む", class: "btn-square"

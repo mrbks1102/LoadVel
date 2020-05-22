@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def new 
     @post = Post.new
   end
@@ -26,6 +26,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:post_photo).merge(user_id: current_user.id)
+    params.require(:post).permit(:post_photo, :place_name, :area, :street_address, :time, :regular_holiday, :url).merge(user_id: current_user.id)
   end
 end

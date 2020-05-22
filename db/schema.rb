@@ -18,6 +18,11 @@ ActiveRecord::Schema.define(version: 2020_05_20_094231) do
   create_table "posts", force: :cascade do |t|
     t.string "post_photo", null: false
     t.integer "place_name", default: 0, null: false
+    t.string "area"
+    t.string "street_address"
+    t.string "time"
+    t.string "regular_holiday"
+    t.string "url"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

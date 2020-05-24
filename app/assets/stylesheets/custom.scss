@@ -20,11 +20,25 @@ body {
   border-radius: 3px;
 }
 .btn-square:active {
-  /*ボタンを押したとき*/
-  -webkit-transform: translateY(4px);
-  transform: translateY(4px);/*下に動く*/
-  border-bottom: none;/*線を消す*/
+  background: #98bbeb;
 }
+
+.btn-back {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #848382;/*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #565552;
+  border-radius: 3px;
+  margin-bottom: 10px;;
+}
+.btn-back:active {
+  /*ボタンを押したとき*/
+  background: #98bbeb;
+}
+
+
 
 //header
 

@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   }
 
   resources :users, only: [:show, :edit, :update, :destroy]
-  resources :posts, only: %i(new index create show) do
+  resources :posts, only: [:new, :index, :create, :show] do
     collection do
+      post :new, path: :new, as: :new, action: :back
       post :confirm
     end
-    resources :photos, only: %i(create)
   end
 
 end

@@ -11,22 +11,33 @@ class PostsController < ApplicationController
   def show
   end
 
+  def confirm
+    @post = Post.new(post_params)
+    return if @post.valid?
+    render :new
+  end
+
+  def back
+    @post = Post.new(post_params)
+    render :new
+  end
+
   def create
     @post = Post.new(post_params)
     if @post.post_photo.present?
       @post.save
       redirect_to root_path
-      flash[:notice] = "投稿が保存されました"
     else
-      redirect_to root_path
-      flash[:alert] = "投稿に失敗しました"
+      render :new
     end
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:post_photo,
+    params.require(:post).permit(
+                                 :post_photo,
+                                 :post_photo_cache,
                                  :place_name,
                                  :area,
                                  :street_address,

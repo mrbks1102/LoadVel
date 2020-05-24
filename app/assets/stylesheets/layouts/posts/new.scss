@@ -12,8 +12,6 @@
 
 .cp_stepflow07 {
 	font-size: 80%;
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
 	margin: 0 0 1em;
 	padding: 0;
@@ -35,8 +33,7 @@
 	flex: 1;
 }
 
-.cp_stepflow07 > li .bubble::after,
-.cp_stepflow07 > li .bubble::before {
+.cp_stepflow07 > li .bubble::after {
 	position: absolute;
 	top: 0px;
 	right: 50%;
@@ -54,28 +51,16 @@
 	margin-top: 1em;
 }
 
-.cp_stepflow07 > li.completed,
-.cp_stepflow07 > li.completed .bubble {
-	color: #00acc1;
-}
-
-.cp_stepflow07 > li.completed .bubble,
-.cp_stepflow07 > li.completed .bubble::after,
-.cp_stepflow07 > li.completed .bubble::before {
-  background-color: #4dd0e1;
-}
-
-.cp_stepflow07 > li.active,
-.cp_stepflow07 > li.active .bubble {
+.cp_stepflow07 > li.form_active,
+.cp_stepflow07 > li.form_active .bubble {
 	font-weight: bold;
 	color: #f57c00;
 }
 
-.cp_stepflow07 > li.form_active .bubble,
-.cp_stepflow07 > li.form_active .bubble::after,
-.cp_stepflow07 > li.form_active .bubble::before {
+.cp_stepflow07 > li.form_active .bubble::after {
 	background-color: #fb8c00;
 }
+
 
 .place {
 	width: 30%;

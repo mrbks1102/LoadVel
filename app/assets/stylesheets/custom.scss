@@ -188,12 +188,15 @@ a {
   color:rgb(8, 8, 8); text-decoration:none
 }
 
+.flash {
+  display: block;
+}
+
 .alert {
   text-align: center;
   position: fixed;
   right: 10px;
-  margin-top: 100px;
-  margin-top: 90px;
+  margin-top: 80px;
 }
 
 .alert-info {
@@ -213,6 +216,13 @@ a {
     border: none;
     padding: 15px;
     border-radius: 16px;
-    box-shadow: 0 0 4px #eae6dc;
-    margin-top: 70px;
+    box-shadow: 0 0 4px #eae6dc
+}
+
+div.field_with_errors {
+  color: red;
+}
+
+div.field_with_errors input {
+  background-color:  #fcc;
 }

@@ -14,6 +14,7 @@ class PostsController < ApplicationController
   def confirm
     @post = Post.new(post_params)
     return if @post.valid?
+    flash.now[:alert] = '入力に不備がありました。'
     render :new
   end
 
@@ -24,13 +25,12 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    if @post.post_photo.present?
+    if
       @post.save
       redirect_to root_path
       flash[:notice] = "投稿が完了しました。"
     else
       render :new
-      flash[:alert] = "投稿に失敗しました。"
     end
   end
 

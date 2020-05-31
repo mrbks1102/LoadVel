@@ -8,3 +8,7 @@ $(document).on('turbolinks:load', function () {
     $('.user_contents_item').eq(index).siblings().removeClass('activ');
   });
 });
+
+$(function () {
+  setTimeout("$('.flash').fadeOut('slow')", 2000);
+});

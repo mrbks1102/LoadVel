@@ -187,3 +187,32 @@ a {
   margin-left: 17px;
   color:rgb(8, 8, 8); text-decoration:none
 }
+
+.alert {
+  text-align: center;
+  position: fixed;
+  right: 10px;
+  margin-top: 100px;
+  margin-top: 90px;
+}
+
+.alert-info {
+  background-color: #bde9ff;
+  border-color: #bde9ff;
+  color: #4c6977;
+  border: none;
+  padding: 15px;
+  border-radius: 16px;
+  box-shadow: 0 0 4px #eae6dc;
+}
+
+.alert-danger {
+    background-color: #f3c0c0;
+    border-color: #f3c0c0;
+    color: #3e3a3a;
+    border: none;
+    padding: 15px;
+    border-radius: 16px;
+    box-shadow: 0 0 4px #eae6dc;
+    margin-top: 70px;
+}

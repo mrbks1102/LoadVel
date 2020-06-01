@@ -85,5 +85,3 @@ gem 'jquery-rails'
 gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
 
-# タグ機能に必要なgemの追加
-gem 'acts-as-taggable-on', '~> 6.0'

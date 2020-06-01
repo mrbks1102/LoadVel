@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find_by(id: params[:id])
   end
 
   def confirm
@@ -47,6 +48,7 @@ class PostsController < ApplicationController
                                  :regular_holiday,
                                  :url,
                                  :station,
-                                 :shop_name).merge(user_id: current_user.id)
+                                 :shop_name,
+                                 { :category_ids=> [] }).merge(user_id: current_user.id)
   end
 end

@@ -42,5 +42,13 @@
       .form-group
         = f.label :url, "URL"
         = f.text_field :url, autofocus: "off", class: "form-control"
+      .form-group
+        = f.label :category, 'カテゴリ', class: "item-tag"
+        = f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category|
+          .item_tag
+            = category.label do
+              = category.check_box
+              .item-span
+                span = category.text
       div[style="text-align: center;"]
         = f.submit "確認へ進む", class: "btn-square"

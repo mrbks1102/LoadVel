@@ -68,6 +68,15 @@
         .microposts_item_contents
           = @post.url
       .line
+      .microposts_item_detail
+        .microposts_item_title
+          | カテゴリ
+        .microposts_item_contents
+          - @post.post_category_relations.each do |post_category|
+            .item_tag
+             .item-span
+              span = post_category.category.name
+      .line
     = form_for :post, url: new_post_path do |f|
       = f.hidden_field :area
       = f.hidden_field :station
@@ -78,6 +87,7 @@
       = f.hidden_field :time
       = f.hidden_field :regular_holiday
       = f.hidden_field :url
+      = f.hidden_field :category_ids
       div[style="text-align: center;"]
         = f.submit "入力画面に戻る", class: "btn-back" 
     = form_for :post, url: posts_path do |f|
@@ -90,5 +100,6 @@
       = f.hidden_field :time
       = f.hidden_field :regular_holiday
       = f.hidden_field :url
+      = f.hidden_field :category_ids
       div[style="text-align: center;"]
         = f.submit "確認へ進む", class: "btn btn-square"

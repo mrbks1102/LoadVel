@@ -21,6 +21,7 @@ body {
 }
 .btn-square:active {
   background: #98bbeb;
+  border: solid 4px#98bbeb;
 }
 
 .btn-back {
@@ -29,12 +30,13 @@ body {
   text-decoration: none;
   background: #848382;
   color: #FFF;
-  border: solid 4px #f37005;
+  border: solid 4px #848382;
   border-radius: 3px;
   margin-bottom: 10px;;
 }
 .btn-back:active {
   background: #98bbeb;
+  border: solid 4px #98bbeb
 }
 
 
@@ -131,6 +133,13 @@ a {
   margin: 0 auto;
 }
 
+.contents_midium {
+  width: 600px;
+  height: 100%;
+  padding: 136px 0 220px;
+  margin: 0 auto;
+}
+
 .user{
   align-items: center;
 }
@@ -189,6 +198,7 @@ a {
   text-decoration: none;
 }
 
+//flash
 .flash {
   display: block;
 }

@@ -4,6 +4,8 @@ class Post < ApplicationRecord
   validates :area, presence: true
   validates :post_photo, presence: true
   mount_uploader :post_photo, ImageUploader
+  has_many :post_category_relations
+  has_many :categories, through: :post_category_relations
 
   enum place_name:{
     "---":0,

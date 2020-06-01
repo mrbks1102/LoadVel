@@ -1,3 +1,18 @@
 .microposts_item_contents_image img {
   width: 200px;
 }
+
+.item_tag_confirm {
+  display: inline;
+	padding: 4px 8px;
+	font-size: 14px;
+	border-radius: 4px;
+	background: #f08408;
+	-webkit-transition: .3s all;
+  transition: .3s all;
+  &:empty{
+    display: none;
+  }
+}
+
+

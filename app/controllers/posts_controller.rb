@@ -1,11 +1,13 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
 
-  def new 
-    @post = Post.new
+  def index
+    @post = Post.limit(4).order('created_at DESC')
   end
 
-  def index
+
+  def new 
+    @post = Post.new
   end
 
   def show
@@ -33,12 +35,10 @@ class PostsController < ApplicationController
       render :new
     end
   end
-
   private
 
   def post_params
-    params.require(:post).permit(
-                                 :post_photo,
+    params.require(:post).permit(:post_photo,
                                  :post_photo_cache,
                                  :place_name,
                                  :area,

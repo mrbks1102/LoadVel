@@ -53,6 +53,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # rubocop導入
   gem 'rubocop-airbnb'
+  gem 'pry-byebug'
 end
 
 group :test do

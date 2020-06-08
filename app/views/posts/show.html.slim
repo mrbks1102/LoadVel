@@ -13,7 +13,7 @@
             i.fas.fa-map-pin
         .microposts_mainview_info
           .microposts_mainview_name
-            | 山脈
+            = @post.area
           .microposts_mainview_good.inline
             i.far.fa-thumbs-up
             | 150  行きたい！
@@ -25,7 +25,7 @@
             | 5
           .microposts_mainview_station
             i.far.fa-map-marker-alt
-            |青梅駅
+             = @post.station
           .microposts_mainview_hours
             i.far.fa-clock
             | 夜がおすすめ
@@ -54,38 +54,43 @@
             | 編集リクエストを送る
         .microposts_item_detail
           .microposts_iteme_title
+            | 店名
+          .microposts_item_contents
+            a.micropost_item_place_link href='/' target='_blank'
+              = @post.shop_name
+        .line
+        .microposts_item_detail
+          .microposts_iteme_title
             | 住所
           .microposts_item_contents
             a.micropost_item_place_link href='/' target='_blank'
-              | 東京都
+              = @post.street_address
         .line
         .microposts_item_detail
           .microposts_item_title
             | 営業時間
           .microposts_item_contents
-            | なし
-        .line
-        .microposts_item_detail
-          .microposts_item_title
-            | 電話番号
-          .microposts_item_contents
-            | 03-xxxx-xxxx
+            = @post.time
         .line
         .microposts_item_detail
           .microposts_item_title
             | URL
           .microposts_item_contents
-            | http://xxxxxxx.com
+            = @post.url
         .line
         .microposts_item_detail
           .microposts_item_title
-            | 施設情報
+            | 定休日
           .microposts_item_contents
-            | なし
+            = @post.regular_holiday
         .line
         .microposts_item_detail
           .microposts_item_title
             | 特徴
           .microposts_item_contents
-            | なし
+            - @post.categories.each do |category|
+              .item_tag
+                .item-span
+                   span = category.name
+      .line
         .line

@@ -5,17 +5,29 @@ class PostsController < ApplicationController
     @post = Post.limit(4).order('created_at DESC')
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
 
-  def new 
+  def new
     @post = Post.new
   end
 
-  def show
-    @post = Post.find_by(id: params[:id])
+  def create
+    @post = Post.new(post_params)
+    @post.category_ids = session[:category_ids]
+    if
+      @post.save
+      redirect_to @post
+      flash[:notice] = "投稿が完了しました。"
+    else
+      render :new
+    end
   end
 
   def confirm
     @post = Post.new(post_params)
+    session[:category_ids] =  @post.category_ids
     return if @post.valid?
     flash.now[:alert] = '入力に不備がありました。'
     render :new
@@ -26,16 +38,6 @@ class PostsController < ApplicationController
     render :new
   end
 
-  def create
-    @post = Post.new(post_params)
-    if
-      @post.save
-      redirect_to root_path
-      flash[:notice] = "投稿が完了しました。"
-    else
-      render :new
-    end
-  end
   private
 
   def post_params
@@ -49,6 +51,6 @@ class PostsController < ApplicationController
                                  :url,
                                  :station,
                                  :shop_name,
-                                 { :category_ids=> [] }).merge(user_id: current_user.id)
+                                 category_ids: []).merge(user_id: current_user.id )
   end
 end

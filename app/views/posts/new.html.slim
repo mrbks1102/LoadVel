@@ -44,7 +44,7 @@
         = f.text_field :url, autofocus: "off", class: "form-control"
       .form-group
         = f.label :category, 'カテゴリ', class: "item-tag"
-        = f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category|
+        = f.collection_check_boxes(:category_ids, Category.all, :id, :name, include_hidden: false) do |category|
           .item_tag
             = category.label do
               = category.check_box

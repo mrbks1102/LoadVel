@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
+  get '/users/:id', to: 'users#show', as: 'user'
+
   resources :users, only: [:show, :edit, :update, :destroy]
   resources :posts, only: [:new, :index, :create, :show] do
     collection do

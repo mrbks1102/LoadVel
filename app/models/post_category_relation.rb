@@ -1,4 +1,4 @@
 class PostCategoryRelation < ApplicationRecord
-  belongs_to :post
-  belongs_to :category
+  belongs_to :post, optional: true
+  belongs_to :category, optional: true
 end

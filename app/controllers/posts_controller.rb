@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @posts = Post.limit(3).order('created_at DESC')
   end
 
   def new
@@ -16,8 +17,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.category_ids = session[:category_ids]
-    if
-      @post.save
+    if @post.save
       redirect_to @post
       flash[:notice] = "投稿が完了しました。"
     else
@@ -27,7 +27,7 @@ class PostsController < ApplicationController
 
   def confirm
     @post = Post.new(post_params)
-    session[:category_ids] =  @post.category_ids
+    session[:category_ids] = @post.category_ids
     return if @post.valid?
     flash.now[:alert] = '入力に不備がありました。'
     render :new

@@ -3,7 +3,7 @@
     .microposts_main
       .microposts_mainview
         .microposts_mainview_top
-          .maicro = image_tag 'sample.jpg'
+          .maicro = image_tag @post.post_photo.url
         .microposts_mainview_icon.flex
           .item_icon.twitter
             i.fab.fa-twitter
@@ -25,15 +25,20 @@
             | 5
           .microposts_mainview_station
             i.far.fa-map-marker-alt
-             = @post.station
+              = @post.station
           .microposts_mainview_hours
             i.far.fa-clock
-            | 夜がおすすめ
+              = @post.time
+          .microposts_mainview_tag
+            - @post.categories.each do |category|
+              .item_tag
+                .item-span
+                   span = category.name
       .microposts_item
         .microposts_item_header
           p
             | 口コミ  
-          a.btn.btn--sm href="/" 
+          a.btn_main href='/'
             | 投稿する
         .reviews
           .reviews_item
@@ -50,17 +55,17 @@
         .microposts_item_header
           p
             | 基本情報 
-          a.btn.btn--sm href="/" 
+          a.btn_main href='/'
             | 編集リクエストを送る
         .microposts_item_detail
-          .microposts_iteme_title
+          .microposts_item_title
             | 店名
           .microposts_item_contents
             a.micropost_item_place_link href='/' target='_blank'
               = @post.shop_name
         .line
         .microposts_item_detail
-          .microposts_iteme_title
+          .microposts_item_title
             | 住所
           .microposts_item_contents
             a.micropost_item_place_link href='/' target='_blank'
@@ -82,7 +87,7 @@
           .microposts_item_title
             | 定休日
           .microposts_item_contents
-            = @post.regular_holiday
+            =  @post.regular_holiday
         .line
         .microposts_item_detail
           .microposts_item_title
@@ -92,5 +97,5 @@
               .item_tag
                 .item-span
                    span = category.name
-      .line
         .line
+    = render 'posts/shared/side_bar'

@@ -2,11 +2,15 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #e6e6e6;
+  background: #f7f7f7;
   #wrapper {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+  }
+  a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
   }
 }
 

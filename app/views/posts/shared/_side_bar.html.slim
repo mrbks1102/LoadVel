@@ -1,0 +1,49 @@
+.sidebar_contents
+  .sidebar
+    .sidebar_title
+      span.orange #
+        新着
+    .sidebar_item_contents
+      -  @posts.each do |post| 
+        .sidebar_item
+          = link_to(post_path(post)) do
+            = image_tag post.post_photo.url
+            .sidebar_item_info
+              .sidebar_item_info_name
+                = post.area
+              .sidebar_item_info_good.inline
+                i.far.fa-thumbs-up
+                  |10
+              .sidebar_item_info_comment.inline
+                i.far.fa-comment
+                | 10
+              .sidebar_item_info_pin.inline
+                i.fas.fa-map-pin
+                | 10
+              .sidebar_item_info_station
+                i.far.fa-map-marker-alt
+                = post.station
+    .line
+    .sidebar_title
+        span.orange #
+          同じエリア
+    .sidebar_item_contents
+      - @posts.each do |post| 
+        .sidebar_item
+          = link_to(post_path(post)) do
+            = image_tag post.post_photo.url
+            .sidebar_item_info
+              .sidebar_item_info_name
+                = post.area
+              .sidebar_item_info_good.inline
+                i.far.fa-thumbs-up
+                  |10
+              .sidebar_item_info_comment.inline
+                i.far.fa-comment
+                | 10
+              .sidebar_item_info_pin.inline
+                i.fas.fa-map-pin
+                | 10
+              .sidebar_item_info_station
+                i.far.fa-map-marker-alt
+                = post.station

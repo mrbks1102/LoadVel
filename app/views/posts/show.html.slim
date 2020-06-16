@@ -33,7 +33,7 @@
             - @post.categories.each do |category|
               .item_tag
                 .item-span
-                   span = category.name
+                   span = link_to "#{category.name}", "category/#{category.id}"
       .microposts_item
         .microposts_item_header
           p
@@ -96,6 +96,6 @@
             - @post.categories.each do |category|
               .item_tag
                 .item-span
-                   span = category.name
+                   span = link_to "#{category.name}", "category/#{category.id}"
         .line
     = render 'posts/shared/side_bar'

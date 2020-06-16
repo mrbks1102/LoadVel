@@ -14,5 +14,6 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
+  get 'posts/category/:id', to: 'posts#category'
 
 end

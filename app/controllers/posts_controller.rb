@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.limit(4).order('created_at DESC')
+
   end
 
   def show
@@ -33,6 +34,12 @@ class PostsController < ApplicationController
     render :new
   end
 
+  def category
+    @category = Category.find(params[:id])
+    @post = Post.includes(:categories).where(post_category_relations: { category_id: @category })
+    @posts = Post.find(params[:id])
+  end
+
   def back
     @post = Post.new(post_params)
     render :new
@@ -51,6 +58,6 @@ class PostsController < ApplicationController
                                  :url,
                                  :station,
                                  :shop_name,
-                                 category_ids: []).merge(user_id: current_user.id )
+                                 category_ids: []).merge(user_id: current_user.id)
   end
 end

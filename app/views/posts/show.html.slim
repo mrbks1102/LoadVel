@@ -37,20 +37,18 @@
       .microposts_item
         .microposts_item_header
           p
-            | 口コミ  
-          a.btn_main href='/'
-            | 投稿する
+            | コメント
+          a = link_to "投稿", new_post_review_path(@post.id), class: 'btn_main'
         .reviews
-          .reviews_item
-            .reviews_item_img
-              a href='/'
-            a.reviews_item_info
-              .reviews_item_title
-                | 以外に穴場です
-              .reviews_item_comments
-                | 雪が降っている際に行くと尚良し
-              .reviews_item_date
-                |2020.05.05
+          - @reviews.each do |r|
+            .reviews_item
+              .reviews_item_img
+                a href='/'
+              a.reviews_item_info
+                .reviews_item_comments
+                  = r.body
+                .reviews_item_date
+                  = r.updated_at.strftime("%Y %m %d")
       .microposts_item
         .microposts_item_header
           p

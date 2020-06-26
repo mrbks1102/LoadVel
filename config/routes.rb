@@ -9,11 +9,13 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update, :destroy]
   resources :posts, only: [:new, :index, :create, :show] do
+    resources :reviews
     collection do
       post :new, path: :new, as: :new, action: :back
       post :confirm
     end
   end
+
   get 'posts/category/:id', to: 'posts#category'
 
 end

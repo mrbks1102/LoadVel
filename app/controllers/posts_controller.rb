@@ -3,12 +3,14 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.limit(4).order('created_at DESC')
-
+    @post1 = Post.includes(:categories).where(post_category_relations: { category_id: 2 })
+    @post2 = Post.includes(:categories).where(post_category_relations: { category_id: 3 })
   end
 
   def show
     @post = Post.find(params[:id])
     @posts = Post.limit(3).order('created_at DESC')
+    @reviews = @post.reviews
   end
 
   def new
@@ -37,13 +39,14 @@ class PostsController < ApplicationController
   def category
     @category = Category.find(params[:id])
     @post = Post.includes(:categories).where(post_category_relations: { category_id: @category })
-    @posts = Post.find(params[:id])
   end
 
   def back
     @post = Post.new(post_params)
     render :new
   end
+
+
 
   private
 

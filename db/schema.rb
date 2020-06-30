@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2020_06_22_105409) do
 
   create_table "reviews", force: :cascade do |t|
     t.bigint "post_id"
+    t.text "title"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

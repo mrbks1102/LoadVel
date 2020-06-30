@@ -40,18 +40,21 @@
             | コメント
           a = link_to "投稿", new_post_review_path(@post.id), class: 'btn_main'
         .reviews
-          - @reviews.each do |r|
-            .reviews_item
-              .reviews_item_img
-                = link_to user_path(r.user) do
-                  = image_tag 'user.png', :size =>'60x60'
-              a.reviews_item_info
-                .reviews_item_title
-                  = r.title
-                .reviews_item_comments
-                  = r.body
-                .reviews_item_date
-                  = r.updated_at.strftime("%Y %m %d")
+          - if @reviews.present?
+            - @reviews.each do |r|
+              .reviews_item
+                .reviews_item_img
+                  = link_to user_path(r.user) do
+                    = image_tag 'user.png', :size =>'60x60'
+                a.reviews_item_info
+                  .reviews_item_title
+                    = r.title
+                  .reviews_item_comments
+                    = r.body
+                  .reviews_item_date
+                    = r.updated_at.strftime("%Y %m %d")
+          - else
+            | まだコメントはありません
       .microposts_item
         .microposts_item_header
           p

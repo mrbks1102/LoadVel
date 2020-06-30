@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     @post = Post.find(params[:post_id])
@@ -13,6 +14,6 @@ class ReviewsController < ApplicationController
 
   private
     def review_params
-      params.require(:review).permit(:post_id, :body, :title)
+      params.require(:review).permit(:post_id, :user_id, :body, :title)
     end
 end

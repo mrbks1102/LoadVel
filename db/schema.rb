@@ -48,11 +48,13 @@ ActiveRecord::Schema.define(version: 2020_06_22_105409) do
 
   create_table "reviews", force: :cascade do |t|
     t.bigint "post_id"
+    t.bigint "user_id", null: false
     t.text "title"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_reviews_on_post_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -74,4 +76,5 @@ ActiveRecord::Schema.define(version: 2020_06_22_105409) do
   add_foreign_key "post_category_relations", "posts"
   add_foreign_key "posts", "users"
   add_foreign_key "reviews", "posts"
+  add_foreign_key "reviews", "users"
 end

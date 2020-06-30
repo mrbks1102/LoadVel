@@ -4,6 +4,7 @@
       | コメントを投稿する
     = form_for [@post, Review.new] do |f|
       = f.hidden_field :post_id, value: @post.id
+      = f.hidden_field :user_id, value: current_user.id
       .form-group
         = f.label :title, "タイトル"
         = f.text_field :title, autofocus: true, class: "form-control", placeholder: "(例 おすすめの時間帯はお昼頃です"
@@ -11,4 +12,4 @@
         = f.label :body, "コメント"
         = f.text_area :body, autofocus: true, class: "form-control-text", placeholder: "(例 昼頃に行くと綺麗な山がはっきりと見えるので昼に行くことをおすすめいたします"
       div[style="text-align: center;"]
-        = f.submit "投稿する", class: "btn-square"
+        = f.submit "投稿する", class: "btn-square", data: { confirm: '本当に投稿しますか？' }

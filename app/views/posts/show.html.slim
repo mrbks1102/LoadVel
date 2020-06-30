@@ -43,7 +43,8 @@
           - @reviews.each do |r|
             .reviews_item
               .reviews_item_img
-                a href='/'
+                = link_to user_path(r.user) do
+                  = image_tag 'user.png', :size =>'60x60'
               a.reviews_item_info
                 .reviews_item_title
                   = r.title

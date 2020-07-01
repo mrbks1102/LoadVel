@@ -6,6 +6,13 @@ class ReviewsController < ApplicationController
     @review = Review.new
   end
 
+  def index
+    @post = Post.find(params[:post_id])
+    @posts = Post.limit(3).order('created_at DESC')
+    @reviews = @post.reviews
+    @user = User.find_by(id: @post.user_id)
+  end
+
   def create
     @review = Review.new(review_params)
     @review.save

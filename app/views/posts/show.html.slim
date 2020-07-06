@@ -10,7 +10,8 @@
           .item_icon.facebook
             i.fab.fa-facebook
           .item_icon.mappin
-            i.fas.fa-map-pin
+             #favorite
+               = render 'layouts/shared/favorite', post: @post
         .microposts_mainview_info
           .microposts_mainview_name
             = @post.area

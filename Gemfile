@@ -84,4 +84,3 @@ gem 'jquery-rails'
 # 画像投稿機能に必要なgemの導入
 gem 'carrierwave', '~> 1.0'
 gem "mini_magick"
-

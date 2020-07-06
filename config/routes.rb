@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update, :destroy]
   resources :posts, only: [:new, :index, :create, :show] do
     resources :reviews
+    resources :favorites, only: %i(create destroy)
     collection do
       post :new, path: :new, as: :new, action: :back
       post :confirm

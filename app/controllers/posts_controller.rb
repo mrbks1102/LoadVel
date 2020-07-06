@@ -47,8 +47,6 @@ class PostsController < ApplicationController
     render :new
   end
 
-
-
   private
 
   def post_params

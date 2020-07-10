@@ -61,6 +61,7 @@
 
 .microposts_mainview_info {
   margin-top: 40px;
+  color: #5a5359;
 }
 
 .microposts_mainview_name {
@@ -68,6 +69,7 @@
   font-size: 24px;
   font-weight: bold;
   word-wrap: break-word;
+  color: black;
 }
 
 .inline {
@@ -120,8 +122,21 @@
   width: 100%;
   height: 1px;
   margin: 16px 0;
-  background: #f08408;
+  background: orange;
 }
+
+.microposts_mainview_thumbtack i {
+  color: orange;
+}
+
+.microposts_mainview_good i,
+.microposts_mainview_comments i,
+.microposts_mainview_thumbtack i,
+.microposts_mainview_station i,
+.microposts_mainview_hours i {
+  margin-right: 4px;
+}
+
 
 //sidebar
 
@@ -135,7 +150,7 @@
 }
 
 .sidebar_item_contents img {
-  width: 150px;
+  width: 120px;
   margin-right: 16px;
 }
 
@@ -147,18 +162,30 @@
 
 .sidebar_item_info {
   width: calc(100% - 116px);
+  color: #5a5359;
 }
 
 .sidebar_item_info_name {
   overflow: hidden;
-  font-size: 14px;
+  font-size: 17px;
   font-weight: bold;
+  color: black;
+}
+
+.sidebar_item_info_station {
+  font-size: 15px;
 }
 
 //review
 .reviews_item {
   display: flex;
   margin-bottom: 24px;
+}
+
+.reviews_item_title {
+  margin-bottom: 6px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .reviews_item_img {
@@ -178,5 +205,5 @@
 }
 
 .like-btn-unlike {
-  color: #f37005;
+  color: orange;
 }

@@ -11,16 +11,23 @@
             = image_tag post.post_photo.url
             .card_item_info
               .card_item_info_name
-                | sample
-              .card_item_info_good
+                = post.area
+              .card_item_info_good.inline
                 i.far.fa-thumbs-up
                   |100
-              .card_item_info_comment
+              .card_item_info_comment.inline
                 i.far.fa-comment
-                | 10
-              .card_item_info_pin
-                i.fas.fa-map-pin
-                | 100
+                  = post.reviews.count
+              .card_item_info_pin.inline
+                i.far.fa-thumbtack.orange
+                  = post.favorites.count
+              .card_item_info_details
+                .card_item_info_station
+                  i.far.fa-map-marker-alt
+                    = post.station
+                .card_item_info_hour
+                  i.far.fa-clock
+                    = post.time
   .posts_card
     .card_header
       .card_header_title
@@ -33,16 +40,23 @@
             = image_tag post.post_photo.url
             .card_item_info
               .card_item_info_name
-                | sample
-              .card_item_info_good
+                = post.area
+              .card_item_info_good.inline
                 i.far.fa-thumbs-up
                   |100
-              .card_item_info_comment
+              .card_item_info_comment.inline
                 i.far.fa-comment
-                | 10
-              .card_item_info_pin
-                i.fas.fa-map-pin
-                | 100
+                  = post.reviews.count
+              .card_item_info_pin.inline
+                i.far.fa-thumbtack.orange
+                  = post.favorites.count
+              .card_item_info_details
+                .card_item_info_station
+                  i.far.fa-map-marker-alt
+                    = post.station
+                .card_item_info_hour
+                  i.far.fa-clock
+                    = post.time
   .posts_card
   .card_header
     .card_header_title
@@ -55,37 +69,49 @@
           = image_tag post.post_photo.url
           .card_item_info
             .card_item_info_name
-              | sample
-            .card_item_info_good
+              = post.area
+            .card_item_info_good.inline
               i.far.fa-thumbs-up
                 |100
-            .card_item_info_comment
+            .card_item_info_comment.inline
               i.far.fa-comment
-              | 10
-            .card_item_info_pin
-              i.fas.fa-map-pin
-              | 100
+                = post.reviews.count
+            .card_item_info_pin.inline
+              i.far.fa-thumbtack.orange
+                = post.favorites.count
+            .card_item_info_details
+              .card_item_info_station
+                i.far.fa-map-marker-alt
+                  = post.station
+              .card_item_info_hour
+                i.far.fa-clock
+                  = post.time
   .posts_card
-    .card_header
-      .card_header_title
-        span.orange #
-        'ライダーカフェ
-    .card_contents
-      - @post2.each do |post| 
-        .card_item
-          = link_to(post_path(post)) do
-            = image_tag post.post_photo.url
-            .card_item_info
-              .card_item_info_name
-                | sample
-              .card_item_info_good
-                i.far.fa-thumbs-up
-                  |100
-              .card_item_info_comment
-                i.far.fa-comment
-                | 10
-              .card_item_info_pin
-                i.fas.fa-map-pin
-                | 100
-  
-
+  .card_header
+    .card_header_title
+      span.orange #
+      'ライダーカフェ
+  .card_contents
+    - @post2.each do |post|
+      .card_item
+        = link_to(post_path(post)) do
+          = image_tag post.post_photo.url
+          .card_item_info
+            .card_item_info_name
+              = post.area
+            .card_item_info_good.inline
+              i.far.fa-thumbs-up
+                |100
+            .card_item_info_comment.inline
+              i.far.fa-comment
+                = post.reviews.count
+            .card_item_info_pin.inline
+              i.far.fa-thumbtack.orange
+                = post.favorites.count
+            .card_item_info_details
+              .card_item_info_station
+                i.far.fa-map-marker-alt
+                  = post.station
+              .card_item_info_hour
+                i.far.fa-clock
+                  = post.time

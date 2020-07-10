@@ -10,7 +10,7 @@
           .item_icon.facebook
             i.fab.fa-facebook
           .item_icon.mappin
-            i.fas.fa-map-pin
+            = render 'layouts/shared/favorite', post: @post
         .microposts_mainview_info
           .microposts_mainview_name
             = @post.area
@@ -19,16 +19,15 @@
             | 150  行きたい！
           .microposts_mainview_comments.inline
             i.far.fa-comment
-            | 10
-          .microposts_mainview_pin.inline
-            i.far.fa-thumbtack
-            | 5
+            = @post.reviews.count
+          .microposts_mainview_thumbtack.inline
+            = render 'layouts/shared/favorite_count', post: @post
           .microposts_mainview_station
             i.far.fa-map-marker-alt
-              = @post.station
+            = @post.station
           .microposts_mainview_hours
             i.far.fa-clock
-              = @post.time
+            = @post.time
           .microposts_mainview_tag
             - @post.categories.each do |category|
               .item_tag

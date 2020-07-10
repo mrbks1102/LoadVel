@@ -16,10 +16,10 @@
                   |10
               .sidebar_item_info_comment.inline
                 i.far.fa-comment
-                | 10
+                  = post.reviews.count
               .sidebar_item_info_pin.inline
-                i.fas.fa-map-pin
-                | 10
+                i.far.fa-thumbtack.orange
+                  = post.favorites.count
               .sidebar_item_info_station
                 i.far.fa-map-marker-alt
                 = post.station
@@ -40,10 +40,10 @@
                   |10
               .sidebar_item_info_comment.inline
                 i.far.fa-comment
-                | 10
+                  = post.reviews.count
               .sidebar_item_info_pin.inline
-                i.fas.fa-map-pin
-                | 10
+                i.far.fa-thumbtack.orange
+                  = post.favorites.count
               .sidebar_item_info_station
                 i.far.fa-map-marker-alt
                 = post.station

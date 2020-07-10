@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @posts = Post.limit(3).order('created_at DESC')
+    @posts = Post.where.not(id: @post.id).limit(3).order('created_at DESC')
     @reviews = @post.reviews.limit(2).order('created_at DESC')
     @user = User.find_by(id: @post.user_id)
   end

@@ -4,7 +4,6 @@ class Post < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :favorites, -> { order(created_at: :desc) }, dependent: :destroy
   belongs_to :user
-  validates :user_id, presence: true
   validates :area, presence: true
   validates :post_photo, presence: true
   mount_uploader :post_photo, ImageUploader

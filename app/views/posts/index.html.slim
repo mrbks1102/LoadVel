@@ -63,7 +63,7 @@
       span.orange #
       '昼におすすめ
   .card_contents
-    - @post1.each do |post|
+    - @noon_posts.each do |post|
       .card_item
         = link_to(post_path(post)) do
           = image_tag post.post_photo.url
@@ -92,7 +92,7 @@
       span.orange #
       'ライダーカフェ
   .card_contents
-    - @post2.each do |post|
+    - @rider_cafe_posts.each do |post|
       .card_item
         = link_to(post_path(post)) do
           = image_tag post.post_photo.url

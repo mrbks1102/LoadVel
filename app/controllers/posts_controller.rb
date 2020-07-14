@@ -1,16 +1,17 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
+  Noon_recommend = 2
+  Rider_cafe = 3
 
   def index
-    @post = Post.limit(4).order('created_at DESC')
-    @post1 = Post.includes(:categories).where(post_category_relations: { category_id: 2 })
-    @post2 = Post.includes(:categories).where(post_category_relations: { category_id: 3 })
+    @post = Post.limit(4).order(created_at: :desc)
+    @noon_posts = Post.includes(:categories).where(post_category_relations: { category_id: Noon_recommend})
+    @rider_cafe_posts = Post.includes(:categories).where(post_category_relations: { category_id: Rider_cafe })
   end
 
   def show
     @post = Post.find(params[:id])
-    @posts = Post.where.not(id: @post.id).limit(3).order('created_at DESC')
-    @reviews = @post.reviews.limit(2).order('created_at DESC')
+    @posts = Post.where.not(id: @post.id).limit(3).order(created_at: :desc)
+    @reviews = @post.reviews.limit(2).order(created_at: :desc)
     @user = User.find_by(id: @post.user_id)
   end
 
@@ -38,8 +39,8 @@ class PostsController < ApplicationController
   end
 
   def category
-    @category = Category.find(params[:id])
-    @post = Post.includes(:categories).where(post_category_relations: { category_id: @category })
+    @category_id = Category.find(params[:id])
+    @post = Post.includes(:categories).where(post_category_relations: { category_id: @category_id })
   end
 
   def back

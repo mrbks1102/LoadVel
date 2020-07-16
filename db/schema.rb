@@ -56,10 +56,10 @@ ActiveRecord::Schema.define(version: 2020_07_01_062813) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.bigint "post_id"
+    t.bigint "post_id", null: false
     t.bigint "user_id", null: false
-    t.text "title"
-    t.text "body"
+    t.string "title", null: false
+    t.text "body", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_reviews_on_post_id"

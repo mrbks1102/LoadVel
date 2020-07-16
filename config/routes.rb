@@ -5,12 +5,10 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  get '/users/:id', to: 'users#show', as: 'user'
-
   resources :users, only: [:show, :edit, :update, :destroy]
   resources :posts, only: [:new, :index, :create, :show] do
-    resources :reviews
-    resources :favorites, only: %i(create destroy)
+    resources :reviews, only: [:new, :index, :create]
+    resources :favorites, only: [:create, :destroy]
     collection do
       post :new, path: :new, as: :new, action: :back
       post :confirm

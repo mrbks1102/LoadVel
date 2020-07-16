@@ -3,6 +3,7 @@ class Post < ApplicationRecord
   has_many :categories, through: :post_category_relations
   has_many :reviews, dependent: :destroy
   has_many :favorites, -> { order(created_at: :desc) }, dependent: :destroy
+  has_many :likes, -> { order(created_at: :desc) }, dependent: :destroy
   belongs_to :user
   validates :area, presence: true
   validates :post_photo, presence: true

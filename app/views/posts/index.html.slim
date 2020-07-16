@@ -92,7 +92,7 @@
       span.orange #
       'ライダーカフェ
   .card_contents
-    - @rider_cafe_posts.each do |post|
+    - @cafe_posts.each do |post|
       .card_item
         = link_to(post_path(post)) do
           = image_tag post.post_photo.url

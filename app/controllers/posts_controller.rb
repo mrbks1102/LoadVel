@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
-  Noon_recommend = 2
-  Rider_cafe = 3
+  Noon = 2
+  Cafe = 3
 
   def index
     @post = Post.limit(4).order(created_at: :desc)
-    @noon_posts = Post.includes(:categories).where(post_category_relations: { category_id: Noon_recommend})
-    @rider_cafe_posts = Post.includes(:categories).where(post_category_relations: { category_id: Rider_cafe })
+    @noon_posts = Post.includes(:categories).where(post_category_relations: { category_id: Noon })
+    @cafe_posts = Post.includes(:categories).where(post_category_relations: { category_id: Cafe })
   end
 
   def show

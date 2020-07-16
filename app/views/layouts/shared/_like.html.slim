@@ -1,0 +1,7 @@
+#like
+  - if @post.liked_by(current_user).present?
+    = link_to post_like_path(post.id, post.liked_by(current_user)), method: :DELETE, remote: true
+      i.far.fa-thumbs-up.orange
+  - else
+    = link_to post_likes_path(post), method: :POST, remote: true
+      i.far.fa-thumbs-up.like-btn

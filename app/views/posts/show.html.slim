@@ -9,14 +9,15 @@
             i.fab.fa-twitter
           .item_icon.facebook
             i.fab.fa-facebook
+          .item_icon.thumbs-up
+            = render 'layouts/shared/like', post: @post
           .item_icon.thumbtack
             = render 'layouts/shared/favorite', post: @post
         .microposts_mainview_info
           .microposts_mainview_name
             = @post.area
           .microposts_mainview_good.inline
-            i.far.fa-thumbs-up
-            | 150  行きたい！
+            = render 'layouts/shared/like_count', post: @post
           .microposts_mainview_comments.inline
             i.far.fa-comment
             = @post.reviews.count

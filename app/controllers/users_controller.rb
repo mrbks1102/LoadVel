@@ -9,6 +9,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     redirect_to root_path
-    flash[:success] = 'ユーザーを削除しました'
+    flash[:alert] = 'ユーザーを削除しました'
   end
 end

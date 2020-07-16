@@ -1,0 +1,58 @@
+.contents
+  .microposts
+    .microposts_main
+      .microposts_mainview
+        .microposts_mainview_top
+          .maicro = image_tag @post.post_photo.url
+        .microposts_mainview_icon.flex
+          .item_icon.twitter
+            i.fab.fa-twitter
+          .item_icon.facebook
+            i.fab.fa-facebook
+          .item_icon.mappin
+            = render 'layouts/shared/favorite', post: @post
+        .microposts_mainview_info
+          .microposts_mainview_name
+            = @post.area
+          .microposts_mainview_good.inline
+            i.far.fa-thumbs-up
+            | 150  行きたい！
+          .microposts_mainview_comments.inline
+            i.far.fa-comment
+            = @post.reviews.count
+          .microposts_mainview_thumbtack.inline
+            = render 'layouts/shared/favorite_count', post: @post
+          .microposts_mainview_station
+            i.far.fa-map-marker-alt
+            = @post.station
+          .microposts_mainview_hours
+            i.far.fa-clock
+            = @post.time
+          .microposts_mainview_tag
+            - @post.categories.each do |category|
+              .item_tag
+                .item-span
+                   span = link_to "#{category.name}", "category/#{category.id}"
+      .microposts_item
+        .microposts_item_header
+          p
+            | コメント
+          a = link_to "投稿", new_post_review_path(@post.id), class: 'btn_main'
+        .reviews
+          - if @reviews.present?
+            - @reviews.each do |r|
+              .reviews_item
+                .reviews_item_img
+                  = link_to user_path(r.user) do
+                    = image_tag 'user.png', :size =>'60x60'
+                a.reviews_item_info
+                  .reviews_item_title
+                    = r.title
+                  .reviews_item_comments
+                    = r.body
+                  .reviews_item_date
+                    = r.updated_at.strftime("%Y %m %d")
+          - else
+            | まだコメントはありません
+        a = link_to "投稿詳細に戻る", post_path(@post.id), class: 'review_link'
+    = render 'layouts/shared/side_bar'

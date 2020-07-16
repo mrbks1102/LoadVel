@@ -13,27 +13,42 @@
         li.bubble
           span.bubble
           span 完了
-    = form_for :posts, url: confirm_posts_path do |f|
+    /= form_with :post, url: confirm_posts_path do |f|
+    = form_with model: @post, url: confirm_posts_path do |f|
       .form-group
-        = f.label :place_name, "地名"
-        = f.text_field :place_name, autofocus: true, class: "form-control"
+        = f.label :area, "エリア名"
+        = f.text_field :area, autofocus: true, class: "form-control", placeholder: "(例 千葉フォルニア"
       .form-group
-        = f.label :area, "エリア"
-        = f.text_field :area, autofocus: true, class: "form-control"
+        = f.label :station, "最寄駅"
+        = f.text_field :station,  autofocus: "off", class: "form-control", placeholder: "(例 東京駅"
       .form-group
-        = f.label :image, "写真"
-        = f.file_field :image, autofocus: "off", class: "form-control"
+        = f.label :place_name, "都道府県"
+        = f.select :place_name, Post.place_names.keys, {}, {class: 'place'}
+      .form-group
+        = f.label :post_photo, "写真"
+        = f.file_field :post_photo, autofocus: "off", class: "form-control"
+        .form-group
+        = f.label :shop_name, "店名"
+        = f.text_field :shop_name, autofocus: true, class: "form-control", placeholder: "(例 xxライダーカフェ"
       .form-group
         = f.label :street_address, "住所"
-        = f.text_field :street_address, autofocus: "off", class: "form-control"
+        = f.text_field :street_address, autofocus: "off", class: "form-control", placeholder: "(例 東京都中央区xxx町 1-1-1"
       .form-group
         = f.label :time, "営業時間"
-        = f.text_field :time, autofocus: "off", class: "form-control"
+        = f.text_field :time, autofocus: "off", class: "form-control", placeholder: "(例 9:00 ~ 19:00"
       .form-group
         = f.label :regular_holiday, "定休日"
-        = f.text_field :regular_holiday, autofocus: "off", class: "form-control"
+        = f.text_field :regular_holiday, autofocus: "off", class: "form-control", placeholder: "(例 月曜日"
       .form-group
         = f.label :url, "URL"
         = f.text_field :url, autofocus: "off", class: "form-control"
-      = f.submit "確認へ進む", class: "btn-square"
-
+      .form-group
+        = f.label :category, 'カテゴリ', class: "item-tag"
+        = f.collection_check_boxes(:category_ids, Category.all, :id, :name, include_hidden: false) do |category|
+          .item_tag
+            = category.label do
+              = category.check_box
+              .item-span
+                span = category.text
+      div[style="text-align: center;"]
+        = f.submit "確認へ進む", class: "btn-square"

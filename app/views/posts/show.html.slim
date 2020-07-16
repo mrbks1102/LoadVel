@@ -3,89 +3,103 @@
     .microposts_main
       .microposts_mainview
         .microposts_mainview_top
-          .maicro = image_tag 'sample.jpg'
+          .maicro = image_tag @post.post_photo.url
         .microposts_mainview_icon.flex
           .item_icon.twitter
             i.fab.fa-twitter
           .item_icon.facebook
             i.fab.fa-facebook
-          .item_icon.mappin
-            i.fas.fa-map-pin
+          .item_icon.thumbtack
+            = render 'layouts/shared/favorite', post: @post
         .microposts_mainview_info
           .microposts_mainview_name
-            | 山脈
+            = @post.area
           .microposts_mainview_good.inline
             i.far.fa-thumbs-up
             | 150  行きたい！
           .microposts_mainview_comments.inline
             i.far.fa-comment
-            | 10
-          .microposts_mainview_pin.inline
-            i.far.fa-thumbtack
-            | 5
+            = @post.reviews.count
+          .microposts_mainview_thumbtack.inline
+            = render 'layouts/shared/favorite_count', post: @post
           .microposts_mainview_station
             i.far.fa-map-marker-alt
-            |青梅駅
+            = @post.station
           .microposts_mainview_hours
             i.far.fa-clock
-            | 夜がおすすめ
+            = @post.time
+          .microposts_mainview_tag
+            - @post.categories.each do |category|
+              .item_tag
+                .item-span
+                   span = link_to "#{category.name}", "category/#{category.id}"
       .microposts_item
         .microposts_item_header
           p
-            | 口コミ  
-          a.btn.btn--sm href="/" 
-            | 投稿する
+            | コメント
+          a = link_to "投稿", new_post_review_path(@post.id), class: 'btn_main'
         .reviews
-          .reviews_item
-            .reviews_item_img
-              a href='/'
-            a.reviews_item_info
-              .reviews_item_title
-                | 以外に穴場です
-              .reviews_item_comments
-                | 雪が降っている際に行くと尚良し
-              .reviews_item_date
-                |2020.05.05
+          - if @reviews.present?
+            - @reviews.each do |r|
+              .reviews_item
+                .reviews_item_img
+                  = link_to user_path(r.user) do
+                    = image_tag 'user.png', :size =>'60x60'
+                a.reviews_item_info
+                  .reviews_item_title
+                    = r.title
+                  .reviews_item_comments
+                    = r.body
+                  .reviews_item_date
+                    = r.updated_at.strftime("%Y %m %d")
+          - else
+            | まだコメントはありません
+        a = link_to "全てのコメントを見る", post_reviews_path(@post.id), class: 'review_link'
       .microposts_item
         .microposts_item_header
           p
             | 基本情報 
-          a.btn.btn--sm href="/" 
+          a.btn_main href='/'
             | 編集リクエストを送る
         .microposts_item_detail
-          .microposts_iteme_title
+          .microposts_item_title
+            | 店名
+          .microposts_item_contents
+            a.micropost_item_place_link href='/' target='_blank'
+              = @post.shop_name
+        .line
+        .microposts_item_detail
+          .microposts_item_title
             | 住所
           .microposts_item_contents
             a.micropost_item_place_link href='/' target='_blank'
-              | 東京都
+              = @post.street_address
         .line
         .microposts_item_detail
           .microposts_item_title
             | 営業時間
           .microposts_item_contents
-            | なし
-        .line
-        .microposts_item_detail
-          .microposts_item_title
-            | 電話番号
-          .microposts_item_contents
-            | 03-xxxx-xxxx
+            = @post.time
         .line
         .microposts_item_detail
           .microposts_item_title
             | URL
           .microposts_item_contents
-            | http://xxxxxxx.com
+            = @post.url
         .line
         .microposts_item_detail
           .microposts_item_title
-            | 施設情報
+            | 定休日
           .microposts_item_contents
-            | なし
+            =  @post.regular_holiday
         .line
         .microposts_item_detail
           .microposts_item_title
             | 特徴
           .microposts_item_contents
-            | なし
+            - @post.categories.each do |category|
+              .item_tag
+                .item-span
+                   span = link_to "#{category.name}", "category/#{category.id}"
         .line
+    = render 'layouts/shared/side_bar'

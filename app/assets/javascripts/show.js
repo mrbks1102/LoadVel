@@ -8,3 +8,4 @@ $(document).on('turbolinks:load', function () {
     $('.user_contents_item').eq(index).siblings().removeClass('activ');
   });
 });
+

@@ -1,0 +1,105 @@
+.contents.contents_midium
+  .form
+    .form_title
+      | 入力確認 
+    .form_progress
+      ul.cp_stepflow07
+        li.form_active
+          span.bubble
+          span 入力
+        li.form_active
+          span.bubble
+          span 確認
+        li.done
+          span.bubble
+          span 完了
+    .microposts-item
+      .microposts_item_detail
+        .microposts_item_title
+          | エリア名
+        .microposts_item_contents
+          = @post.area
+      .line
+      .microposts_item_detail
+        .microposts_item_title
+          | 最寄駅
+        .microposts_item_contents
+          = @post.station
+      .line
+      .microposts_item_detail
+        .microposts_item_title
+          | 都道府県
+        .microposts_item_contents
+          = @post.place_name
+      .line
+      .microposts_item_detail
+        .microposts_item_title
+          | 投稿画像
+        .microposts_item_contents_image
+          = image_tag(@post.post_photo.url) if @post.post_photo && @post.post_photo.url
+      .line
+      .microposts_item_detail
+        .microposts_item_title
+          | 店名
+        .microposts_item_contents
+          = @post.shop_name
+      .line
+      .microposts_item_detail
+        .microposts_item_title
+          | 住所
+        .microposts_item_contents
+          = @post.street_address
+      .line
+      .microposts_item_detail
+        .microposts_item_title
+          | 営業時間
+        .microposts_item_contents
+          = @post.time
+      .line
+      .microposts_item_detail
+        .microposts_item_title
+          | 定休日
+        .microposts_item_contents
+          = @post.regular_holiday
+      .line
+      .microposts_item_detail
+        .microposts_item_title
+          | URL
+        .microposts_item_contents
+          = @post.url
+      .line
+      .microposts_item_detail
+        .microposts_item_title
+          | カテゴリ
+        .microposts_item_contents
+          - @post.categories.each do |category|
+            .item_tag
+              .item-span
+                span = category.name
+      .line
+    = form_for :post, url: new_post_path do |f|
+      = f.hidden_field :area
+      = f.hidden_field :station
+      = f.hidden_field :place_name
+      = f.hidden_field :post_photo_cache
+      = f.hidden_field :shop_name
+      = f.hidden_field :street_address
+      = f.hidden_field :time
+      = f.hidden_field :regular_holiday
+      = f.hidden_field :url
+      = f.hidden_field :category_ids
+      div[style="text-align: center;"]
+        = f.submit "入力画面に戻る", class: "btn-back" 
+    = form_for :post, url: posts_path do |f|
+      = f.hidden_field :area
+      = f.hidden_field :station
+      = f.hidden_field :place_name
+      = f.hidden_field :post_photo_cache
+      = f.hidden_field :shop_name
+      = f.hidden_field :street_address
+      = f.hidden_field :time
+      = f.hidden_field :regular_holiday
+      = f.hidden_field :url
+      = f.hidden_field :category_ids
+      div[style="text-align: center;"]
+        = f.submit "投稿する", class: "btn btn-square"

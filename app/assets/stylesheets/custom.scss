@@ -1,29 +1,47 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #e6e6e6;
+  font-family:  'Noto Sans JP', sans-serif;
+  background: #f7f7f7;
   #wrapper {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
   }
+  a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+  }
 }
 
+//ボタン
 .btn-square {
   display: inline-block;
   padding: 0.5em 1em;
   text-decoration: none;
-  background: #f37005;/*ボタン色*/
+  background: #f37005;
   color: #FFF;
-  border-bottom: solid 4px #d69346;
+  border: solid 4px #f37005;
   border-radius: 3px;
 }
 .btn-square:active {
-  /*ボタンを押したとき*/
-  -webkit-transform: translateY(4px);
-  transform: translateY(4px);/*下に動く*/
-  border-bottom: none;/*線を消す*/
+  background: #98bbeb;
+  border: solid 4px#98bbeb;
+}
+
+.btn-back {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #848382;
+  color: #FFF;
+  border: solid 4px #848382;
+  border-radius: 3px;
+  margin-bottom: 10px;;
+}
+.btn-back:active {
+  background: #98bbeb;
+  border: solid 4px #98bbeb
 }
 
 //header
@@ -112,7 +130,14 @@ a {
 
 //show
 .contents{
-  width: 960px;
+  width: 980px;
+  height: 100%;
+  padding: 136px 0 220px;
+  margin: 0 auto;
+}
+
+.contents_midium {
+  width: 600px;
   height: 100%;
   padding: 136px 0 220px;
   margin: 0 auto;
@@ -172,5 +197,53 @@ a {
 
 .ml15 {
   margin-left: 17px;
-  color:rgb(8, 8, 8); text-decoration:none
+  color:rgb(8, 8, 8); 
+  text-decoration: none;
+}
+
+//flash
+.flash {
+  display: block;
+}
+
+.alert {
+  text-align: center;
+  position: fixed;
+  right: 10px;
+  margin-top: 85px;
+}
+
+.alert-info {
+  background-color: #bde9ff;
+  border-color: #bde9ff;
+  color: #4c6977;
+  border: none;
+  padding: 15px;
+  border-radius: 16px;
+  box-shadow: 0 0 4px #eae6dc;
+}
+
+.alert-danger {
+  background-color: #f3c0c0;
+  border-color: #f3c0c0;
+  color: #3e3a3a;
+  border: none;
+  padding: 15px;
+  border-radius: 16px;
+  box-shadow: 0 0 4px #eae6dc
+}
+
+div.field_with_errors {
+  color: red;
+}
+
+div.field_with_errors input {
+  background-color:  #fcc;
+}
+
+p.error_msg {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 10px;
+  color: red;
 }

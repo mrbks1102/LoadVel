@@ -5,12 +5,18 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
+  get '/users/:id', to: 'users#show', as: 'user'
+
   resources :users, only: [:show, :edit, :update, :destroy]
-  resources :posts, only: %i(new index create show) do
+  resources :posts, only: [:new, :index, :create, :show] do
+    resources :reviews
+    resources :favorites, only: %i(create destroy)
     collection do
+      post :new, path: :new, as: :new, action: :back
       post :confirm
     end
-    resources :photos, only: %i(create)
   end
+
+  get 'posts/category/:id', to: 'posts#category'
 
 end

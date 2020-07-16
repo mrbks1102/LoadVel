@@ -1,7 +1,3 @@
-.contents_midium {
-  width: 600px;
-}
-
 .form {
   padding: 32px;
   border-radius: 16px;
@@ -12,8 +8,6 @@
 
 .cp_stepflow07 {
 	font-size: 80%;
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
 	margin: 0 0 1em;
 	padding: 0;
@@ -35,8 +29,7 @@
 	flex: 1;
 }
 
-.cp_stepflow07 > li .bubble::after,
-.cp_stepflow07 > li .bubble::before {
+.cp_stepflow07 > li .bubble::after {
 	position: absolute;
 	top: 0px;
 	right: 50%;
@@ -54,25 +47,60 @@
 	margin-top: 1em;
 }
 
-.cp_stepflow07 > li.completed,
-.cp_stepflow07 > li.completed .bubble {
-	color: #00acc1;
-}
-
-.cp_stepflow07 > li.completed .bubble,
-.cp_stepflow07 > li.completed .bubble::after,
-.cp_stepflow07 > li.completed .bubble::before {
-  background-color: #4dd0e1;
-}
-
-.cp_stepflow07 > li.active,
-.cp_stepflow07 > li.active .bubble {
+.cp_stepflow07 > li.form_active,
+.cp_stepflow07 > li.form_active .bubble {
 	font-weight: bold;
 	color: #f57c00;
 }
 
-.cp_stepflow07 > li.form_active .bubble,
-.cp_stepflow07 > li.form_active .bubble::after,
-.cp_stepflow07 > li.form_active .bubble::before {
+.cp_stepflow07 > li.form_active .bubble::after {
 	background-color: #fb8c00;
+}
+
+
+.place {
+	width: 30%;
+	height: 50px;
+}
+
+select {
+	border :1px solid #eee;
+	font-size :16px;
+}
+
+//カテゴリチェックボックス
+.item_tag {
+	display: inline-block;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+.item-span span {
+	display: inline;
+	padding: 4px 8px;
+	font-size: 14px;
+	border-radius: 4px;
+	background: #eae6dc;
+	-webkit-transition: .3s all;
+	transition: .3s all;
+	cursor: pointer;
+
+}
+
+.item-span span:hover {
+background-color: #fb8c00;
+}
+
+input[type=checkbox]:checked + .item-span span {
+background: #fb8c00;
+background-size: 15px 13px;
+}
+
+input[type=checkbox]:checked:hover + .item-span span {
+color: rgba(255,255,255,0.5);
+background: #fb8c00;
 }

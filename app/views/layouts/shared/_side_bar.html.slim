@@ -13,7 +13,7 @@
                 = post.area
               .sidebar_item_info_good.inline
                 i.far.fa-thumbs-up
-                  |10
+                  = post.likes.count
               .sidebar_item_info_comment.inline
                 i.far.fa-comment
                   = post.reviews.count
@@ -37,7 +37,7 @@
                 = post.area
               .sidebar_item_info_good.inline
                 i.far.fa-thumbs-up
-                  |10
+                  = post.likes.count
               .sidebar_item_info_comment.inline
                 i.far.fa-comment
                   = post.reviews.count

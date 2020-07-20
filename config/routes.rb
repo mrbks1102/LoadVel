@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :posts, only: [:new, :index, :create, :show] do
     resources :reviews, only: [:new, :index, :create]
     resources :favorites, only: [:create, :destroy]
+    resources :likes, only: [:create, :destroy]
     collection do
       post :new, path: :new, as: :new, action: :back
       post :confirm

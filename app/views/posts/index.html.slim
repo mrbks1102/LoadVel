@@ -14,7 +14,7 @@
                 = post.area
               .card_item_info_good.inline
                 i.far.fa-thumbs-up
-                  |100
+                  = post.likes.count
               .card_item_info_comment.inline
                 i.far.fa-comment
                   = post.reviews.count
@@ -43,7 +43,7 @@
                 = post.area
               .card_item_info_good.inline
                 i.far.fa-thumbs-up
-                  |100
+                  = post.likes.count
               .card_item_info_comment.inline
                 i.far.fa-comment
                   = post.reviews.count
@@ -72,7 +72,7 @@
               = post.area
             .card_item_info_good.inline
               i.far.fa-thumbs-up
-                |100
+                = post.likes.count
             .card_item_info_comment.inline
               i.far.fa-comment
                 = post.reviews.count
@@ -101,7 +101,7 @@
               = post.area
             .card_item_info_good.inline
               i.far.fa-thumbs-up
-                |100
+                = post.likes.count
             .card_item_info_comment.inline
               i.far.fa-comment
                 = post.reviews.count

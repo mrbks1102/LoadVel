@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       post :confirm
     end
   end
+  resources :contacts
 
   get 'posts/category/:id', to: 'posts#category'
 

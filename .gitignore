@@ -27,8 +27,8 @@
 /public/assets
 .byebug_history
 public/uploads/
-config/environments/development.rb
-config/database.yml
+/config/environments/development.rb
+/config/database.yml
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key

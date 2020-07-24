@@ -60,8 +60,7 @@
         .microposts_item_header
           p
             | 基本情報 
-          a.btn_main href='/'
-            | 編集リクエストを送る
+          a = link_to "編集リクエストを送る", new_contact_path(@contact, post_id: @post.id), class: 'btn_main'
         .microposts_item_detail
           .microposts_item_title
             | 店名

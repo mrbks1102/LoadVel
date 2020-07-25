@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :favorite_posts, through: :favorites, source: :post
   has_many :likes, dependent: :destroy
   has_many :like_posts, through: :likes, source: :post
   devise :database_authenticatable, :registerable,

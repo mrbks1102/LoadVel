@@ -13,18 +13,40 @@
       .user_info_tag
     .nav
       i.fas.fa-motorcycle.nav_item.active
-      i.fas.fa-camera.nav_item
       i.fas.fa-comments.nav_item
       i.fas.fa-thumbs-up.nav_item
+      i.far.fa-thumbtack.nav_item
     .user_contents
       .user_contents_item.activ
         .post
           .users_contents_item
-            | まだ投稿はありません
-      .user_contents_item
-        .camera
-          .users_contents_item
-            | まだ写真はありません
+            - if @posts.present?
+                .card_contents
+                  - current_user.posts.each do |post|
+                    .card_item
+                      = link_to(post_path(post)) do
+                        = image_tag post.post_photo.url
+                        .card_item_info
+                          .card_item_info_name
+                            = post.area
+                          .card_item_info_good.inline
+                            i.far.fa-thumbs-up
+                              = post.likes.count
+                          .card_item_info_comment.inline
+                            i.far.fa-comment
+                              = post.reviews.count
+                          .card_item_info_pin.inline
+                            i.far.fa-thumbtack.orange
+                              = post.favorites.count
+                          .card_item_info_details
+                            .card_item_info_station
+                              i.far.fa-map-marker-alt
+                                = post.station
+                            .card_item_info_hour
+                              i.far.fa-clock
+                                = post.time
+            - else
+              | まだ投稿はありません
       .user_contents_item
         .comments
           .users_contents_item
@@ -59,6 +81,36 @@
                               = post.time
             - else
               | まだいいねはありません
+      .user_contents_item
+        .favorite
+          .users_contents_item
+            - if @favorites.present?
+              .card_contents
+                - current_user.favorite_posts.each do |post|
+                  .card_item
+                    = link_to(post_path(post)) do
+                      = image_tag post.post_photo.url
+                      .card_item_info
+                        .card_item_info_name
+                          = post.area
+                        .card_item_info_good.inline
+                          i.far.fa-thumbs-up
+                            = post.likes.count
+                        .card_item_info_comment.inline
+                          i.far.fa-comment
+                            = post.reviews.count
+                        .card_item_info_pin.inline
+                          i.far.fa-thumbtack.orange
+                            = post.favorites.count
+                        .card_item_info_details
+                          .card_item_info_station
+                            i.far.fa-map-marker-alt
+                              = post.station
+                          .card_item_info_hour
+                            i.far.fa-clock
+                              = post.time
+            - else
+              | まだお気に入りはありません
     = javascript_include_tag "show.js"
 
 

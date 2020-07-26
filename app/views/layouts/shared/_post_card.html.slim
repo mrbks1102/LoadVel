@@ -1,0 +1,22 @@
+.card_item
+  = link_to(post_path(post)) do
+    = image_tag post.post_photo.url
+    .card_item_info
+      .card_item_info_name
+        = post.area
+      .card_item_info_good.inline
+        i.far.fa-thumbs-up
+          = post.likes.count
+      .card_item_info_comment.inline
+        i.far.fa-comment
+          = post.reviews.count
+      .card_item_info_pin.inline
+        i.far.fa-thumbtack.orange
+          = post.favorites.count
+      .card_item_info_details
+        .card_item_info_station
+          i.far.fa-map-marker-alt
+            = post.station
+        .card_item_info_hour
+          i.far.fa-clock
+            = post.time

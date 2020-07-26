@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @likes = Like.where(user_id: @user.id)
     @posts = Post.where(user_id: @user.id)
     @favorites = Favorite.where(user_id: @user.id)
+    @reviews = Review.where(user_id: @user.id)
   end
 
   def destroy

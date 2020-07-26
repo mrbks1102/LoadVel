@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :posts, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_many :reviews_posts, through: :reviews, source: :post
   has_many :favorites, dependent: :destroy
   has_many :favorite_posts, through: :favorites, source: :post
   has_many :likes, dependent: :destroy

@@ -13,26 +13,46 @@
       .user_info_tag
     .nav
       i.fas.fa-motorcycle.nav_item.active
-      i.fas.fa-camera.nav_item
       i.fas.fa-comments.nav_item
       i.fas.fa-thumbs-up.nav_item
+      i.far.fa-thumbtack.nav_item
     .user_contents
       .user_contents_item.activ
         .post
           .users_contents_item
-            | まだ投稿はありません
-      .user_contents_item
-        .camera
-          .users_contents_item
-            | まだ写真はありません
+            - if @posts.present?
+                .card_contents
+                  - current_user.posts.each do |post|
+                    = render 'layouts/shared/post_card', post: post
+            - else
+              | まだ投稿はありません
       .user_contents_item
         .comments
           .users_contents_item
-            | まだコメントはありません
+            - if @reviews.present?
+                .card_contents
+                  - current_user.reviews_posts.each do |post|
+                    = render 'layouts/shared/post_card', post: post
+            - else
+              | まだコメントした投稿はありません
       .user_contents_item
         .good
           .users_contents_item
-            | まだいいねはありません
+            - if @likes.present?
+              .card_contents
+                - current_user.like_posts.each do |post|
+                  = render 'layouts/shared/post_card', post: post
+            - else
+              | まだいいねした投稿はありません
+      .user_contents_item
+        .favorite
+          .users_contents_item
+            - if @favorites.present?
+              .card_contents
+                - current_user.favorite_posts.each do |post|
+                  = render 'layouts/shared/post_card', post: post
+            - else
+              | まだお気に入りの投稿はありません
     = javascript_include_tag "show.js"
 
 

@@ -6,6 +6,9 @@ class PostsController < ApplicationController
     @post = Post.limit(4).order(created_at: :desc)
     @noon_posts = Post.includes(:categories).where(post_category_relations: { category_id: Noon })
     @cafe_posts = Post.includes(:categories).where(post_category_relations: { category_id: Cafe })
+    @q = Post.ransack(params[:q])
+    @categories = Category.all
+    @posts_search = @q.result.includes(:categories)
   end
 
   def show

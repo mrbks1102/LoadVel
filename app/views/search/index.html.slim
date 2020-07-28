@@ -1,0 +1,9 @@
+.contents
+  .posts_card
+    .card_header
+      .card_header_title
+        span.orange #
+        '検索結果
+    .card_contents
+      - @posts_search.each do |post| 
+        = render 'layouts/shared/post_card', post: post

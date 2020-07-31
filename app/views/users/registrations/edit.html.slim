@@ -13,6 +13,18 @@
         = f.label :profile, "自己紹介文"
         = f.text_area :profile, autofocus: true, class: "form-control text-field"
       .form-group
+        = f.label :profile_photo, "プロフィール画像"
+          img id="avatar_img_prev" src="#" class='hidden photo'
+        - if current_user.persisted? && current_user.profile_photo?
+          = image_tag current_user.profile_photo.to_s, :size =>'80x80', class: "photo avatar_present_img"
+          label.check_block
+            = f.check_box :remove_profile_photo
+            | 画像を削除
+        - else
+          = image_tag 'user.png', :size =>'80x80', class: "photo avatar_present_img"
+          = f.hidden_field :profile_photo_cache
+        = f.file_field :profile_photo, autofocus: "off", class: "form-control", id: 'post_img'
+      .form-group
         = f.label :password, "パスワード変更(変更しない場合は空白)"
         = f.password_field :password, autofocus: "off", class: "form-control"
       .form-group

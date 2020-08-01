@@ -23,12 +23,20 @@
             = @post.reviews.count
           .microposts_mainview_thumbtack.inline
             = render 'layouts/shared/favorite_count', post: @post
-          .microposts_mainview_station
+          .microposts_mainview_station.inline
             i.far.fa-map-marker-alt
             = @post.station
-          .microposts_mainview_hours
+          .microposts_mainview_hours.inline
             i.far.fa-clock
             = @post.time
+          .microposts_mainview_users.inline
+            i.fas.fa-at
+              = link_to user_path(@post.user) do
+                - if @post.user.profile_photo.present?
+                  = image_tag @post.user.profile_photo.url
+                - else
+                  = image_tag = image_tag 'user.png'
+                = @post.user.name
           .microposts_mainview_tag
             - @post.categories.each do |category|
               .item_tag

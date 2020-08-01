@@ -1,7 +1,10 @@
 .contents
   .user
     .user_image
-      = image_tag 'user.png', :size =>'80x80'
+      - if @user.profile_photo.present?
+        = image_tag @user.profile_photo.url, class: "photo"
+      - else
+        = image_tag 'user.png', class: "photo"
     .user_info 
       .user_info_name 
         = @user.name

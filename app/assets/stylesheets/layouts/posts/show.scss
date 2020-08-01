@@ -199,6 +199,13 @@
   text-decoration: underline;
 }
 
+.reviews_photo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 //pinbtn
 .like-btn {
   color: #d7ccb6;

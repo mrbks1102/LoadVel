@@ -45,7 +45,7 @@
               .reviews_item
                 .reviews_item_img
                   = link_to user_path(r.user) do
-                    = image_tag 'user.png', :size =>'60x60'
+                    = image_tag r.user.profile_photo.url, class: "reviews_photo"
                 a.reviews_item_info
                   .reviews_item_title
                     = r.title

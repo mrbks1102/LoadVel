@@ -17,6 +17,6 @@ Rails.application.routes.draw do
     end
   end
   resources :contacts, only: [:new, :create]
-  resources :search, only: [:index]
+  resources :searches, only: [:index]
   resources :categories, only: [:index]
 end

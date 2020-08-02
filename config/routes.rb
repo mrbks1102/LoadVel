@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   end
   resources :contacts, only: [:new, :create]
   resources :search, only: [:index]
-  get 'posts/category/:id', to: 'posts#category'
+  resources :categories, only: [:index]
 end

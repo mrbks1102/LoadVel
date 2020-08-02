@@ -1,22 +1,5 @@
 .contents.
-  .form.search_form
-    .form_title
-      | フリーワード検索
-    .form_item
-      = search_form_for(@q, url: search_index_path) do |f|
-        = f.text_field :area_or_street_address_or_regular_holiday_or_station_or_shop_name_cont, class: "form-control", placeholder: "フリーワード検索"
-    .form_title.category_form
-      | カテゴリ検索
-    .form_item
-      = search_form_for(@q, url: search_index_path) do |f|
-        = f.collection_check_boxes(:categories_id_in, @categories, :id, :name, include_hidden: false) do |category|
-          .item_tag
-            = category.label do
-              = category.check_box
-              .item-span
-                span = category.text
-        div[style="text-align: center;"]
-          = f.submit "検索", class: "btn-square"
+  = render 'search_form'
   .posts_card
     .card_header
       .card_header_title

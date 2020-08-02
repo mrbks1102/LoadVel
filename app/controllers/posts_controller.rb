@@ -8,7 +8,6 @@ class PostsController < ApplicationController
     @cafe_posts = Post.includes(:categories).where(post_category_relations: { category_id: Cafe })
     @q = Post.ransack(params[:q])
     @categories = Category.all
-    @posts_search = @q.result.includes(:categories)
   end
 
   def show
@@ -39,11 +38,6 @@ class PostsController < ApplicationController
     return if @post.valid?
     flash.now[:alert] = '入力に不備がありました。'
     render :new
-  end
-
-  def category
-    @category_id = Category.find(params[:id])
-    @post = Post.includes(:categories).where(post_category_relations: { category_id: @category_id })
   end
 
   def back

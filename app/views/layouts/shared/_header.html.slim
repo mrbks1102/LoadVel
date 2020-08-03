@@ -5,10 +5,10 @@ header.l-header
   nav.pc-nav
     - if current_user.nil?
       li
-        = link_to 'LOGIN', new_user_registration_path
+        = link_to "LOGIN", new_user_registration_path
     - else
       ul
         li 
-          = link_to 'MYPAGE', user_path(current_user)
+          = link_to "MYPAGE", user_path(current_user)
         li 
-          = link_to '| NEW POST', new_post_path(current_user)
+          = link_to "| NEW POST", new_post_path(current_user)

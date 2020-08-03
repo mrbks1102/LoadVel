@@ -1,5 +1,5 @@
 .contents.
-  = render 'search_form'
+  = render "search_form"
   .posts_card
     .card_header
       .card_header_title
@@ -7,7 +7,7 @@
         '人気
     .card_contents
       - @post.each do |post| 
-        = render 'layouts/shared/post_card', post: post
+        = render "layouts/shared/post_card", post: post
   .posts_card
     .card_header
       .card_header_title
@@ -15,7 +15,7 @@
         '新着
     .card_contents
       - @post.each do |post|
-        = render 'layouts/shared/post_card', post: post
+        = render "layouts/shared/post_card", post: post
   .posts_card
     .card_header
       .card_header_title
@@ -23,7 +23,7 @@
         '昼におすすめ
     .card_contents
       - @noon_posts.each do |post|
-        = render 'layouts/shared/post_card', post: post
+        = render "layouts/shared/post_card", post: post
   .posts_card
     .card_header
       .card_header_title
@@ -31,4 +31,4 @@
         'ライダーカフェ
     .card_contents
       - @cafe_posts.each do |post|
-        = render 'layouts/shared/post_card', post: post
+        = render "layouts/shared/post_card", post: post

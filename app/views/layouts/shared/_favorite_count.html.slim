@@ -1,9 +1,13 @@
-#favorite_count
-  - if @post.favorited_by(current_user).present?
-    = link_to post_favorite_path(post.id, post.favorited_by(current_user)), method: :DELETE, remote: true
-      i.far.fa-thumbtack
-        = post.favorites.count
-  - else
-    = link_to post_favorites_path(post), method: :POST, remote: true
-      i.far.fa-thumbtack
-        = post.favorites.count
+- if user_signed_in?
+  #favorite_count
+    - if @post.favorited_by(current_user).present?
+      = link_to post_favorite_path(post.id, post.favorited_by(current_user)), method: :DELETE, remote: true
+        i.far.fa-thumbtack
+          = post.favorites.count
+    - else
+      = link_to post_favorites_path(post), method: :POST, remote: true
+        i.far.fa-thumbtack
+          = post.favorites.count
+- else
+  i.far.fa-thumbtack
+    = post.favorites.count

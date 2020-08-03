@@ -13,7 +13,7 @@
             .item_icon.thumbs-up
               = render "layouts/shared/like", post: @post
             .item_icon.thumbtack
-              = render "layouts/shared/favorite", post: @post
+              = render "favorites/favorite", post: @post
         .microposts_mainview_info
           .microposts_mainview_name
             = @post.area
@@ -23,7 +23,7 @@
             i.far.fa-comment
             = @post.reviews.count
           .microposts_mainview_thumbtack.inline
-            = render "layouts/shared/favorite_count", post: @post
+            = render "favorites/favorite_count", post: @post
           .microposts_mainview_station.inline
             i.far.fa-map-marker-alt
             = @post.station

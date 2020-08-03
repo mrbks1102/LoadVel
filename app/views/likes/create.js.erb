@@ -1,2 +1,2 @@
-$('#like').html('<%= j(render partial: "layouts/shared/like", locals: { post: @post}) %>');
-$('#like_count').html('<%= j(render partial: "layouts/shared/like_count", locals: { post: @post}) %>');
+$('#like').html('<%= j(render partial: "likes/like", locals: { post: @post}) %>');
+$('#like_count').html('<%= j(render partial: "likes/like_count", locals: { post: @post}) %>');

@@ -11,14 +11,14 @@
             i.fab.fa-facebook
           - if user_signed_in?
             .item_icon.thumbs-up
-              = render "layouts/shared/like", post: @post
+              = render "likes/like", post: @post
             .item_icon.thumbtack
               = render "favorites/favorite", post: @post
         .microposts_mainview_info
           .microposts_mainview_name
             = @post.area
           .microposts_mainview_good.inline
-            = render "layouts/shared/like_count", post: @post
+            = render "likes/like_count", post: @post
           .microposts_mainview_comments.inline
             i.far.fa-comment
             = @post.reviews.count

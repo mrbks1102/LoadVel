@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  has_many :post_category_relations
+  has_many :post_category_relations, dependent: :destroy
   has_many :categories, through: :post_category_relations
   has_many :reviews, dependent: :destroy
   has_many :favorites, -> { order(created_at: :desc) }, dependent: :destroy

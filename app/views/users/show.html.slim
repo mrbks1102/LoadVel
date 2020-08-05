@@ -4,12 +4,13 @@
       - if @user.profile_photo.present?
         = image_tag @user.profile_photo.url, class: "photo"
       - else
-        = image_tag 'user.png', class: "photo"
+        = image_tag "user.png", class: "photo"
     .user_info 
       .user_info_name 
         = @user.name
-        = link_to edit_user_path
-          i.fas.fa-cog.ml15
+        - if user_signed_in?
+          = link_to edit_user_path
+            i.fas.fa-cog.ml15
       a.user_info_setting
       .user_info_comment
         = @user.profile
@@ -25,8 +26,8 @@
           .users_contents_item
             - if @posts.present?
                 .card_contents
-                  - current_user.posts.each do |post|
-                    = render 'layouts/shared/post_card', post: post
+                  - @posts.each do |post|
+                    = render "layouts/shared/post_card", post: post
             - else
               | まだ投稿はありません
       .user_contents_item
@@ -34,8 +35,8 @@
           .users_contents_item
             - if @reviews.present?
                 .card_contents
-                  - current_user.reviews_posts.each do |post|
-                    = render 'layouts/shared/post_card', post: post
+                  - @user.reviews_posts.each do |post|
+                    = render "layouts/shared/post_card", post: post
             - else
               | まだコメントした投稿はありません
       .user_contents_item
@@ -43,8 +44,8 @@
           .users_contents_item
             - if @likes.present?
               .card_contents
-                - current_user.like_posts.each do |post|
-                  = render 'layouts/shared/post_card', post: post
+                - @user.like_posts.each do |post|
+                  = render "layouts/shared/post_card", post: post
             - else
               | まだいいねした投稿はありません
       .user_contents_item
@@ -52,8 +53,8 @@
           .users_contents_item
             - if @favorites.present?
               .card_contents
-                - current_user.favorite_posts.each do |post|
-                  = render 'layouts/shared/post_card', post: post
+                - @user.favorite_posts.each do |post|
+                  = render "layouts/shared/post_card", post: post
             - else
               | まだお気に入りの投稿はありません
     = javascript_include_tag "show.js"

@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
 
   def index
     @post = Post.find(params[:post_id])
-    @posts = Post.limit(3).order('created_at DESC')
+    @posts = Post.where.not(id: @post.id).limit(3).order(created_at: :desc)
     @reviews = @post.reviews
     @user = User.find_by(id: @post.user_id)
   end

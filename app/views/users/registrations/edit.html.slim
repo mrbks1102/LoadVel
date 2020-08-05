@@ -15,14 +15,14 @@
       .form-group
         = f.label :profile_photo, "プロフィール画像"
         = f.file_field :profile_photo, autofocus: "off", class: "form-control textnone", id: 'post_img'
-        img id="avatar_img_prev" src="#" class='hidden photo'
+        img id="avatar_img_prev" src="#" class="hidden photo"
         - if current_user.persisted? && current_user.profile_photo?
           = image_tag current_user.profile_photo.to_s, class: "photo avatar_present_img"
           label.check_block
             = f.check_box :remove_profile_photo
             | 画像を削除
         - else
-          = image_tag 'user.png', class: "photo avatar_present_img"
+          = image_tag "user.png", class: "photo avatar_present_img"
           = f.hidden_field :profile_photo_cache
       .form-group
         = f.label :password, "パスワード変更(変更しない場合は空白)"

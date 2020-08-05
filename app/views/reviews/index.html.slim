@@ -9,42 +9,52 @@
             i.fab.fa-twitter
           .item_icon.facebook
             i.fab.fa-facebook
-          .item_icon.mappin
-            = render 'layouts/shared/favorite', post: @post
+          - if user_signed_in?
+            .item_icon.thumbs-up
+              = render "likes/like", post: @post
+            .item_icon.thumbtack
+              = render "favorites/favorite", post: @post
         .microposts_mainview_info
           .microposts_mainview_name
             = @post.area
           .microposts_mainview_good.inline
-            i.far.fa-thumbs-up
-            | 150  行きたい！
+            = render "likes/like_count", post: @post
           .microposts_mainview_comments.inline
             i.far.fa-comment
             = @post.reviews.count
           .microposts_mainview_thumbtack.inline
-            = render 'layouts/shared/favorite_count', post: @post
-          .microposts_mainview_station
+            = render "favorites/favorite_count", post: @post
+          .microposts_mainview_station.inline
             i.far.fa-map-marker-alt
             = @post.station
-          .microposts_mainview_hours
+          .microposts_mainview_hours.inline
             i.far.fa-clock
             = @post.time
+          .microposts_mainview_users.inline
+            i.fas.fa-at
+              = link_to user_path(@post.user) do
+                - if @post.user.profile_photo.present?
+                  = image_tag @post.user.profile_photo.url
+                - else
+                  = image_tag = image_tag "user.png"
+                = @post.user.name
           .microposts_mainview_tag
             - @post.categories.each do |category|
               .item_tag
                 .item-span
-                   span = link_to "#{category.name}", "category/#{category.id}"
+                   span = link_to "#{category.name}", categories_path(category_id: category.id)
       .microposts_item
         .microposts_item_header
           p
             | コメント
-          a = link_to "投稿", new_post_review_path(@post.id), class: 'btn_main'
+          a = link_to "投稿", new_post_review_path(@post.id), class: "btn_main"
         .reviews
           - if @reviews.present?
             - @reviews.each do |r|
               .reviews_item
                 .reviews_item_img
                   = link_to user_path(r.user) do
-                    = image_tag 'user.png', :size =>'60x60'
+                    = image_tag "user.png", :size =>"60x60"
                 a.reviews_item_info
                   .reviews_item_title
                     = r.title
@@ -54,5 +64,5 @@
                     = r.updated_at.strftime("%Y %m %d")
           - else
             | まだコメントはありません
-        a = link_to "投稿詳細に戻る", post_path(@post.id), class: 'review_link'
-    = render 'layouts/shared/side_bar'
+        a = link_to "投稿詳細に戻る", post_path(@post.id), class: "review_link"
+    = render "layouts/shared/side_bar"

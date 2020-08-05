@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  root to: 'pages#index'
+  root to: 'toppages#index'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
@@ -17,6 +17,6 @@ Rails.application.routes.draw do
     end
   end
   resources :contacts, only: [:new, :create]
-  resources :search, only: [:index]
-  get 'posts/category/:id', to: 'posts#category'
+  resources :searches, only: [:index]
+  resources :categories, only: [:index]
 end

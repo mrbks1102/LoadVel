@@ -9,20 +9,21 @@
             i.fab.fa-twitter
           .item_icon.facebook
             i.fab.fa-facebook
-          .item_icon.thumbs-up
-            = render 'layouts/shared/like', post: @post
-          .item_icon.thumbtack
-            = render 'layouts/shared/favorite', post: @post
+          - if user_signed_in?
+            .item_icon.thumbs-up
+              = render "likes/like", post: @post
+            .item_icon.thumbtack
+              = render "favorites/favorite", post: @post
         .microposts_mainview_info
           .microposts_mainview_name
             = @post.area
           .microposts_mainview_good.inline
-            = render 'layouts/shared/like_count', post: @post
+            = render "likes/like_count", post: @post
           .microposts_mainview_comments.inline
             i.far.fa-comment
             = @post.reviews.count
           .microposts_mainview_thumbtack.inline
-            = render 'layouts/shared/favorite_count', post: @post
+            = render "favorites/favorite_count", post: @post
           .microposts_mainview_station.inline
             i.far.fa-map-marker-alt
             = @post.station
@@ -35,25 +36,28 @@
                 - if @post.user.profile_photo.present?
                   = image_tag @post.user.profile_photo.url
                 - else
-                  = image_tag = image_tag 'user.png'
+                  = image_tag = image_tag "user.png"
                 = @post.user.name
           .microposts_mainview_tag
             - @post.categories.each do |category|
               .item_tag
                 .item-span
-                   span = link_to "#{category.name}", "category/#{category.id}"
+                   span = link_to "#{category.name}", categories_path(category_id: category.id)
       .microposts_item
         .microposts_item_header
           p
             | コメント
-          a = link_to "投稿", new_post_review_path(@post.id), class: 'btn_main'
+          a = link_to "投稿", new_post_review_path(@post.id), class: "btn_main"
         .reviews
           - if @reviews.present?
             - @reviews.each do |r|
               .reviews_item
                 .reviews_item_img
                   = link_to user_path(r.user) do
-                    = image_tag r.user.profile_photo.url, class: "reviews_photo"
+                    - if @post.user.profile_photo.present?
+                      = image_tag r.user.profile_photo.url, class: "reviews_photo"
+                    - else
+                      = image_tag = image_tag "user.png", class: "reviews_photo"
                 a.reviews_item_info
                   .reviews_item_title
                     = r.title
@@ -63,24 +67,24 @@
                     = r.updated_at.strftime("%Y %m %d")
           - else
             | まだコメントはありません
-        a = link_to "全てのコメントを見る", post_reviews_path(@post.id), class: 'review_link'
+        a = link_to "全てのコメントを見る", post_reviews_path(@post.id), class: "review_link"
       .microposts_item
         .microposts_item_header
           p
             | 基本情報 
-          a = link_to "編集リクエストを送る", new_contact_path(@contact, post_id: @post.id), class: 'btn_main'
+          a = link_to "編集リクエストを送る", new_contact_path(@contact, post_id: @post.id), class: "btn_main"
         .microposts_item_detail
           .microposts_item_title
             | 店名
           .microposts_item_contents
-            a.micropost_item_place_link href='/' target='_blank'
+            a.micropost_item_place_link href="/" target="_blank"
               = @post.shop_name
         .line
         .microposts_item_detail
           .microposts_item_title
             | 住所
           .microposts_item_contents
-            a.micropost_item_place_link href='/' target='_blank'
+            a.micropost_item_place_link href="/" target="_blank"
               = @post.street_address
         .line
         .microposts_item_detail
@@ -108,6 +112,6 @@
             - @post.categories.each do |category|
               .item_tag
                 .item-span
-                   span = link_to "#{category.name}", "category/#{category.id}"
+                   span = link_to "#{category.name}", categories_path(category_id: category.id)
         .line
-    = render 'layouts/shared/side_bar'
+    = render "layouts/shared/side_bar"

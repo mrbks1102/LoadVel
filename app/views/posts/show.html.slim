@@ -77,41 +77,55 @@
           .microposts_item_title
             | 店名
           .microposts_item_contents
-            a.micropost_item_place_link href="/" target="_blank"
+            - if @post.shop_name.present?
               = @post.shop_name
+            - else
+              | -
         .line
         .microposts_item_detail
           .microposts_item_title
             | 住所
-          .microposts_item_contents
-            a.micropost_item_place_link href="/" target="_blank"
-              = @post.street_address
+          .microposts_item_contents.text_deco
+            = link_to(@post.street_address, "https://www.google.co.jp/maps/place/#{@post.street_address}")
+            = render "posts/map"
         .line
         .microposts_item_detail
           .microposts_item_title
             | 営業時間
           .microposts_item_contents
-            = @post.time
+            - if @post.time.present?
+              = @post.time
+            - else
+              | -
         .line
         .microposts_item_detail
           .microposts_item_title
             | URL
           .microposts_item_contents
-            = @post.url
+            - if @post.url.present?
+              = @post.url
+            - else
+              | -
         .line
         .microposts_item_detail
           .microposts_item_title
             | 定休日
           .microposts_item_contents
-            =  @post.regular_holiday
+            - if @post.regular_holiday.present?
+              =  @post.regular_holiday
+            - else
+              | -
         .line
         .microposts_item_detail
           .microposts_item_title
             | 特徴
           .microposts_item_contents
-            - @post.categories.each do |category|
-              .item_tag
-                .item-span
-                   span = link_to "#{category.name}", categories_path(category_id: category.id)
+            - if @post.categories.present?
+              - @post.categories.each do |category|
+                .item_tag
+                  .item-span
+                    span = link_to "#{category.name}", categories_path(category_id: category.id)
+            - else
+              | -
         .line
     = render "layouts/shared/side_bar"

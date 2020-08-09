@@ -15,6 +15,7 @@ class PostsController < ApplicationController
     @posts = Post.where.not(id: @post.id).limit(3).order(created_at: :desc)
     @reviews = @post.reviews.limit(2).order(created_at: :desc)
     @user = User.find_by(id: @post.user_id)
+    gon.post = @post
   end
 
   def new

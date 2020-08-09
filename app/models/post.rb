@@ -8,6 +8,8 @@ class Post < ApplicationRecord
   validates :area, presence: true
   validates :post_photo, presence: true
   mount_uploader :post_photo, ImageUploader
+  geocoded_by :street_address
+  after_validation :geocode
 
   enum place_name: {
     "---": 0,

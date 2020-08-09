@@ -1,0 +1,26 @@
+.microposts_item_contents_map
+  - if @post.street_address.present?
+    #map style='height: 200px; width: 550px;'
+    - google_api = "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAP_API']}&callback=initMap".html_safe
+    javascript:
+      let map;
+      function initMap() {
+        geocoder = new google.maps.Geocoder()
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {
+            lat: gon.post.latitude,
+            lng: gon.post.longitude
+          },
+          zoom: 12,
+        });
+        marker = new google.maps.Marker({
+          position: {
+            lat: gon.post.latitude,
+            lng: gon.post.longitude
+          },
+          map: map
+        });
+      }
+    script{ async src=google_api }
+  - else
+    | -

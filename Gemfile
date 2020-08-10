@@ -44,6 +44,8 @@ gem 'ransack'
 gem 'gon'
 gem "geocoder"
 gem 'dotenv-rails'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

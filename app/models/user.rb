@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :like_posts, through: :likes, source: :post
   mount_uploader :profile_photo, ImageUploader
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable
 
   validates :name, presence: true, length: { maximum: 50 }
 
@@ -25,5 +25,19 @@ class User < ApplicationRecord
     result = update_attributes(params, *options)
     clean_up_passwords
     result
+  end
+
+  def self.find_for_oauth(auth)
+    User.where(uid: auth.uid, provider: auth.provider).first ||= User.create(
+      uid: auth.uid,
+      provider: auth.provider,
+      name: auth.info.name,
+      email: User.dummy_email(auth),
+      password: Devise.friendly_token[0, 20]
+    )
+  end
+
+  def self.dummy_email(auth)
+    "#{auth.uid}-#{auth.provider}@example.com"
   end
 end

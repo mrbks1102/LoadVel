@@ -44,6 +44,7 @@ gem 'ransack'
 gem 'gon'
 gem "geocoder"
 gem 'dotenv-rails'
+gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 

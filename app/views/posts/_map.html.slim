@@ -1,6 +1,6 @@
 .microposts_item_contents_map
   - if @post.street_address.present?
-    #map style="height: 200px; width: 550px;"
+    #map style="height: 200px; width: 100%;"
     - google_api = "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAP_API']}&callback=initMap".html_safe
     javascript:
       let map;
@@ -22,5 +22,3 @@
         });
       }
     script{ async src=google_api }
-  - else
-    | -

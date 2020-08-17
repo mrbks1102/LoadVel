@@ -86,8 +86,11 @@
           .microposts_item_title
             | 住所
           .microposts_item_contents.text_deco
-            = link_to(@post.street_address, "https://www.google.co.jp/maps/place/#{@post.street_address}")
-            = render "posts/map"
+            - if @post.street_address.present?
+              = link_to(@post.street_address, "https://www.google.co.jp/maps/place/#{@post.street_address}")
+            - else
+              | -
+        = render "posts/map"
         .line
         .microposts_item_detail
           .microposts_item_title

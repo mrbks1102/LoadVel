@@ -4,3 +4,6 @@
       | ROADVEL
     h2.sub_title
       | -ライダーの為の観光地共有レビューサイト-
+    - if current_user.nil?
+      li.btn_top
+         = link_to "sign in", new_user_registration_path

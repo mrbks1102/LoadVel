@@ -10,18 +10,18 @@
         = @user.name
         - if user_signed_in?
           = link_to edit_user_path
-            i.fas.fa-cog.ml15
+            i.fas.fa-cog.none
       a.user_info_setting
       .user_info_comment
         = @user.profile
       .user_info_tag
-    .nav
-      i.fas.fa-motorcycle.nav_item.active
-      i.fas.fa-comments.nav_item
-      i.fas.fa-thumbs-up.nav_item
-      i.far.fa-thumbtack.nav_item
+    .user_nav
+      i.fas.fa-motorcycle.user_nav_item.active
+      i.fas.fa-comments.user_nav_item
+      i.fas.fa-thumbs-up.user_nav_item
+      i.far.fa-thumbtack.user_nav_item
     .user_contents
-      .user_contents_item.activ
+      .user_contents_item.item_active
         .post
           .users_contents_item
             - if @posts.present?

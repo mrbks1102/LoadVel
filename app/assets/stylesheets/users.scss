@@ -48,49 +48,10 @@ $sub2_color: #ffffff;
 }
 
 /*ユーザーログインページ*/
-.main {
-  max-width: 960px;
-  margin: 0 auto;
-  width: 90%;
-  padding: 100px 75px 100px;
-  display: block;
-  flex: 1;
-  flex-basis: auto;
-  box-sizing: border-box;
-  .devise-card {
-    border: none;
-    padding: 32px;
-    border-radius: 16px;
-    background: $sub2_color;
-    box-shadow: 0 0 4px #eae6dc;
-    margin-top: 20px;
-  }
-}
-
-.form-wrap{
-  max-width: 400px;
-  width: 100%;
-  margin: 50px auto;
-  text-align: center;
-}
-
-.form-control {
-  border: 1px solid #dcdfe6;
-  font-size: inherit;
-}
 
 .devise-link {
   text-align: center;
   margin: 16px 0;
-}
-
-@media screen and (max-width: 768px) {
-  .main {
-    padding: 75px 0;
-  }
-  .devise-card {
-    background-color: #fafafa;
-  }
 }
 
 /*ユーザー編集ページ*/
@@ -104,67 +65,8 @@ $sub2_color: #ffffff;
   }
 }
 
-.form_title {
-  margin-bottom: 20px;
-  font-size: 22px;
-  font-weight: bold;
-  text-align: center;
-}
-
 .edit-profile-wrapper {
   margin-top: 60px;
-}
-
-.form-group {
-  margin-bottom: 32px;
-  label{
-    display: block;
-  }
-  input {
-    display: block;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    outline: 0;
-  }
-  .check_block {
-    display: flex;
-  }
-}
-
-.form-control {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #eae6dc;
-  border-radius: 8px;
-  box-sizing: border-box;
-  transition: .3s all;
-  .form-control:focus {
-    border-color: $main_color;
-  }
-}
-
-.text-field {
-  height: 100px;
-}
-
-.form_setting a{
-  display: block;
-  text-align: center;
-  margin-top: 15px;
-  font-size: 17px;
-  text-align: center;
-  color: #333333;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.form p {
-  margin-top: 30px;
-  font-size: 17px;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 .photo {

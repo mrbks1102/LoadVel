@@ -6,4 +6,9 @@
       | -ライダーの為の観光地共有レビューサイト-
     - if current_user.nil?
       li.btn_top
-         = link_to "sign in", new_user_registration_path
+        = link_to "LOGIN", new_user_registration_path
+      li.btn_top
+        = link_to "POST", posts_path
+    - else
+      li.btn_top
+        = link_to "POST", posts_path

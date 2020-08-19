@@ -121,7 +121,7 @@ body {
 
 .btn_top {
   display: inline-block;
-  padding: 6px 20px;
+  padding: 8px 50px;
   text-decoration: none;
   margin: 0 0 0 10px;
   width: auto;
@@ -178,6 +178,74 @@ body {
   background: #ffffff;
   -webkit-box-shadow: 0 0 4px #eae6dc;
   box-shadow: 0 0 4px #eae6dc;
+  p {
+    margin-top: 30px;
+    font-size: 17px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .form p {
+    margin-top: 30px;
+    font-size: 13px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #eae6dc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: .3s all;
+  .form-control:focus {
+    border-color: $main_color;
+  }
+}
+
+.form-group {
+  margin-bottom: 32px;
+  label{
+    display: block;
+  }
+  input {
+    display: block;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    outline: 0;
+  }
+  .check_block {
+    display: flex;
+  }
+}
+
+.text-field {
+  height: 100px;
+}
+
+.form_setting a{
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 17px;
+  text-align: center;
+  color: #333333;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.form_title {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
 }
 
 .cp_stepflow07 {

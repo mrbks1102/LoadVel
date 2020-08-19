@@ -14,7 +14,14 @@
  *= require_self
  *= require font-awesome
  */
+ 
  @import "font-awesome-sprockets";
  @import "font-awesome"; 
- @import "custom";
  @import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP");
+ @import "custom";
+ @import "flash";
+ @import "header";
+ @import "footer";
+ @import "top";
+ @import "posts";
+ @import "users";

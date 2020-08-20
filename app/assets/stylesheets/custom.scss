@@ -89,7 +89,7 @@ body {
 
 .textnone {
   text-decoration: none;
-  color: #FFF;
+  color: $sub2_color;
 }
 
 .text_deco a {
@@ -114,7 +114,7 @@ body {
   padding: 0.5em 1em;
   text-decoration: none;
   background: $main_color;
-  color: #FFF;
+  color: $sub2_color;
   border: solid 4px $main_color;
   border-radius: 3px;
 }
@@ -142,6 +142,7 @@ body {
   border: solid 4px $main_color;
   border-radius: 3px;
 }
+
 .btn-square:active {
   background: #98bbeb;
   border: solid 4px#98bbeb;
@@ -152,11 +153,12 @@ body {
   padding: 0.5em 1em;
   text-decoration: none;
   background: #848382;
-  color: #FFF;
+  color: $sub2_color;
   border: solid 4px #848382;
   border-radius: 3px;
   margin-bottom: 10px;;
 }
+
 .btn-back:active {
   background: #98bbeb;
   border: solid 4px #98bbeb
@@ -171,11 +173,11 @@ body {
   color: $main_color;
 }
 
-/*入力フォーム*/
+/*フォーム*/
 .form {
   padding: 32px;
   border-radius: 16px;
-  background: #ffffff;
+  background: $sub2_color;
   -webkit-box-shadow: 0 0 4px #eae6dc;
   box-shadow: 0 0 4px #eae6dc;
   p {
@@ -305,7 +307,8 @@ body {
 
 select {
 	border :1px solid #eee;
-	font-size :16px;
+  font-size :16px;
+  background-color: $sub2_color;
 }
 
 /*コメントフォーム*/

@@ -1,0 +1,161 @@
+$sub_color: #000000;
+$sub2_color: #ffffff;
+
+/*ヘッダー*/
+header {
+  padding: 20px 4% 10px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color:rgba(255,255,255,0.5);
+  z-index: 100;
+  h1 {
+  margin: 0; padding: 0;
+  font-size: 20px;
+  }
+  a {
+    text-decoration: none;
+    color: #4b4b4b;
+  }
+  nav {
+    margin: 0 7% 0 auto;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    display: flex;
+  }
+  li {
+    list-style: none;
+    margin: 0 0 0 15px;
+    font-size: 17px;
+  }
+}
+
+.sp-nav {
+  display: none;
+}
+
+@media screen and (max-width: 640px) {
+  .pc-nav {
+     display: none;
+  }
+
+  .sp-nav {
+     z-index: 1;
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100vh;
+     display: block;
+     width: 100%;
+     background: rgba(0, 0, 0, .8);
+     opacity: 0;
+     transform: translateY(-100%);
+     transition: all .2s ease-in-out;
+  }
+
+  #hamburger {
+     position: relative;
+     display: block;
+     width: 30px;
+     height: 25px;
+     margin: 0 30px 0 auto;
+     span {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: $sub_color;
+      transform: translateY(-50%);
+   }
+  }
+
+  #hamburger::before {
+     content: '';
+     display: block;
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 2px;
+     background-color: $sub_color;
+  }
+
+  #hamburger::after {
+     content: '';
+     display: block;
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     width: 70%;
+     height: 2px;
+     background-color: $sub_color;
+  }
+
+  /*スマホメニュー*/
+  .sp-nav ul {
+     padding: 0;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     height: 100%;
+  }
+
+  .sp-nav li {
+     margin: 0;
+     padding: 0;
+     span {
+      font-size: 15px;
+      color: black;
+   }
+  }
+
+  .sp-nav li a, .sp-nav li span {
+     display: block;
+     padding: 20px 0;
+     color: $sub2_color;
+  }
+  /*-閉じるアイコンー*/
+  .sp-nav .close {
+     position: relative;
+     padding-left: 20px;
+  }
+
+  .sp-nav .close::before {
+     content: '';
+     position: absolute;
+     top: 50%;
+     left: 0;
+     display: block;
+     width: 16px;
+     height: 1px;
+     background: $sub2_color;
+     transform: rotate( 45deg );
+  }
+
+  .sp-nav .close::after {
+     content: '';
+     position: absolute;
+     top: 50%;
+     left: 0;
+     display: block;
+     width: 16px;
+     height: 1px;
+     background: $sub2_color;
+     transform: rotate( -45deg );
+  }
+
+  .toggle {
+     transform: translateY( 0 );
+     opacity: 1;
+  }
+}

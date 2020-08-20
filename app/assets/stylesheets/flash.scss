@@ -1,0 +1,44 @@
+$error_color: #FF0000;
+
+/*フラッシュメッセージ*/
+.flash {
+  display: block;
+  .alert {
+    text-align: center;
+    position: fixed;
+    right: 10px;
+    margin-top: 85px;
+  }
+  .alert-info {
+    background-color: #bde9ff;
+    border-color: #bde9ff;
+    color: #4c6977;
+    border: none;
+    padding: 15px;
+    border-radius: 16px;
+    box-shadow: 0 0 4px #eae6dc;
+  }
+  .alert-danger {
+    background-color: #f3c0c0;
+    border-color: #f3c0c0;
+    color: #3e3a3a;
+    border: none;
+    padding: 15px;
+    border-radius: 16px;
+    box-shadow: 0 0 4px #eae6dc
+  }
+}
+
+div.field_with_errors {
+  color: $error_color;
+  input {
+    background-color:  #fcc;
+  }
+}
+
+p.error_msg {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 10px;
+  color: $error_color;
+}

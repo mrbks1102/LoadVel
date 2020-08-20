@@ -6,7 +6,7 @@ header.l-header
     - if current_user.nil?
       ul
         li
-            = link_to "POST", posts_path
+          = link_to "POST", posts_path
         li
           = link_to "LOGIN", new_user_registration_path
     - else
@@ -17,3 +17,24 @@ header.l-header
           = link_to "MYPAGE", user_path(current_user)
         li
           = link_to "| NEW POST", new_post_path(current_user)
+  nav.sp-nav
+    - if current_user.nil?
+      ul
+        li
+          = link_to "POST", posts_path
+        li
+          = link_to "LOGIN", new_user_registration_path
+        li.close
+          span 閉じる
+    - else
+      ul
+        li
+          = link_to "POST", posts_path
+        li
+          = link_to "MYPAGE", user_path(current_user)
+        li
+          = link_to "NEW POST", new_post_path(current_user)
+        li.close
+          span 閉じる
+  div#hamburger
+    span

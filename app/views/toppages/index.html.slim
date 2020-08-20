@@ -1,6 +1,14 @@
 .main_top
-  .contents_main
+  .contents_top_main
     h1.main_title
       | ROADVEL
     h2.sub_title
       | -ライダーの為の観光地共有レビューサイト-
+    - if current_user.nil?
+      li.btn_top
+        = link_to "LOGIN", new_user_registration_path
+      li.btn_top
+        = link_to "POST", posts_path
+    - else
+      li.btn_top
+        = link_to "POST", posts_path

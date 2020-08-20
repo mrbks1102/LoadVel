@@ -29,7 +29,10 @@
             = @post.station
           .microposts_mainview_hours.inline
             i.far.fa-clock
-            = @post.time
+              - if @post.time.present?
+                = @post.time
+              - else
+                | -
           .microposts_mainview_users.inline
             i.fas.fa-at
               = link_to user_path(@post.user) do

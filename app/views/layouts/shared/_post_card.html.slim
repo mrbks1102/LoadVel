@@ -19,4 +19,7 @@
             = post.station
         .card_item_info_hour
           i.far.fa-clock
-            = post.time
+            - if post.time.present?
+              = post.time
+            - else
+              | -

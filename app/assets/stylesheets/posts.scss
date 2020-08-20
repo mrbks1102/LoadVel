@@ -191,9 +191,12 @@ $sub2_color: #ffffff;
   .card_item {
     width: 192px;
     margin: 0 12px 12px 0;
-    .card_item:nth-child(3n) {
-      margin: 0 0 12px 0;
-    }
+  }
+  .card_item:nth-child(3n) {
+    margin: 0 0 12px 0;
+  }
+  .card_item:nth-child(4n) {
+    display: none;
   }
 }
 

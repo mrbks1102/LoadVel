@@ -9,8 +9,9 @@
       .user_info_name 
         = @user.name
         - if user_signed_in?
-          = link_to edit_user_path
-            i.fas.fa-cog.none
+          - if current_user.id == @user.id
+            = link_to edit_user_path
+              i.fas.fa-cog.none
       a.user_info_setting
       .user_info_comment
         = @user.profile

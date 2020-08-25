@@ -37,6 +37,16 @@ body {
   font-size: 30px;
 }
 
+.static_page_title {
+  margin-bottom: 24px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.static_page_item {
+  margin-bottom: 40px;
+}
+
 @media screen and (max-width: 1024px) and (min-width: 640px) {
   .contents {
     width: 600px;

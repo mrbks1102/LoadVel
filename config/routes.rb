@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   resources :searches, only: [:index]
   resources :categories, only: [:index]
   resources :abouts, only: [:index]
+  resources :static_pages, only: [:index]
 end

@@ -1,12 +1,14 @@
 footer
   .footer_nav
-    a.footer_nav_item href="/"
-      | ROADVELとは
-    a.footer_nav_item href="/"
-      | 利用規約
-    a.footer_nav_item href="/"
-      | お問い合わせ
-    a.footer_nav_item href="/"
-      | プライバシーポリシー
+    .footer_nav_item
+      ul
+        li
+          = link_to "ROADVELとは", abouts_path
+        li
+          = link_to "利用規約"
+        li
+          = link_to "お問い合わせ"
+        li
+          = link_to "プライバシーポリシー"
   .footer_2020
     | © 2020 Jin Takiguchi

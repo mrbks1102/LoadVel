@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   resources :categories, only: [:index]
   resources :abouts, only: [:index]
   resources :static_pages, only: [:index]
+  resources :privacies, only: [:index]
 end

@@ -7,6 +7,11 @@ body {
   padding: 0;
   font-family:  'Noto Sans JP', sans-serif;
   background: #f7f7f7;
+  #wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
   a {
     color: rgb(0, 0, 0);
     text-decoration: none;
@@ -20,6 +25,31 @@ body {
   margin: 0 auto;
 }
 
+.about_contents {
+  padding: 60px 0;
+  p {
+    font-size: 20px;
+    line-height: 2.4;
+  }
+}
+
+.about_title {
+  font-size: 30px;
+}
+
+.static_page_title {
+  margin-bottom: 24px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.static_page_item {
+  margin-bottom: 40px;
+  h5 {
+    margin-left: 10px;
+  }
+}
+
 @media screen and (max-width: 1024px) and (min-width: 640px) {
   .contents {
     width: 600px;
@@ -30,6 +60,17 @@ body {
   .contents {
     width: calc(100% - 40px);
     padding: 69px 20px 88px;
+  }
+
+  .about_contents {
+    padding: 60px 0;
+    .about_title {
+      font-size: 18px;
+    }
+    p {
+      font-size: 15px;
+      line-height: 1.5;
+    }
   }
 }
 

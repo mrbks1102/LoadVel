@@ -7,10 +7,10 @@
       = link_to "アカウント削除", user_path(current_user), :method => :delete, data: { confirm: "本当に削除しますか？" }
     .line
     .form_setting
-      = link_to "ROADVELとは"
-      = link_to "利用規約"
-      = link_to "お問い合わせ"
-      = link_to "プライバシーポリシー"
+      = link_to "ROADVELとは", abouts_path
+      = link_to "利用規約", static_pages_path
+      = link_to "お問い合わせ", new_contact_path
+      = link_to "プライバシーポリシー", privacies_path
     .line
     p
       = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "color-red"

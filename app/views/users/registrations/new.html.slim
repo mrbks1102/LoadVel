@@ -14,9 +14,11 @@
       = devise_error_messages
       .actions
         div[style="text-align: center;"]
-          = f.submit "新規登録する", class: "btn-square"
-    br/
+          = f.submit "新規登録", class: "btn-square"
     p.devise-link.text_deco
       | アカウントをお持ちですか？
       = render "users/shared/links"
-
+      i.fab.fa-twitter.btn-square.btn_sns.btn_twitter
+        = link_to "twitterでログインする", user_twitter_omniauth_authorize_path
+      i.fab.fa-facebook.btn-square.btn_sns.btn_facebook
+        = link_to "facebookでログインする", user_facebook_omniauth_authorize_path

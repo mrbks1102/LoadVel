@@ -216,6 +216,39 @@ input[type=email] {
   border: solid 4px #98bbeb
 }
 
+.btn_sns {
+  width: 70%;
+  padding: 8px 0;
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 640px) {
+  .btn_sns {
+    width: 90%;
+    margin-bottom: 12px;
+    font-size: 13px;
+  }
+}
+
+.btn_twitter {
+  background: #00aced;
+  border: solid 4px #00aced;
+  margin-top: 10px;
+  a {
+    text-decoration: none;
+    color: $sub2_color;
+  }
+}
+
+.btn_facebook {
+  background: #305097;
+  border: solid 4px #305097;
+  a {
+    text-decoration: none;
+    color: $sub2_color;
+  }
+}
 /*お気に入りピンボタン*/
 .like-btn {
   color: #d7ccb6;

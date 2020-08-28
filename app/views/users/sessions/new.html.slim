@@ -10,8 +10,12 @@
         = f.password_field :password, autocomplete: "off", placeholder: "パスワード", class: "form-control"
       .actions
         div[style="text-align: center;"]
-          = f.submit "ログインする", class: "btn-square"
+          = f.submit "ログイン", class: "btn-square"
     br/
     p.devise-link.text_deco
       | アカウントをお持ちでないですか？
       = render "users/shared/links"
+      i.fab.fa-twitter.btn-square.btn_sns.btn_twitter
+        = link_to "twitterでログインする", user_twitter_omniauth_authorize_path
+      i.fab.fa-facebook.btn-square.btn_sns.btn_facebook
+        = link_to "facebookでログインする", user_facebook_omniauth_authorize_path

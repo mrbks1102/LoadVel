@@ -7,11 +7,13 @@ body {
   padding: 0;
   font-family:  'Noto Sans JP', sans-serif;
   background: #f7f7f7;
+
   #wrapper {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
   }
+
   a {
     color: rgb(0, 0, 0);
     text-decoration: none;
@@ -20,6 +22,20 @@ body {
 
 .contents{
   width: 980px;
+  height: 100%;
+  padding: 136px 0 220px;
+  margin: 0 auto;
+}
+
+.contents_medium {
+  width: 600px;
+  height: 100%;
+  padding: 136px 0 220px;
+  margin: 0 auto;
+}
+
+.contents_small {
+  width: 360px;
   height: 100%;
   padding: 136px 0 220px;
   margin: 0 auto;
@@ -62,6 +78,11 @@ body {
     padding: 69px 20px 88px;
   }
 
+  .contents_medium {
+    width: calc(100% - 40px);
+    padding: 69px 20px 88px;
+  }
+
   .about_contents {
     padding: 60px 0;
     .about_title {
@@ -71,27 +92,6 @@ body {
       font-size: 15px;
       line-height: 1.5;
     }
-  }
-}
-
-.contents_small {
-  width: 360px;
-  height: 100%;
-  padding: 136px 0 220px;
-  margin: 0 auto;
-  }
-
-.contents_medium {
-  width: 600px;
-  height: 100%;
-  padding: 136px 0 220px;
-  margin: 0 auto;
-}
-
-@media screen and (max-width: 640px) {
-  .contents_medium {
-      width: calc(100% - 40px);
-      padding: 69px 20px 88px;
   }
 }
 
@@ -128,14 +128,14 @@ body {
   font-size: 14px;
 }
 
-.textnone {
-  text-decoration: none;
-  color: $sub2_color;
-}
-
 .text_deco a {
   color: #006198;
   text-decoration: underline;
+}
+
+.photo_text {
+  text-decoration: none;
+  font-size: 15px!important;
 }
 
 .fs17 {
@@ -305,6 +305,7 @@ input[type=email] {
   label{
     display: block;
   }
+  
   input {
     display: block;
     font-family: inherit;
@@ -312,6 +313,7 @@ input[type=email] {
     font-weight: inherit;
     outline: 0;
   }
+
   .check_block {
     display: flex;
   }
@@ -409,6 +411,7 @@ select {
     font-size: 20px;
     font-weight: bold;
   }
+
   .reviews_item_img {
     position: relative;
     display: inline-block;

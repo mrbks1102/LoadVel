@@ -28,16 +28,14 @@ class User < ApplicationRecord
   end
 
   def self.find_for_oauth(auth)
-    user = User.where(uid: auth.uid, provider: auth.provider).first
-    user ||= User.create(
-      uid: auth.uid,
-      provider: auth.provider,
-      name: auth.info.name,
-      remote_profile_photo_url: auth.info.image,
-      email: User.dummy_email(auth),
-      password: Devise.friendly_token[0, 20]
-    )
-    user
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.name = auth.info.name
+      user.email = User.dummy_email(auth)
+      user.password = Devise.friendly_token[0, 20]
+      user.remote_profile_photo_url = auth.info.image.gsub("_normal","") if user.provider == "twitter"
+    end
   end
 
   def self.dummy_email(auth)

@@ -145,6 +145,17 @@ body {
   background: $main_color;
 }
 
+input[type=password] {
+  width: 100%;
+  height: 40px;
+}
+
+input[type=email] {
+  width: 100%;
+  height: 40px;
+}
+
+
 //ボタン
 .btn_main {
   display: inline-block;

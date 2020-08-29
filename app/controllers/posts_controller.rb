@@ -12,7 +12,9 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @posts = Post.where.not(id: @post.id).limit(3).order(created_at: :desc)
+    @new_posts = Post.limit(3).order(created_at: :desc)
+    @exclusion_post = Post.where.not(id: @post.id)
+    @likes_posts = @exclusion_post.where(id: Like.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
     @reviews = @post.reviews.limit(2).order(created_at: :desc)
     @user = User.find_by(id: @post.user_id)
     gon.post = @post

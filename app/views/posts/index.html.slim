@@ -6,7 +6,7 @@
         span.orange #
         '人気
     .card_contents
-      - @post.each do |post| 
+      - @likes_posts.each do |post|
         = render "layouts/shared/post_card", post: post
   .posts_card
     .card_header
@@ -24,6 +24,7 @@
     .card_contents
       - @noon_posts.each do |post|
         = render "layouts/shared/post_card", post: post
+    span = link_to "全ての投稿を見る", categories_path(category_id: 2), class: "link"
   .posts_card
     .card_header
       .card_header_title
@@ -32,3 +33,4 @@
     .card_contents
       - @cafe_posts.each do |post|
         = render "layouts/shared/post_card", post: post
+    span = link_to "全ての投稿を見る", categories_path(category_id: 3), class: "link"

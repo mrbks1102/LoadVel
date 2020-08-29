@@ -70,7 +70,7 @@
                     = r.updated_at.strftime("%Y %m %d")
           - else
             | まだコメントはありません
-        a = link_to "全てのコメントを見る", post_reviews_path(@post.id), class: "review_link"
+        a = link_to "全てのコメントを見る", post_reviews_path(@post.id), class: "link"
       .microposts_item
         .microposts_item_header
           p

@@ -4,8 +4,9 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.limit(4).order(created_at: :desc)
-    @noon_posts = Post.includes(:categories).where(post_category_relations: { category_id: Noon })
-    @cafe_posts = Post.includes(:categories).where(post_category_relations: { category_id: Cafe })
+    @noon_posts = Post.order("RANDOM()").limit(4).includes(:categories).where(post_category_relations: { category_id: Noon })
+    @cafe_posts = Post.order("RANDOM()").limit(4).includes(:categories).where(post_category_relations: { category_id: Cafe })
+    @likes_posts = Post.where(id: Like.group(:post_id).order('count(post_id) desc').limit(4).pluck(:post_id))
     @q = Post.ransack(params[:q])
     @categories = Category.all
   end

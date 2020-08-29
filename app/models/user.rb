@@ -34,7 +34,7 @@ class User < ApplicationRecord
       user.name = auth.info.name
       user.email = User.dummy_email(auth)
       user.password = Devise.friendly_token[0, 20]
-      user.remote_profile_photo_url = auth.info.image.gsub("_normal","") if user.provider == "twitter"
+      user.remote_profile_photo_url = auth.info.image.gsub("_normal", "") if user.provider == "twitter"
     end
   end
 

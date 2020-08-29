@@ -4,7 +4,7 @@
       span.orange #
         新着
     .sidebar_item_contents
-      -  @new_posts.each do |post|
+      - @new_posts.each do |post|
         .sidebar_item
           = link_to(post_path(post)) do
             = image_tag post.post_photo.url

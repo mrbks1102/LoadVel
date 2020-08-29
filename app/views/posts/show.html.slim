@@ -93,7 +93,7 @@
               = link_to(@post.street_address, "https://www.google.co.jp/maps/place/#{@post.street_address}")
             - else
               | -
-        = render "posts/map"
+        = render "posts/shared/map"
         .line
         .microposts_item_detail
           .microposts_item_title

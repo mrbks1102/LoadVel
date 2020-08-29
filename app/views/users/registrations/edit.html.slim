@@ -14,7 +14,7 @@
         = f.text_area :profile, autofocus: true, class: "form-control text-field"
       .form-group
         = f.label :profile_photo, "プロフィール画像"
-        = f.file_field :profile_photo, autofocus: "off", class: "form-control textnone", id: 'post_img'
+        = f.file_field :profile_photo, autofocus: "off", class: "form-control photo_text", id: 'post_img'
         img id="avatar_img_prev" src="#" class="hidden photo"
         - if current_user.persisted? && current_user.profile_photo?
           = image_tag current_user.profile_photo.to_s, class: "photo avatar_present_img"

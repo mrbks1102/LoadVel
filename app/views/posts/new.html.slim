@@ -25,7 +25,7 @@
         = f.select :place_name, Post.place_names.keys, {}, {class: 'place'}
       .form-group
         = f.label :post_photo, "写真"
-        = f.file_field :post_photo, autofocus: "off", class: "form-control"
+        = f.file_field :post_photo, autofocus: "off", class: "form-control photo_text"
       .form-group
         = f.label :shop_name, "店名"
         = f.text_field :shop_name, autofocus: true, class: "form-control", placeholder: "(例 xxライダーカフェ"

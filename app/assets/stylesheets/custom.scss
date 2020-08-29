@@ -7,11 +7,13 @@ body {
   padding: 0;
   font-family:  'Noto Sans JP', sans-serif;
   background: #f7f7f7;
+
   #wrapper {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
   }
+
   a {
     color: rgb(0, 0, 0);
     text-decoration: none;
@@ -20,6 +22,20 @@ body {
 
 .contents{
   width: 980px;
+  height: 100%;
+  padding: 136px 0 220px;
+  margin: 0 auto;
+}
+
+.contents_medium {
+  width: 600px;
+  height: 100%;
+  padding: 136px 0 220px;
+  margin: 0 auto;
+}
+
+.contents_small {
+  width: 360px;
   height: 100%;
   padding: 136px 0 220px;
   margin: 0 auto;
@@ -62,6 +78,11 @@ body {
     padding: 69px 20px 88px;
   }
 
+  .contents_medium {
+    width: calc(100% - 40px);
+    padding: 69px 20px 88px;
+  }
+
   .about_contents {
     padding: 60px 0;
     .about_title {
@@ -74,25 +95,9 @@ body {
   }
 }
 
-.contents_small {
-  width: 360px;
-  height: 100%;
-  padding: 136px 0 220px;
-  margin: 0 auto;
-  }
-
-.contents_medium {
-  width: 600px;
-  height: 100%;
-  padding: 136px 0 220px;
-  margin: 0 auto;
-}
-
-@media screen and (max-width: 640px) {
-  .contents_medium {
-      width: calc(100% - 40px);
-      padding: 69px 20px 88px;
-  }
+.link {
+  font-size: 14px;
+  text-decoration: underline;
 }
 
 .flex {
@@ -128,14 +133,18 @@ body {
   font-size: 14px;
 }
 
-.textnone {
-  text-decoration: none;
-  color: $sub2_color;
-}
-
 .text_deco a {
   color: #006198;
   text-decoration: underline;
+}
+
+.photo_text {
+  text-decoration: none;
+  font-size: 14px!important;
+}
+
+.fs17 {
+  font-size: 17px;
 }
 
 .line {
@@ -144,6 +153,17 @@ body {
   margin: 16px 0;
   background: $main_color;
 }
+
+input[type=password] {
+  width: 100%;
+  height: 40px;
+}
+
+input[type=email] {
+  width: 100%;
+  height: 40px;
+}
+
 
 //ボタン
 .btn_main {
@@ -205,6 +225,39 @@ body {
   border: solid 4px #98bbeb
 }
 
+.btn_sns {
+  width: 70%;
+  padding: 8px 0;
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 640px) {
+  .btn_sns {
+    width: 90%;
+    margin-bottom: 12px;
+    font-size: 13px;
+  }
+}
+
+.btn_twitter {
+  background: #00aced;
+  border: solid 4px #00aced;
+  margin-top: 10px;
+  a {
+    text-decoration: none;
+    color: $sub2_color;
+  }
+}
+
+.btn_facebook {
+  background: #305097;
+  border: solid 4px #305097;
+  a {
+    text-decoration: none;
+    color: $sub2_color;
+  }
+}
 /*お気に入りピンボタン*/
 .like-btn {
   color: #d7ccb6;
@@ -257,6 +310,7 @@ body {
   label{
     display: block;
   }
+
   input {
     display: block;
     font-family: inherit;
@@ -264,6 +318,7 @@ body {
     font-weight: inherit;
     outline: 0;
   }
+
   .check_block {
     display: flex;
   }
@@ -361,6 +416,7 @@ select {
     font-size: 20px;
     font-weight: bold;
   }
+
   .reviews_item_img {
     position: relative;
     display: inline-block;
@@ -372,11 +428,6 @@ select {
       object-fit: cover;
     }
   }
-}
-
-.review_link {
-  font-size: 14px;
-  text-decoration: underline;
 }
 
 .form-control-text {

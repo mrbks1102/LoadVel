@@ -114,14 +114,17 @@ $sub2_color: #ffffff;
   .maicro img {
       height: 200px;
   }
+
   .microposts_mainview_icon {
     position: absolute;
     top: 250px;
     font-size: 16px;
   }
+
   .microposts_item_contents {
     width: calc(100% - 88px);
   }
+
   .microposts_item_contents_map {
     width: 100vw;
     margin: 8px -20px 0;
@@ -192,9 +195,11 @@ $sub2_color: #ffffff;
     width: 192px;
     margin: 0 12px 12px 0;
   }
+
   .card_item:nth-child(3n) {
     margin: 0 0 12px 0;
   }
+
   .card_item:nth-child(4n) {
     display: none;
   }
@@ -218,14 +223,10 @@ $sub2_color: #ffffff;
       }
     }
   }
+
   .card_item:nth-child(2n) {
     margin: 0 0 8px 0;
   }
-}
-
-/*投稿ページ*/
-#post_post_photo {
-  color: $sub2_color;
 }
 
 /*投稿確認ページ*/

@@ -4,7 +4,7 @@
       span.orange #
         新着
     .sidebar_item_contents
-      -  @posts.each do |post| 
+      - @new_posts.each do |post|
         .sidebar_item
           = link_to(post_path(post)) do
             = image_tag post.post_photo.url
@@ -26,9 +26,9 @@
     .line
     .sidebar_title
         span.orange #
-          同じエリア
+          人気の観光地
     .sidebar_item_contents
-      - @posts.each do |post| 
+      - @likes_posts.each do |post|
         .sidebar_item
           = link_to(post_path(post)) do
             = image_tag post.post_photo.url

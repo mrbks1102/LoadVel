@@ -54,7 +54,10 @@
               .reviews_item
                 .reviews_item_img
                   = link_to user_path(r.user) do
-                    = image_tag "user.png", :size =>"60x60"
+                    - if @post.user.profile_photo.present?
+                      = image_tag r.user.profile_photo.url, class: "reviews_photo"
+                    - else
+                      = image_tag = image_tag "user.png", class: "reviews_photo"
                 a.reviews_item_info
                   .reviews_item_title
                     = r.title
@@ -64,5 +67,5 @@
                     = r.updated_at.strftime("%Y %m %d")
           - else
             | まだコメントはありません
-        a = link_to "投稿詳細に戻る", post_path(@post.id), class: "review_link"
-    = render "layouts/shared/side_bar"
+        a = link_to "投稿詳細に戻る", post_path(@post.id), class: "link"
+    = render "posts/shared/side_bar"

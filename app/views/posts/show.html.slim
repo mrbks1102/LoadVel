@@ -70,12 +70,12 @@
                     = r.updated_at.strftime("%Y %m %d")
           - else
             | まだコメントはありません
-        a = link_to "全てのコメントを見る", post_reviews_path(@post.id), class: "review_link"
+        span = link_to "全てのコメントを見る", post_reviews_path(@post.id), class: "link"
       .microposts_item
         .microposts_item_header
           p
             | 基本情報 
-          a = link_to "編集リクエストを送る", new_contact_path(@contact, post_id: @post.id), class: "btn_main"
+          span = link_to "編集リクエストを送る", new_contact_path(@contact, post_id: @post.id), class: "btn_main"
         .microposts_item_detail
           .microposts_item_title
             | 店名
@@ -93,7 +93,7 @@
               = link_to(@post.street_address, "https://www.google.co.jp/maps/place/#{@post.street_address}")
             - else
               | -
-        = render "posts/map"
+        = render "posts/shared/map"
         .line
         .microposts_item_detail
           .microposts_item_title
@@ -134,4 +134,4 @@
             - else
               | -
         .line
-    = render "layouts/shared/side_bar"
+    = render "posts/shared/side_bar"

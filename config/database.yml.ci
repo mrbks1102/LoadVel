@@ -1,0 +1,7 @@
+test:
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV['POSTGRES_HOST'] %>
+  username: postgres
+  password: <%= ENV['DB_PASSWORD'] %>
+  pool: 5

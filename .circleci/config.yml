@@ -1,0 +1,73 @@
+version: 2
+jobs:
+  rubocop:
+    docker:
+      - image: circleci/ruby:2.6.3
+        environment:
+          RAILS_ENV: test
+          POSTGRES_HOST: 127.0.0.1
+      - image: circleci/postgres:9.4
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: RoadVel_test
+          POSTGRES_HOST_AUTH_METHOD: 'trust'
+    working_directory: ~/RoadVel
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run: gem install bundler -v 2.1.4
+      - run: bundle install
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      # Rubocop
+      - run:
+          name: Rubocop
+          command: bundle exec rubocop
+  rspec:
+    docker:
+      - image: circleci/ruby:2.6.3
+        environment:
+          RAILS_ENV: test
+          POSTGRES_HOST: 127.0.0.1
+      - image: circleci/postgres:9.4
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: RoadVel_test
+          POSTGRES_HOST_AUTH_METHOD: 'trust'
+    working_directory: ~/RoadVel
+    steps:
+      - checkout
+      - run: sudo apt-get update
+      - run: sudo apt-get install -y nodejs
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Gemfile.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run: gem install bundler -v 2.1.4
+      - run: bundle install
+      - save_cache:
+          paths:
+            - ./vendor/bundle
+          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+      - run: mv ./config/database.yml.ci ./config/database.yml
+      - run: bundle exec rails db:create db:migrate
+      # Rspec
+      - run:
+          name: Rspec
+          command: bundle exec rspec
+
+workflows:
+  version: 2
+  rubocop_rspec:
+    jobs:
+      - rubocop
+      - rspec:
+          requires:
+            - rubocop

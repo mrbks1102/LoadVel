@@ -24,6 +24,27 @@ RSpec.describe "Posts", type: :request do
     end
   end
 
+  describe 'new' do
+    context 'ログイン時' do
+      before do
+        sign_in user
+        get new_post_path
+      end
+
+      example 'リクエストが成功すること' do
+        expect(response).to have_http_status(200)
+      end
+    end
+
+    context '非ログイン時' do
+      before { get new_post_path }
+
+      example 'サインイン画面へリダイレクトされること' do
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+  end
+
   describe 'create' do
     context 'ログイン時' do
       before { sign_in user }
@@ -59,6 +80,41 @@ RSpec.describe "Posts", type: :request do
         expect do
           expect(response).not_to have_http_status(200)
         end
+      end
+    end
+
+    context '非ログイン時' do
+      before { post confirm_posts_path, params: { post: post_params } }
+
+      example 'サインイン画面へリダイレクトされること' do
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+  end
+
+  describe 'back' do
+    context 'ログイン時' do
+      before { sign_in user }
+
+      example '値が渡されている時にリクエストが成功すること' do
+        expect do
+          post new_posts_path, params: { post: post_params }
+          expect(response).to have_http_status(200)
+        end
+      end
+
+      example '値が渡されていない時にリクエストが失敗すること' do
+        expect do
+          expect(response).not_to have_http_status(200)
+        end
+      end
+    end
+
+    context '非ログイン時' do
+      before { post new_posts_path, params: { post: post_params } }
+
+      example 'サインイン画面へリダイレクトされること' do
+        expect(response).to redirect_to new_user_session_path
       end
     end
   end

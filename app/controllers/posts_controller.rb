@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :confirm]
+  before_action :authenticate_user!, only: [:new, :confirm, :back]
   Noon = 2
   Cafe = 3
 

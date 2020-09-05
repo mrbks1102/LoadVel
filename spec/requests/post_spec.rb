@@ -80,7 +80,7 @@ RSpec.describe "Posts", type: :request do
     end
 
     context '非ログイン時' do
-      before { post new_posts_path, params: { post: post_params } }
+      before { post confirm_posts_path, params: { post: post_params } }
 
       example 'サインイン画面へリダイレクトされること' do
         expect(response).to redirect_to new_user_session_path

@@ -17,6 +17,14 @@ RSpec.describe "Contacts", type: :request do
     context 'ログイン時' do
       before { sign_in user }
 
+      example "正常にメールを送信できること" do
+        expect do
+          post contacts_path, params: { contact: contact_params }
+        end.to change(Contact, :count).by(1)
+      end
+    end
+
+    context "非ログイン時" do
       example '正常にメールを送信できること' do
         expect do
           post contacts_path, params: { contact: contact_params }
@@ -24,18 +32,10 @@ RSpec.describe "Contacts", type: :request do
       end
     end
 
-    context '非ログイン時' do
-      example '正常にメールを送信できること' do
-        expect do
-          post contacts_path, params: { contact: contact_params }
-        end.to change(Contact, :count).by(1)
-      end
-    end
-
-    context 'メール送信後' do
+    context "メール送信後" do
       before { post contacts_path, params: { contact: contact_params } }
 
-      example 'トップページへリダイレクトされること' do
+      example "トップページへリダイレクトされること" do
         expect(response).to redirect_to root_path
       end
     end

@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe "Reviews", type: :request do
   let(:user) { create(:user) }
@@ -48,21 +48,21 @@ RSpec.describe "Reviews", type: :request do
     end
   end
 
-  describe 'create' do
-    context 'ログイン時' do
+  describe "create" do
+    context "ログイン時" do
       before { sign_in user }
 
-      example '正常に投稿を作成できること' do
+      example "正常に投稿を作成できること" do
         expect do
           post post_reviews_path(review_post.id), params: { review: review_params }
         end.to change(Review, :count).by(1)
       end
     end
 
-    context '非ログイン時' do
+    context "非ログイン時" do
       before { post post_reviews_path(review_post.id) }
 
-      example 'サインイン画面へリダイレクトされること' do
+      example "サインイン画面へリダイレクトされること" do
         expect(response).to redirect_to new_user_session_path
       end
     end

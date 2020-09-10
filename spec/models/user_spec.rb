@@ -24,7 +24,7 @@ RSpec.describe User, type: :model do
     end
 
     context "nameが50文字以上の場合" do
-      example "登録に成功する" do
+      example "登録に失敗する" do
         user = build(:user, name: "a" * 51)
         user.valid?
         expect(user.errors[:name]).to include("は50文字以内で入力してください")

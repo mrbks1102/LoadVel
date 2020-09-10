@@ -9,8 +9,8 @@ class ReviewsController < ApplicationController
   def index
     @post = Post.find(params[:post_id])
     @new_posts = Post.limit(3).order(created_at: :desc)
-    @exclusion_post = Post.where.not(id: @post.id)
-    @likes_posts = @exclusion_post.where(id: Like.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
+    @none_post = Post.where.not(id: @post.id)
+    @likes_posts = @none_post.where(id: Like.group(:post_id).order(Arel.sql('count(post_id) desc')).limit(3).pluck(:post_id))
     @reviews = @post.reviews
     @user = User.find_by(id: @post.user_id)
   end

@@ -6,7 +6,6 @@ RSpec.describe "Likes", type: :request do
 
   let(:like_post) { create(:post, user: user) }
   let(:like_params) { { user_id: user.id, post_id: like_post.id } }
-  
 
   describe 'create' do
     context 'ログインしている時' do

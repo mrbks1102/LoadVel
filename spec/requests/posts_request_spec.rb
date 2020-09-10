@@ -4,8 +4,7 @@ RSpec.describe "Posts", type: :request do
   let(:user) { create(:user) }
 
   let(:test_post) { create(:post, user: user) }
-  let(:photo_path) { File.join(Rails.root, 'spec/image/main_top.jpg') }
-  let(:post_photo) { Rack::Test::UploadedFile.new(photo_path) }
+  let(:post_photo) { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/image/main_top.jpg')) }
   let(:post_params) { { area: 'area', post_photo: post_photo } }
 
   describe 'index' do

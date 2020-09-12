@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Like, type: :model do
+RSpec.describe Favorite, type: :model do
   let(:user) { create(:user) }
 
   let(:favorite_post) { create(:post, user: user) }

@@ -2,7 +2,6 @@ require "rails_helper"
 
 RSpec.describe Review, type: :model do
   let(:user) { create(:user) }
-  let(:other_user) { create(:user) }
 
   let(:review_post) { create(:post, user: user) }
   let(:review) { create(:review, user: user, post: review_post) }

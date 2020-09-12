@@ -30,7 +30,7 @@ RSpec.describe Like, type: :model do
     end
 
     context "既お気に入りされている場合" do
-      example "お気に入りできない" do
+      example "いいねできない" do
         like
         other_like = build(:like, user_id: like.user_id, post_id: like.post_id)
         expect(other_like).to be_invalid

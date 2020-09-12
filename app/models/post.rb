@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   has_many :favorites, -> { order(created_at: :desc) }, dependent: :destroy
   has_many :likes, -> { order(created_at: :desc) }, dependent: :destroy
   belongs_to :user
+  validates :user_id, presence: true
   validates :post_photo, presence: true
   validates :area, presence: true, length: { maximum: 30 }
   validates :street_address, length: { maximum: 50 }

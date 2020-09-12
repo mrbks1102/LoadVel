@@ -13,7 +13,7 @@
         li.bubble
           span.bubble
           span 完了
-    = form_with model: @post, local: true,url: confirm_posts_path do |f|
+    = form_with model: @post, local: true, url: confirm_posts_path do |f|
       .form-group
         = f.label :area, "エリア名"
         = f.text_field :area, autofocus: true, class: "form-control", placeholder: "(例 千葉フォルニア"

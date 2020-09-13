@@ -3,9 +3,6 @@ require "rails_helper"
 RSpec.describe "Users", type: :system do
   let(:user) { create(:user) }
 
-  let(:post1) { create(:post, user: user) }
-  let(:user2) { { user: user, post: post1 } }
-
   describe "会員登録ページ" do
     before do
       visit new_user_registration_path
@@ -156,7 +153,7 @@ RSpec.describe "Users", type: :system do
 
     example "アカウントを削除に成功する" do
       click_on "アカウント削除"
-      page.accept_confirm '本当に削除しますか？'
+      page.accept_confirm "本当に削除しますか？"
       expect(page).to have_content "ユーザーを削除しました"
       expect(current_path).to eq root_path
     end

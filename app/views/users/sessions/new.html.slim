@@ -3,7 +3,7 @@
     .form_title
       | ログイン
     = form_with scope: resource, as: resource_name, url: session_path(resource_name), local: true do |f|
-      = devise_error_messages!
+      = render partial: 'users/shared/error_messages'
       .form-group
         = f.email_field :email, autofocus: true, placeholder: "メールアドレス", class: "form-control"
       .form-group

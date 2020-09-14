@@ -15,7 +15,5 @@ services:
       - "3000:3000"
     depends_on:
       - db
-  chrome:
-    image: selenium/standalone-chrome:3.141.59-dubnium
-    ports:
-      - 4444:4444
+    tty: true
+    stdin_open: true

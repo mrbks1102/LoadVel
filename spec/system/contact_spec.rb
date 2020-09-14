@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Review", type: :system do
+RSpec.describe "Contact", type: :system do
   let(:user) { create(:user) }
 
   describe "コメント投稿ページ" do

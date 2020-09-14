@@ -15,7 +15,7 @@ jobs:
     steps:
       - checkout
       - run: sudo apt-get update
-      - run: sudo apt-get install libappindicator1
+      - run: sudo apt-get install libappindicator3-1 fonts-liberation libasound2 libatk-bridge2.0-0 libatspi2.0-0 libgbm1 libgtk-3-0 libnspr4 libnss3 libxtst6 xdg-utils
       - run: export CHROME_BIN=/usr/bin/google-chrome
       - run: wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
       - run: sudo apt-get install -f

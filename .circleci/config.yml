@@ -13,6 +13,9 @@ jobs:
           POSTGRES_HOST_AUTH_METHOD: 'trust'
     working_directory: ~/RoadVel
     steps:
+      - run:
+        command: chromedriver
+        background: true
       - checkout
       - restore_cache:
           keys:

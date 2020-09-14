@@ -3,8 +3,7 @@ require "rails_helper"
 RSpec.describe "Review", type: :system do
   let(:user) { create(:user) }
 
-  let(:review_post) { create(:post, user: user) }
-  let(:review_params) { { title: "title", body: "body", post_id: review_post.id, user_id: user.id } }
+  let(:review_post) { create(:post, user: user) 
 
   describe "コメント投稿ページ" do
     before do

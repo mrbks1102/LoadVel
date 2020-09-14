@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :review do
-    post { nil }
-    body { "MyText" }
+    title { "title" }
+    body { "body" }
   end
 end

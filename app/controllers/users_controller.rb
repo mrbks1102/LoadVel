@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:edit]
+  before_action :authenticate_user!, only: [:edit, :destroy]
 
   def show
     @user = User.find_by(id: params[:id])
@@ -9,8 +9,11 @@ class UsersController < ApplicationController
     @reviews = Review.where(user_id: @user.id)
   end
 
+  def edit
+  end
+
   def destroy
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
     @user.destroy
     redirect_to root_path
     flash[:alert] = 'ユーザーを削除しました'

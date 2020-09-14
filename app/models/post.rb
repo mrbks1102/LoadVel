@@ -5,8 +5,15 @@ class Post < ApplicationRecord
   has_many :favorites, -> { order(created_at: :desc) }, dependent: :destroy
   has_many :likes, -> { order(created_at: :desc) }, dependent: :destroy
   belongs_to :user
-  validates :area, presence: true
+  validates :user_id, presence: true
   validates :post_photo, presence: true
+  validates :area, presence: true, length: { maximum: 30 }
+  validates :street_address, length: { maximum: 50 }
+  validates :time, length: { maximum: 30 }
+  validates :regular_holiday, length: { maximum: 30 }
+  validates :url, length: { maximum: 50 }
+  validates :station, length: { maximum: 20 }
+  validates :shop_name, length: { maximum: 20 }
   mount_uploader :post_photo, ImageUploader
   geocoded_by :street_address
   after_validation :geocode

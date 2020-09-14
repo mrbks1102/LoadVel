@@ -32,4 +32,5 @@
           = f.label :password_confirmation, "パスワードの確認"
           = f.password_field :password_confirmation, autofocus: "off", class: "form-control"
       div[style="text-align: center;"]
+        = devise_error_messages
         = f.submit "変更する", class: "btn-square"

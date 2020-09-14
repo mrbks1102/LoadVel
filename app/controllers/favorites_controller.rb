@@ -10,7 +10,7 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @favorite = Favorite.find_by(id: params[:id])
+    @favorite = current_user.favorites.find(params[:id])
     @post = @favorite.post
     if @favorite.destroy
       respond_to :js

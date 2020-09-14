@@ -18,7 +18,7 @@ jobs:
       - run: sudo apt-get install -y libappindicator1 fonts-liberation
       - run: export CHROME_BIN=/usr/bin/google-chrome
       - run: wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-      - run: sudo dpkg -i google-chrome*.deb
+      - run: sudo dpkg -i google-chrome-stable_current_amd64.deb
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "Gemfile.lock" }}

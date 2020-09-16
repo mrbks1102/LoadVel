@@ -109,7 +109,8 @@
             | URL
           .microposts_item_contents
             - if @post.url.present?
-              = @post.url
+              .text_deco
+                = text_url_to_link(@post.url).html_safe
             - else
               | -
         .line

@@ -102,9 +102,25 @@ RSpec.describe Post, type: :model do
       end
     end
 
+    context "urlが正常に入力されている場合" do
+      example "投稿に成功すること" do
+        post.url = "http://localhost:3000/"
+        post.valid?
+        expect(post).to be_valid
+      end
+    end
+
+    context "urlが誤った入力されている場合" do
+      example "投稿に成功すること" do
+        post.url = "localhost:3000/"
+        post.valid?
+        expect(post).to be_invalid
+      end
+    end
+
     context "urlが50文字より多いの場合" do
       example "投稿に失敗すること" do
-        post.url = "a" * 51
+        post.url = "http://localhost:3000/" * 29
         post.valid?
         expect(post.errors[:url]).to include("は50文字以内で入力してください")
       end
@@ -112,7 +128,7 @@ RSpec.describe Post, type: :model do
 
     context "urlが50文字以下の場合" do
       example "投稿に成功すること" do
-        post.url = "a" * 50
+        post.url = "http://localhost:3000/" + "a" * 28
         post.valid?
         expect(post).to be_valid
       end

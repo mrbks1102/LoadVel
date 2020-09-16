@@ -159,7 +159,7 @@ RSpec.describe "Users", type: :system do
     end
   end
 
-  describe "ユーザーセッティングページ", js: true do
+  describe "マイページ", js: true do
     before do
       sign_in user
       visit user_path(user.id)

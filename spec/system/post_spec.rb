@@ -16,6 +16,7 @@ RSpec.describe "Posts", type: :system do
         fill_in "post[area]", with: "area"
         attach_file "post[post_photo]", "spec/image/main_top.jpg"
         click_on "確認へ進む"
+        expect(current_path).to eq confirm_posts_path
         click_on "投稿する"
         expect(page).to have_content "投稿が完了しました。"
       end

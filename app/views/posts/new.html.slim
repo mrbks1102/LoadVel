@@ -24,8 +24,10 @@
         = f.label :place_name, "都道府県"
         = f.select :place_name, Post.place_names.keys, {}, {class: 'place'}
       .form-group
+        = image_tag(@post.post_photo.url) if @post.post_photo?
         = f.label :post_photo, "写真"
         = f.file_field :post_photo, autofocus: "off", class: "form-control photo_text"
+        = f.hidden_field :post_photo_cache
       .form-group
         = f.label :shop_name, "店名"
         = f.text_field :shop_name, autofocus: true, class: "form-control", placeholder: "(例 xxライダーカフェ"

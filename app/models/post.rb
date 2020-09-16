@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  VALID_URL_REGEX = /\A#{URI.regexp(%w(http https))}\z/.freeze
+
   has_many :post_category_relations, dependent: :destroy
   has_many :categories, through: :post_category_relations
   has_many :reviews, dependent: :destroy
@@ -11,7 +13,7 @@ class Post < ApplicationRecord
   validates :street_address, length: { maximum: 50 }
   validates :time, length: { maximum: 30 }
   validates :regular_holiday, length: { maximum: 30 }
-  validates :url, length: { maximum: 50 }
+  validates :url, length: { maximum: 50 }, format: { with: VALID_URL_REGEX }, allow_blank: true
   validates :station, length: { maximum: 20 }
   validates :shop_name, length: { maximum: 20 }
   mount_uploader :post_photo, ImageUploader

@@ -13,7 +13,7 @@ class Post < ApplicationRecord
   validates :street_address, length: { maximum: 50 }
   validates :time, length: { maximum: 30 }
   validates :regular_holiday, length: { maximum: 30 }
-  validates :url, length: { maximum: 50 }, format: { with: VALID_URL_REGEX } , allow_blank: true
+  validates :url, length: { maximum: 50 }, format: { with: VALID_URL_REGEX }, allow_blank: true
   validates :station, length: { maximum: 20 }
   validates :shop_name, length: { maximum: 20 }
   mount_uploader :post_photo, ImageUploader

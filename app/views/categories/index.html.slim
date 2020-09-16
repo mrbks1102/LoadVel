@@ -1,11 +1,12 @@
-.contents
-  .posts_card
-    .card_header
-      .card_header_title
-        span.orange #&nbsp;
-        = @category_id.name
-    .card_contents
-      - @category_post.each do |post|
-        = render "layouts/shared/post_card", post: post
-div[style="text-align: center;"]
-  = paginate @category_post
+#pagenate
+  .contents
+    .posts_card
+      .card_header
+        .card_header_title
+          span.orange #&nbsp;
+          = @category_id.name
+      .card_contents
+        - @category_post.each do |post|
+          = render "layouts/shared/post_card", post: post
+  div[style="text-align: center;"]
+    = paginate @category_post, remote: true

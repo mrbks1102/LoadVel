@@ -473,3 +473,27 @@ input[type=checkbox]:checked:hover + .item-span span {
 	color: rgba(255,255,255,0.5);
 	background: $main_color;
 }
+
+/*ページネーションデザイン*/
+.pagination{
+  padding:2em;
+  display:flex;
+  justify-content:center;
+  a,span{
+    width:40px;
+    height:50px;
+    margin:2px;
+    line-height:50px;
+    text-align:center;
+    font-size:14px;
+    font-weight:bold;
+    text-decoration:none;
+    color:#222;
+    transition:.3s;
+    font-size: 20px;
+  }
+  .current{
+    background:$main-color;
+    border-radius:20%;
+  }
+}

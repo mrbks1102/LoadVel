@@ -6,7 +6,7 @@
         span.orange #
         '人気
     .card_contents
-      - @likes_posts.each do |post|
+      - @like_posts.each do |post|
         = render "layouts/shared/post_card", post: post
   .posts_card
     .card_header

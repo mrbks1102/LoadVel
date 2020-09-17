@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     @post = Post.find(params[:post_id])
     @new_posts = Post.limit(3).order(created_at: :desc)
     @none_post = Post.where.not(id: @post.id)
-    @likes_posts = @none_post.where(id: Like.group(:post_id).order(Arel.sql("count(post_id) desc")).limit(3).pluck(:post_id))
+    @likes_posts = @none_post.likes_posts.limit(3).sort { |a, b| b.likes.count <=> a.likes.count }
     @reviews = @post.reviews
     @user = User.find_by(id: @post.user_id)
   end

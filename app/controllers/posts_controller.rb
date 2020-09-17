@@ -4,11 +4,11 @@ class PostsController < ApplicationController
   Cafe = 3
 
   def index
-    @post = Post.limit(4).order(created_at: :desc)
+    @post = Post.all.limit(4).order(created_at: :desc)
+    @like_posts = @post.likes_posts.sort { |a, b| b.likes.count <=> a.likes.count }
     @random_posts = Post.order(Arel.sql("RANDOM()"))
-    @noon_posts = @random_posts.limit(4).includes(:categories).where(post_category_relations: { category_id: Noon })
-    @cafe_posts = @random_posts.limit(4).includes(:categories).where(post_category_relations: { category_id: Cafe })
-    @likes_posts = Post.where(id: Like.group(:post_id).order(Arel.sql("count(post_id) desc")).limit(4).pluck(:post_id))
+    @noon_posts = @random_posts.includes(:categories).limit(4).where(post_category_relations: { category_id: Noon })
+    @cafe_posts = @random_posts.includes(:categories).limit(4).where(post_category_relations: { category_id: Cafe })
     @q = Post.ransack(params[:q])
     @categories = Category.all
   end
@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @new_posts = Post.limit(3).order(created_at: :desc)
     @none_post = Post.where.not(id: @post.id)
-    @likes_posts = @none_post.where(id: Like.group(:post_id).order(Arel.sql("count(post_id) desc")).limit(3).pluck(:post_id))
+    @likes_posts = @none_post.likes_posts.limit(3).sort { |a, b| b.likes.count <=> a.likes.count }
     @reviews = @post.reviews.limit(2).order(created_at: :desc)
     @user = User.find_by(id: @post.user_id)
     gon.post = @post

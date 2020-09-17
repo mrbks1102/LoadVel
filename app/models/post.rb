@@ -20,6 +20,10 @@ class Post < ApplicationRecord
   geocoded_by :street_address
   after_validation :geocode
 
+  scope :likes_posts, -> do
+    includes(:likes).where(id: Like.group(:post_id).order(Arel.sql("count(post_id) desc")).pluck(:post_id))
+  end
+
   enum place_name: {
     "---": 0,
     北海道: 1,

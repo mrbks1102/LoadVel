@@ -54,7 +54,7 @@
               .reviews_item
                 .reviews_item_img
                   = link_to user_path(r.user) do
-                    - if @post.user.profile_photo.present?
+                    - if r.user.profile_photo.present?
                       = image_tag r.user.profile_photo.url, class: "reviews_photo"
                     - else
                       = image_tag = image_tag "user.png", class: "reviews_photo"

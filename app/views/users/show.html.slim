@@ -36,7 +36,7 @@
           .users_contents_item
             - if @reviews.present?
                 .card_contents
-                  - @user.reviews_posts.each do |post|
+                  - @reviews.each do |post|
                     = render "layouts/shared/post_card", post: post
             - else
               | まだコメントした投稿はありません

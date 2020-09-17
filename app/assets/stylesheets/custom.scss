@@ -5,7 +5,7 @@ $sub2_color: #ffffff;
 body {
   margin: 0;
   padding: 0;
-  font-family:  'Noto Sans JP', sans-serif;
+  font-family:  "Noto Sans JP", sans-serif;
   background: #f7f7f7;
 
   #wrapper {
@@ -240,10 +240,19 @@ input[type=email] {
   }
 }
 
+.btn_guest_user {
+  background: #909495;
+  border: solid 4px #909495;
+  margin-top: 10px;
+  a {
+    text-decoration: none;
+    color: $sub2_color;
+  }
+}
+
 .btn_twitter {
   background: #00aced;
   border: solid 4px #00aced;
-  margin-top: 10px;
   a {
     text-decoration: none;
     color: $sub2_color;
@@ -377,7 +386,7 @@ input[type=email] {
       display: block;
       width: 90%;
       height: 8px;
-      content: '';
+      content: "";
       transform: translateX(-50%);
       background-color: #b0bec5;
     }

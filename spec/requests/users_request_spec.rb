@@ -2,7 +2,8 @@ require "rails_helper"
 
 RSpec.describe "Users", type: :request do
   let(:user) { create(:user) }
-  let(:user2) { create(:user) }
+  let(:other_user) { create(:user) }
+  let(:guest_user) { create(:user, email: "guest@example.com") }
 
   let(:user_params) { { profile: "こんにちは" } }
 
@@ -51,11 +52,21 @@ RSpec.describe "Users", type: :request do
       end
 
       context "本人でない場合" do
-        before { sign_in user2 }
+        before { sign_in other_user }
 
         example "削除されないこと" do
           expect do
             delete user_path(user.id)
+          end.to change(User, :count).by(0)
+        end
+      end
+
+      context "ゲストユーザーの場合" do
+        before { sign_in guest_user }
+
+        example "削除されないこと" do
+          expect do
+            delete user_path(guest_user.id)
           end.to change(User, :count).by(0)
         end
       end

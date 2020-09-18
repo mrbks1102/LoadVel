@@ -2,6 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Users", type: :system do
   let(:user) { create(:user) }
+  let(:guest_user) { create(:user, name: "guest", email: "guest@example.com") }
 
   describe "会員登録ページ" do
     before do
@@ -136,6 +137,18 @@ RSpec.describe "Users", type: :system do
         expect(page).to have_content "メールアドレスを入力してください"
       end
     end
+
+    context "ゲストユーザーの場合" do
+      example "更新に失敗する" do
+        sign_out user
+        sign_in guest_user
+        visit edit_user_registration_path
+        fill_in "user[email]", with: "user@example.com"
+        click_button "変更する"
+        expect(page).to have_content "ゲストユーザーの情報編集はできません。"
+        expect(current_path).to eq root_path
+      end
+    end
   end
 
   describe "ユーザーセッティングページ", js: true do
@@ -156,6 +169,17 @@ RSpec.describe "Users", type: :system do
       page.accept_confirm "本当に削除しますか？"
       expect(page).to have_content "ユーザーを削除しました"
       expect(current_path).to eq root_path
+    end
+
+    context "ゲストユーザーの場合" do
+      example "削除に失敗する" do
+        sign_out user
+        sign_in guest_user
+        visit edit_user_path(guest_user.id)
+        click_on "アカウント削除"
+        page.accept_confirm "本当に削除しますか？"
+        expect(page).to have_content "ゲストユーザーの削除はできません。"
+      end
     end
   end
 

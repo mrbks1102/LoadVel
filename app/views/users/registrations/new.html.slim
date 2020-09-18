@@ -18,6 +18,8 @@
     p.devise-link.text_deco
       | アカウントをお持ちですか？
       = render "users/shared/links"
+      i.fas.fa-user-alt.btn-square.btn_sns.btn_guest_user
+        = link_to "ゲストログイン(採用担当者様はこちらから)", users_guest_sign_in_path, method: :post
       i.fab.fa-twitter.btn-square.btn_sns.btn_twitter
         = link_to "twitterでログインする", user_twitter_omniauth_authorize_path
       i.fab.fa-facebook.btn-square.btn_sns.btn_facebook

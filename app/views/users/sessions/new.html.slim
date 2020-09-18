@@ -3,7 +3,7 @@
     .form_title
       | ログイン
     = form_with scope: resource, as: resource_name, url: session_path(resource_name), local: true do |f|
-      = render partial: 'users/shared/error_messages'
+      = render partial: "users/shared/error_messages"
       .form-group
         = f.email_field :email, autofocus: true, placeholder: "メールアドレス", class: "form-control"
       .form-group
@@ -15,6 +15,8 @@
     p.devise-link.text_deco
       | アカウントをお持ちでないですか？
       = render "users/shared/links"
+      i.fas.fa-user-alt.btn-square.btn_sns.btn_guest_user
+        = link_to "ゲストログイン(採用担当者様はこちらから)", users_guest_sign_in_path, method: :post
       i.fab.fa-twitter.btn-square.btn_sns.btn_twitter
         = link_to "twitterでログインする", user_twitter_omniauth_authorize_path
       i.fab.fa-facebook.btn-square.btn_sns.btn_facebook

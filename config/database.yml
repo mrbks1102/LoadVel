@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: <%= ENV['POSTGRES_HOST'] %>
+  username: postgres
+  password: <%= ENV['DB_PASSWORD'] %>
+  pool: 5
+
+development:
+  <<: *default
+  database: RoadVel_development
+
+test:
+  <<: *default
+  database: RoadVel_test

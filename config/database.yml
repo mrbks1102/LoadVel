@@ -13,3 +13,7 @@ development:
 test:
   <<: *default
   database: RoadVel_test
+
+production:
+  <: *default
+  database: RoadVel_production

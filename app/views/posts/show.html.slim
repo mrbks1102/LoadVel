@@ -5,10 +5,12 @@
         .microposts_mainview_top
           .maicro = image_tag @post.post_photo.url
         .microposts_mainview_icon.flex
-          .item_icon.twitter
-            i.fab.fa-twitter
-          .item_icon.facebook
-            i.fab.fa-facebook
+          .item_icon.twitter.text_deco_twitter
+            = link_to "https://twitter.com/share?url=#{ request.url }&text=RoadVelをTwitterでみんなに広めよう！", target: '_blank' do
+              i.fab.fa-twitter
+          .item_icon.facebook.text_deco_facebook
+            = link_to "https://www.facebook.com/share.php?u=https://www.roadvel.com", target: '_blank' do
+              i.fab.fa-facebook
           - if user_signed_in?
             .item_icon.thumbs-up
               = render "likes/like", post: @post

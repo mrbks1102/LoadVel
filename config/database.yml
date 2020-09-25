@@ -15,5 +15,5 @@ test:
   database: RoadVel_test
 
 production:
-  <: *default
+  <<: *default
   database: RoadVel_production

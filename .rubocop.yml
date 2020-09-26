@@ -2,29 +2,32 @@ inherit_from:
 - .rubocop_airbnb.yml
 
 LineLength:
-  Max: 125
+  Max: 130
 
 AllCops:
   Exclude:
-  - 'db/schema.rb'
-  - 'db/migrate/*'
-  - 'db/**/*'
-  - 'bin/*'
-  - 'config/environments/*'
-  - 'config/application.rb'
-  - 'config/initializers/*'
-  - 'config/spring.rb'
-  - 'spec/spec_helper.rb'
-  - 'lib/tasks/*'
-  - 'vendor/**/*'
-  - 'path/ruby'
-  - 'public/**/*'
-  - 'tmp/**/*'
-  - 'log/**/*'
+  - "db/schema.rb"
+  - "db/migrate/*"
+  - "db/**/*"
+  - "bin/*"
+  - "config/environments/*"
+  - "config/application.rb"
+  - "config/initializers/*"
+  - "config/spring.rb"
+  - "spec/spec_helper.rb"
+  - "lib/tasks/*"
+  - "vendor/**/*"
+  - "path/ruby"
+  - "public/**/*"
+  - "tmp/**/*"
+  - "log/**/*"
 
 RSpec/EmptyLineAfterFinalLet:
   Enabled: false
 
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
 Layout/TrailingWhitespace:
-  Description: 'admit trailing whitespace.'
+  Description: "admit trailing whitespace."
   Enabled: false

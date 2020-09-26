@@ -65,6 +65,10 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop-airbnb'
   gem 'pry-byebug'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
 end
 
 group :test do
@@ -72,6 +76,10 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem "webdrivers"
+end
+
+group :production, :staging do
+  gem 'unicorn'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

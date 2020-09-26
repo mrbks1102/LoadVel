@@ -15,5 +15,8 @@ test:
   database: RoadVel_test
 
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  password: 
+  pool: 5
   database: RoadVel_production

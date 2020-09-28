@@ -1,0 +1,30 @@
+current directory: /Users/miraba/RoadVel/vendor/bundle/ruby/2.6.0/gems/hpricot-0.8.6/ext/hpricot_scan
+/Users/miraba/.rbenv/versions/2.6.3/bin/ruby -I /Users/miraba/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20200928-66688-m79q43.rb extconf.rb
+checking for main() in -lc... yes
+creating Makefile
+
+current directory: /Users/miraba/RoadVel/vendor/bundle/ruby/2.6.0/gems/hpricot-0.8.6/ext/hpricot_scan
+make "DESTDIR=" clean
+
+current directory: /Users/miraba/RoadVel/vendor/bundle/ruby/2.6.0/gems/hpricot-0.8.6/ext/hpricot_scan
+make "DESTDIR="
+compiling hpricot_css.c
+hpricot_css.rl:87:14: warning: field precision should have type 'int', but argument has type 'long' [-Wformat]
+        {te = p+1;{ FILTERAUTO(); }}
+                    ^~~~~~~~~~~~
+hpricot_css.rl:15:20: note: expanded from macro 'FILTERAUTO'
+  sprintf(filt, "%.*s", te - ts, ts); \
+                 ~~^~   ~~~~~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include/secure/_stdio.h:47:56: note: expanded from macro 'sprintf'
+  __builtin___sprintf_chk (str, 0, __darwin_obsz(str), __VA_ARGS__)
+                                                       ^~~~~~~~~~~
+hpricot_css.c:3407:9: warning: comparison between pointer and integer ('char *' and 'int')
+        if ( p == eof )
+             ~ ^  ~~~
+2 warnings generated.
+compiling hpricot_scan.c
+linking shared-object hpricot_scan.bundle
+
+current directory: /Users/miraba/RoadVel/vendor/bundle/ruby/2.6.0/gems/hpricot-0.8.6/ext/hpricot_scan
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 hpricot_scan.bundle ./.gem.20200928-66688-1tb8g65

@@ -1,5 +1,5 @@
-lock "3.4.0"
-set :application, "roadvel"
+lock "3.14.1"
+set :application, "RoadVel"
 set :repo_url, "git@github.com:mrbks1102/RoadVel.git"
 set :branch, "develop" 
 set :deploy_to, "/var/www/rails/RoadVel"

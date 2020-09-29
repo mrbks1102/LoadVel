@@ -72,6 +72,7 @@ group :development do
   gem 'capistrano3-unicorn'
   gem 'ed25519'
   gem 'bcrypt_pbkdf'
+  gem 'rails-erd'
 end
 
 group :test do

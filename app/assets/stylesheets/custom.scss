@@ -194,7 +194,6 @@ input[type=email] {
   display: inline-block;
   padding: 8px 50px;
   text-decoration: none;
-  margin: 0 0 0 10px;
   width: auto;
   color: $main_color;
   font-size: 12px;
@@ -202,6 +201,10 @@ input[type=email] {
   border-radius: 4px;
   -webkit-transition: .3s all;
   transition: .3s all;
+}
+
+.post_ml {
+  margin: 0 0 0 10px;
 }
 
 .btn-square {

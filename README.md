@@ -101,3 +101,6 @@ https://roadvel.com
 + Nginx、unicorn
 + CircleCI/CD( Rspec、rubocop自動化)
 + Capistrano( 自動デプロイ )
+
+## AWS構成図
+![AWS構成図](https://user-images.githubusercontent.com/58883305/94923332-a31d3b80-04f6-11eb-9732-41d6630dfe1b.png)

@@ -1,24 +1,103 @@
-# README
+# ROADVEL
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![スクリーンショット 2020-10-02 18 12 50（2）](https://user-images.githubusercontent.com/58883305/94908469-a99eb980-04dc-11eb-9a4e-7787065e4d37.png)
 
-Things you may want to cover:
 
-* Ruby version
+## 概要
+「バイクで行ける観光地を共有・発見しよう!」  
+  バイクライダーに向けた、観光地投稿・発見するサービスです。
 
-* System dependencies
+## URL
+https://roadvel.com  
+【ゲストログイン】ボタンよりゲストユーザーとして簡単にログインができます。
 
-* Configuration
+## 本サービスの制作背景
+私は趣味でバイクに跨る機会が多く、休日にはよく仲間と旅に出かける機会が多いです。  
+ある日に旅に出ようと思った矢先、行き先が中々決まりませんでした。
 
-* Database creation
+そこで私は「他にも同じ問題を抱えている人がいるのでは？...」と考え、バイク仲間に「旅の行き先をいつもどうやって探してる？」
+と伺ったところ、様々なプラットフォームを駆使しているとの答えを頂きました。  
+多種多様なプラットフォームを使用するとバイクで行ける観光地を探すことは時間もかかり、困難です。
 
-* Database initialization
+そして本サービスで、上記の問題を解消したいと考え制作致しました。
 
-* How to run the test suite
+## マーケット
+・趣味でバイクに乗る人  
+・バイクでよく遠出する人  
+・自分の見つけた観光地を共有したい人
 
-* Services (job queues, cache servers, search engines, etc.)
+## 機能一覧
+### 認証機能  
++ サインイン、サインアップ機能 ( devise )  
+  * email、パスワード、ユーザー名必須  
+  * ゲストログイン機能( アカウント削除・プロフィール編集不可 )
+  * omniauth認証によるSNSログイン( Twitter・Facebook )  
++ パスワード編集機能 ( devise )
 
-* Deployment instructions
+### 投稿機能
++ 新規投稿ページ
+  * 新規投稿機能
+  * 投稿確認機能
+  * 画像投稿機能( carrierwave )
++ 投稿一覧ページ
+  * カテゴリー別投稿表示(人気新着はランキング・他カテゴリーはランダム表示)
++ 投稿詳細ページ
+  * コメント機能
+  * サイドバーにておすすめ・ 新着一覧表示機能
+  * 編集リクエスト機能
+  * いいね機能
+  * お気に入り機能
+  * SNSシェア機能( Twiter・ Facebook )
++ googlemapAPIによる位置情報表示機能( Geocoding API・ Maps Javascript API )
++ カテゴリー分け機能
+  * カテゴリー別投稿一覧機能
+### ユーザー機能
++ マイページ  
+  * 自身のページ以外は設定アイコン非表示
+  * 自身の投稿、コメントした投稿、いいねした投稿、お気に入りした投稿をスライドバーにて表示( jquery )
++ ユーザープロフィール編集ページ
+  * ユーザー名、メールアドレス、パスワード、プロフィール画像( ajaxにてプレビュー表示実装 )の変更
++ セッティングページ
+  * アカウント削除機能
+  * ログアウト機能
+  * フッター各種リンク( about、利用規約、お問い合わせ、プライバシーポリシー )
+### 検索機能
++ カテゴリー別チェックボックス、フリーワードにて検索可能 ( ransack )
+### カテゴリー機能
++ 中間テーブルにてPostモデルと提携
++ チェックボックスを採用した実装
+### いいね・お気にり機能
++ 非同期通信にて即時反映( ajax )
+### 問い合わせ機能
++ フッター・プロフィール設定ページ・投稿詳細ページ編集リクエストボタンにて、問い合わせが可能( ActionMailer )
+### 管理者機能
++ rails_admin gemにて管理者ページを実装
+### その他
++ レスポンシブデザイン
++ Rspecを導入しテスト記述
++ Rubocopを導入しリンター機能の活用
++ Git flowを意識した開発
++ Git チーム開発を意識したissue・プルリクエストの活用
++ AWS ACMにてSSL証明書を発行しSSL化
 
-* ...
+## 環境・使用技術
+### フロントエンド
+* javascript
+* jQuery
+* HTML/CSS
+* Slim
+* Scss
+
+### バックエンド
++ Ruby 2.6.3
++ rails 5.2.4.3
+
+### 開発環境
++ Docker/docker-compose( 開発環境 )
++ Postgresql
+
+### 開発環境
++ AWS ( EC2、RDS for postgresql、ALB、Route53、VPC、ACM )
++ Nginx、unicorn
++ CircleCI/CD( Rspec、rubocop自動化)
++ Capistrano( 自動デプロイ )

@@ -8,7 +8,9 @@ header.l-header
         li
           = link_to "POST", posts_path
         li
-          = link_to "LOGIN", new_user_registration_path
+          = link_to "LOGIN", new_user_session_path
+        li
+          = link_to "SIGN UP", new_user_registration_path
     - else
       ul
         li
@@ -23,7 +25,9 @@ header.l-header
         li
           = link_to "POST", posts_path
         li
-          = link_to "LOGIN", new_user_registration_path
+          = link_to "LOGIN", new_user_session_path
+        li
+          = link_to "SIGN UP", new_user_registration_path
         li.close
           span 閉じる
     - else

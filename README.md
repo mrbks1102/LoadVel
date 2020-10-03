@@ -8,7 +8,7 @@
   バイクライダーに向けた、観光地投稿・発見するサービスです。
 
 ## URL
-https://roadvel.com  
+https://www.roadvel.com  
 【ゲストログイン】ボタンよりゲストユーザーとして簡単にログインができます。
 
 ## 本サービスの制作背景
@@ -23,7 +23,7 @@ https://roadvel.com
 
 ## マーケット
 ・趣味でバイクに乗る人  
-・バイクでよく遠出する人  
+・バイクで遠出する人  
 ・自分の見つけた観光地を共有したい人
 
 ## 機能一覧
@@ -51,6 +51,7 @@ https://roadvel.com
 + googlemapAPIによる位置情報表示機能( Geocoding API・ Maps Javascript API )
 + カテゴリー分け機能
   * カテゴリー別投稿一覧機能
+  * ページネーションの非同期通信化 ( ajax )
 ### ユーザー機能
 + マイページ  
   * 自身のページ以外は設定アイコン非表示
@@ -64,21 +65,15 @@ https://roadvel.com
 ### 検索機能
 + カテゴリー別チェックボックス、フリーワードにて検索可能 ( ransack )
 ### カテゴリー機能
-+ 中間テーブルにてPostモデルと提携
++ 中間テーブルにてPostモデルと多対多で提携
 + チェックボックスを採用した実装
-### いいね・お気にり機能
+### いいね・お気に入り機能
 + 非同期通信にて即時反映( ajax )
 ### 問い合わせ機能
-+ フッター・プロフィール設定ページ・投稿詳細ページ編集リクエストボタンにて、問い合わせが可能( ActionMailer )
++ フッター・プロフィール設定ページ・投稿詳細ページ編集リクエストボタンにて、問い合わせが可能  
+( ActionMailer )
 ### 管理者機能
 + rails_admin gemにて管理者ページを実装
-### その他
-+ レスポンシブデザイン
-+ Rspecを導入しテスト記述
-+ Rubocopを導入しリンター機能の活用
-+ Git flowを意識した開発
-+ Git チーム開発を意識したissue・プルリクエストの活用
-+ AWS ACMにてSSL証明書を発行しSSL化
 
 ## 環境・使用技術
 ### フロントエンド
@@ -90,17 +85,61 @@ https://roadvel.com
 
 ### バックエンド
 + Ruby 2.6.3
-+ rails 5.2.4.3
++ Rails 5.2.4.3
 
 ### 開発環境
-+ Docker/docker-compose( 開発環境 )
-+ Postgresql
++ Docker/docker-compose
++ PostgreSQL
 
-### 開発環境
+### 本番環境
 + AWS ( EC2、RDS for postgresql、ALB、Route53、VPC、ACM )
 + Nginx、unicorn
-+ CircleCI/CD( Rspec、rubocop自動化)
++ CircleCI/CD( Rspec、Rubocop自動化 )
 + Capistrano( 自動デプロイ )
+
+### その他技術
++ レスポンシブデザイン
++ Rspecを導入しテスト記述( 単体/統合 )
++ Rubocopを導入しリンター機能の活用
++ Git flowを意識した開発
++ Git チーム開発を意識したissue・プルリクエストの活用
++ Git コミットメッセージからissueを開けるようissue番号の紐付け
++ AWS ACMにてSSL証明書を発行しSSL化
++ HTTPS接続
++ dotenv-rails gem を使用し環境変数を設定
 
 ## AWS構成図
 ![AWS構成図](https://user-images.githubusercontent.com/58883305/94923332-a31d3b80-04f6-11eb-9732-41d6630dfe1b.png)
+## ER図
+![erd_sample](https://user-images.githubusercontent.com/58883305/94984512-be845700-0587-11eb-91a2-d1800eb30e0e.png)
+
+## 工夫点
++ フロントエンド  
+  * ユーザーにとって直感的に操作できるようUI/UXをなるべくシンプルで分かりやすいデザインにした。  
+  * ユーザーで無くとも疑問点が会った場合にコンタクトが取れるようフッター部に問い合わせ機能を実装。
+  * ヘッダー部はレスポンシブ時に使いやすくする為、ハンバーガーバーを実装
+  
+
++ バックエンド
+  * 観光地の共有ということで、地図APIを用いて地図を可視化できるよう実装
+  * 手軽にログインできるようomniauth認証を採用し、SNSログインを実装( Twitter・Facebbok )
+  * 機能をただ多く実装するだけでは使いにくなる可能性がある為、共有サイトとして最低限必要な機能の実装。
+  * 観光地を目視する為に、画像投稿機能の実装。
+  * 投稿間違いを防止する為、投稿確認ページの実装。またユーザーの工数を減らす為前ページ戻った際に値をするよう実装
+  * 様々な編集を容易に行う為、管理者画面の実装
+
++ 技術
+  * モダンな技術の採用。( CircleCI・Docker・AWS・Capistrano )  
+    常に新しい技術に挑戦し、Railsだけの知識では無く様々な技術の知識を蓄えた。
+  * Rubocopを使用し、コードの品質維持
+  * Rspecを使用し、保守性の高いアプリケーションの実現
+
+## 今後実装する機能
+詳細は[issue](https://github.com/mrbks1102/RoadVel/issues)に記述しておりますのでご覧ください。
+
+## About me
+現在21歳で某鉄道会社勤務の4年目になります。webエンジニアを目指して日々勉強しアウトプットを行なっています。  
+[Twitter](https://twitter.com/otterminal)  
+[Qiita](https://qiita.com/otterminal)
+
+

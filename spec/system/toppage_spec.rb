@@ -14,8 +14,15 @@ RSpec.describe "Toppages", type: :system do
       end
 
       example "LOGINボタンが非表示であること" do
+        visit root_path
         expect(current_path).to eq root_path
-        expect(page).to have_selector('.btn_top', visible: false, text: 'LOGIN')
+        expect(page).not_to have_content "LOGIN"
+      end
+
+      example "SIGNUPボタンが非表示であること" do
+        visit root_path
+        expect(current_path).to eq root_path
+        expect(page).not_to have_content "SIGN UP"
       end
 
       example "POSTボタンが表示されていること" do
@@ -26,6 +33,10 @@ RSpec.describe "Toppages", type: :system do
     context "非ログイン時" do
       example "LOGINボタンが表示されていること" do
         expect(page).to have_content "LOGIN"
+      end
+
+      example "SIGNUPボタンが表示されていること" do
+        expect(page).to have_content "SIGN UP"
       end
 
       example "POSTボタンが表示されていること" do

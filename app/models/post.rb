@@ -24,6 +24,19 @@ class Post < ApplicationRecord
     includes(:likes).where(id: Like.group(:post_id).order(Arel.sql("count(post_id) desc")).pluck(:post_id))
   end
 
+  def self.csv_attributes
+    ["area", "street_address", "place_name", "created_at", "updated_at"]
+  end
+
+  def self.generate_csv
+    CSV.generate(headers: true) do |csv|
+      csv << csv_attributes
+      all.each do |post|
+        csv << csv_attributes.map { |attr| post.send(attr) }
+      end
+    end
+  end
+
   enum place_name: {
     "---": 0,
     北海道: 1,

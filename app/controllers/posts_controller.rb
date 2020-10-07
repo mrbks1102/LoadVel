@@ -11,6 +11,11 @@ class PostsController < ApplicationController
     @cafe_posts = @random_posts.includes(:categories).limit(4).where(post_category_relations: { category_id: Cafe })
     @q = Post.ransack(params[:q])
     @categories = Category.all
+    @posts = Post.all.order(created_at: :desc)
+    respond_to do |format|
+      format.html
+      format.csv { send_data @posts.generate_csv, filename: "posts-#{Time.zone.now.strftime("%Y%m%d%S")}.csv" }
+    end
   end
 
   def show

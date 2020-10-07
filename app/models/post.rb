@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
   VALID_URL_REGEX = /\A#{URI.regexp(%w(http https))}\z/.freeze
+  Noon = 2
+  Cafe = 3
 
   has_many :post_category_relations, dependent: :destroy
   has_many :categories, through: :post_category_relations
@@ -23,6 +25,16 @@ class Post < ApplicationRecord
   scope :likes_posts, -> do
     includes(:likes).where(id: Like.group(:post_id).order(Arel.sql("count(post_id) desc")).pluck(:post_id))
   end
+
+  scope :noon_posts, -> do
+    includes(:categories).limit(4).where(post_category_relations: { category_id: Noon })
+  end
+
+  scope :rider_cafe_posts, -> do
+    includes(:categories).limit(4).where(post_category_relations: { category_id: Cafe })
+  end
+
+  scope :none_posts, -> { where.not(id: @post.id) }
 
   def self.csv_attributes
     ["area", "street_address", "place_name", "created_at", "updated_at"]

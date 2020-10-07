@@ -38,6 +38,17 @@ RSpec.describe "Posts", type: :system do
         visit post_path(posts.id)
       end
 
+      example "投稿削除ボタンが機能すること" do
+        click_on "投稿を削除する"
+        expect(page).to have_content "投稿を削除しました"
+      end
+
+      example "投稿編集ボタンが機能すること" do
+        click_on "投稿を編集する"
+        click_on "更新する"
+        expect(page).to have_content "投稿を編集しました"
+      end
+
       example "いいねボタンが表示されていること" do
         expect(page).to have_selector ".fa-thumbs-up"
       end

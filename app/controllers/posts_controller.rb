@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :confirm, :back]
+  before_action :authenticate_user!, only: [:new, :edit, :confirm, :back]
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
 
   def index
     @post = Post.all.limit(4).order(created_at: :desc)
@@ -41,6 +42,24 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    redirect_to post_path(@post.id)
+    flash[:notice] = "投稿を編集しました。"
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
+    flash[:notice] = "投稿を削除しました。"
+  end
+
   def confirm
     @post = Post.new(post_params)
     session[:category_ids] = @post.category_ids
@@ -68,5 +87,13 @@ class PostsController < ApplicationController
                                  :station,
                                  :shop_name,
                                  category_ids: []).merge(user_id: current_user.id)
+  end
+
+  def ensure_correct_user
+    @post = Post.find_by(id: params[:id])
+    if @post.user.id != current_user.id
+      flash[:notice] = "投稿者ではないため権限がありません"
+      redirect_to posts_path
+    end
   end
 end

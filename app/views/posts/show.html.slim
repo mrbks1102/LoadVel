@@ -19,6 +19,11 @@
         .microposts_mainview_info
           .microposts_mainview_name
             = @post.area
+            .microposts_mainview_span
+              - if user_signed_in?
+                - if current_user.id == @user.id
+                  span = link_to "投稿を編集する", edit_post_path(@post.id), class: "btn_main"
+                  span = link_to "投稿を削除する", post_path, method:"delete", class: "btn_main", data: { confirm: "本当に削除しますか？" }
           .microposts_mainview_good.inline
             = render "likes/like_count", post: @post
           .microposts_mainview_comments.inline

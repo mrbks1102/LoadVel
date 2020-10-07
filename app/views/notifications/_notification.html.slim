@@ -10,22 +10,22 @@
           = image_tag = image_tag "user.png"
         strong
           = visitor.name
-      = 'さんが'
+      = ”さんが”
 
       - case notification.action
-      - when 'like' then
-        = link_to 'あなたの投稿', notification.post, style: "font-weight: bold; color: #66cdaa;"
+      - when ”like” then
+        = link_to ”あなたの投稿”, notification.post, style: "font-weight: bold; color: #66cdaa;"
         = "にいいねしました"
-      - when 'review' then
+      - when ”review” then
         - if notification.post.user_id == visited.id
           = link_to "あなたの投稿", notification.post, style: "font-weight: bold; color: #66cdaa;"
         - else
           span
             = link_to post_path(notification.post) do
               strong
-                = notification.post.user.name + 'さんの投稿'
+                = notification.post.user.name + ”さんの投稿”
         = "にコメントしました"
 
   .small.text-muted.text-right
-    = time_ago_in_words(notification.created_at).upcase
+    = time_ago_in_words(notification.created_at).upcase+ ”前”
   hr

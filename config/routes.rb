@@ -27,4 +27,5 @@ Rails.application.routes.draw do
   resources :abouts, only: [:index]
   resources :static_pages, only: [:index]
   resources :privacies, only: [:index]
+  resources :notifications, only: [:index]
 end

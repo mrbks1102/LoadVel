@@ -18,7 +18,9 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.user_id = current_user.id
+    @post = @review.post
     if @review.save
+      @post.create_notification_review!(current_user, @review.id)
       redirect_to post_path(@review.post)
       flash[:notice] = "投稿が完了しました。"
     else

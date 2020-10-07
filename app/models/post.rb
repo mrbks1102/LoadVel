@@ -8,6 +8,7 @@ class Post < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :favorites, -> { order(created_at: :desc) }, dependent: :destroy
   has_many :likes, -> { order(created_at: :desc) }, dependent: :destroy
+  has_many :notifications, dependent: :destroy
   belongs_to :user
   validates :user_id, presence: true
   validates :post_photo, presence: true
@@ -47,6 +48,43 @@ class Post < ApplicationRecord
         csv << csv_attributes.map { |attr| post.send(attr) }
       end
     end
+  end
+
+  def create_notification_like!(current_user)
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and post_id = ? and action = ? ", current_user.id, user_id, id, 'like'])
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        post_id: id,
+        visited_id: user_id,
+        action: 'like'
+      )
+
+      if notification.visitor_id == notification.visited_id
+        notification.checked = true
+      end
+      notification.save if notification.valid?
+    end
+  end
+
+  def create_notification_review!(current_user, review_id)
+    temp_ids = Review.where(post_id: id).where.not("user_id=? or user_id=?", current_user.id, user_id).select(:user_id).distinct
+    temp_ids.each do |temp_id|
+      save_notification_review!(current_user, review_id, temp_id['user_id'])
+    end
+    save_notification_review!(current_user, review_id, user_id)
+  end
+
+  def save_notification_review!(current_user, review_id, visited_id)
+    notification = current_user.active_notifications.new(
+      post_id: id,
+      review_id: review_id,
+      visited_id: visited_id,
+      action: 'review'
+    )
+    if notification.visitor_id == notification.visited_id
+      notification.checked = true
+    end
+    notification.save if notification.valid?
   end
 
   enum place_name: {

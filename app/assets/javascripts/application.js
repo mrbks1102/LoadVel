@@ -16,12 +16,6 @@
 //= require turbolinks
 //= require_tree .
 
-
-//flash非表示//
-$(function () {
-  setTimeout("$('.flash').fadeOut('slow')", 2000)
-})
-
 //スマホナビの表示・非表示//
 $(document).on("turbolinks:load", function () {
   const hum = $('#hamburger, .close')

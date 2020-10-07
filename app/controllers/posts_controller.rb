@@ -1,14 +1,12 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :confirm, :back]
-  Noon = 2
-  Cafe = 3
 
   def index
     @post = Post.all.limit(4).order(created_at: :desc)
     @like_posts = @post.likes_posts.limit(4).sort { |a, b| b.likes.count <=> a.likes.count }
     @random_posts = Post.order(Arel.sql("RANDOM()"))
-    @noon_posts = @random_posts.includes(:categories).limit(4).where(post_category_relations: { category_id: Noon })
-    @cafe_posts = @random_posts.includes(:categories).limit(4).where(post_category_relations: { category_id: Cafe })
+    @noon_posts = @random_posts.noon_posts
+    @cafe_posts = @random_posts.rider_cafe_posts
     @q = Post.ransack(params[:q])
     @categories = Category.all
     @posts = Post.all.order(created_at: :desc)

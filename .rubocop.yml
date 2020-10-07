@@ -2,7 +2,7 @@ inherit_from:
 - .rubocop_airbnb.yml
 
 LineLength:
-  Max: 130
+  Max: 140
 
 AllCops:
   Exclude:
@@ -21,6 +21,7 @@ AllCops:
   - "public/**/*"
   - "tmp/**/*"
   - "log/**/*"
+  - "app/helpers/notifications_helper.rb"
 
 RSpec/EmptyLineAfterFinalLet:
   Enabled: false

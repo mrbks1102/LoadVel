@@ -1,0 +1,8 @@
+.contents
+  h3.text-center 通知
+  - notifications = @notifications.where.not(visitor_id: current_user.id)
+  - if notifications.exists?
+    = render partial: 'notifications/notification', collection: notifications, as: :notification
+    = paginate notifications, remote: true
+  - else
+    p  通知はありません

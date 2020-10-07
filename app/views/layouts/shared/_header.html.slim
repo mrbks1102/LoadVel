@@ -14,6 +14,8 @@ header.l-header
     - else
       ul
         li
+          = render "layouts/shared/circle"
+        li
           = link_to "POST", posts_path
         li
           = link_to "MYPAGE", user_path(current_user)
@@ -32,6 +34,8 @@ header.l-header
           span 閉じる
     - else
       ul
+        li
+          = render "layouts/shared/circle"
         li
           = link_to "POST", posts_path
         li

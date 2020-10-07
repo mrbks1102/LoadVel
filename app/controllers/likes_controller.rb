@@ -5,6 +5,8 @@ class LikesController < ApplicationController
     @like = current_user.likes.build(like_params)
     @post = @like.post
     if @like.save
+      @post = Post.find(params[:post_id])
+      @post.create_notification_like!(current_user)
       respond_to :js
     end
   end

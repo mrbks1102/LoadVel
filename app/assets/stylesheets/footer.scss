@@ -31,6 +31,7 @@ footer {
       margin: 0;
       display: flex;
       justify-content:space-around;
+      padding: 0;
     }
     li {
       list-style: none;
@@ -74,4 +75,8 @@ footer {
       }
     }
   }
+}
+
+.footer_2020 {
+  text-align: center
 }

@@ -34,3 +34,4 @@
       - @cafe_posts.each do |post|
         = render "layouts/shared/post_card", post: post
     span = link_to "全ての投稿を見る", categories_path(category_id: 3), class: "link"
+  = link_to "投稿をcsvで出力する", posts_path(format: :csv), class: "btn_main mt"

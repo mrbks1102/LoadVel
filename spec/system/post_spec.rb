@@ -35,7 +35,7 @@ RSpec.describe "Posts", type: :system do
     context "ログイン時" do
       before do
         sign_in user
-        visit posts_path(posts.id)
+        visit post_path(posts.id)
       end
 
       example "いいねボタンが表示されていること" do
@@ -50,7 +50,7 @@ RSpec.describe "Posts", type: :system do
     context "非ログイン時" do
       before do
         sign_out user
-        visit posts_path(posts.id)
+        visit post_path(posts.id)
       end
 
       example "いいねボタンが非表示であること" do

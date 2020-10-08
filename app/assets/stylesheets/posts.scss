@@ -48,7 +48,6 @@ $sub2_color: #ffffff;
   color: #5a5359;
   .microposts_mainview_name {
     display: flex;
-    justify-content: space-between;
     margin-bottom: 16px;
     font-size: 24px;
     font-weight: bold;
@@ -130,6 +129,10 @@ $sub2_color: #ffffff;
   .microposts_item_contents_map {
     width: 100vw;
     margin: 8px -20px 0;
+  }
+
+  .microposts_mainview_span {
+    text-align: right;
   }
 }
 

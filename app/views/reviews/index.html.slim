@@ -65,6 +65,9 @@
                     = r.body
                   .reviews_item_date
                     = r.updated_at.strftime("%Y %m %d")
+                - if r.user == current_user
+                  = link_to post_review_path(r.post_id, r.id), method: :delete, remote: true, class: "review_destroy" do
+                    i.fas.fa-trash style=("color: black;")
           - else
             | まだコメントはありません
         a = link_to "投稿詳細に戻る", post_path(@post.id), class: "link"

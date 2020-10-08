@@ -39,12 +39,12 @@ RSpec.describe "Posts", type: :system do
       end
 
       example "投稿削除ボタンが機能すること" do
-        click_on "投稿を削除する"
+        click_on "削除"
         expect(page).to have_content "投稿を削除しました"
       end
 
       example "投稿編集ボタンが機能すること" do
-        click_on "投稿を編集する"
+        click_on "編集"
         click_on "更新する"
         expect(page).to have_content "投稿を編集しました"
       end

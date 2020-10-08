@@ -19,11 +19,10 @@
         .microposts_mainview_info
           .microposts_mainview_name
             = @post.area
-            .microposts_mainview_span
-              - if user_signed_in?
-                - if current_user.id == @user.id
-                  span = link_to "投稿を編集する", edit_post_path(@post.id), class: "btn_main"
-                  span = link_to "投稿を削除する", post_path, method:"delete", class: "btn_main", data: { confirm: "本当に削除しますか？" }
+            - if user_signed_in?
+              - if current_user.id == @user.id
+                span = link_to "編集", edit_post_path(@post.id), class: "btn_main"
+                span = link_to "削除", post_path, method:"delete", class: "btn_main", data: { confirm: "本当に削除しますか？" }
           .microposts_mainview_good.inline
             = render "likes/like_count", post: @post
           .microposts_mainview_comments.inline
@@ -75,6 +74,9 @@
                     = r.body
                   .reviews_item_date
                     = r.updated_at.strftime("%Y %m %d")
+                - if r.user == current_user
+                  = link_to post_review_path(r.post_id, r.id), method: :delete, remote: true, class: "review_destroy" do
+                    i.fas.fa-trash style=("color: black;")
           - else
             | まだコメントはありません
         span = link_to "全てのコメントを見る", post_reviews_path(@post.id), class: "link"

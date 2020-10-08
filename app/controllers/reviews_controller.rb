@@ -29,6 +29,13 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to posts_path
+    flash[:notice] = "コメントを削除しました。"
+  end
+
   private
 
   def review_params

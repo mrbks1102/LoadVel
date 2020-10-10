@@ -5,33 +5,33 @@
     = form_with model: @post, local: true, url: post_path(@post.id) do |f|
       .form-group
         = f.label :area, "エリア名"
-        = f.text_field :area, autofocus: true, class: "form-control", placeholder: "(例 千葉フォルニア"
+        = f.text_field :area, class: "form-control", placeholder: "(例 千葉フォルニア"
       .form-group
         = f.label :station, "最寄駅"
-        = f.text_field :station,  autofocus: "off", class: "form-control", placeholder: "(例 東京駅"
+        = f.text_field :station, class: "form-control", placeholder: "(例 東京駅"
       .form-group
         = f.label :place_name, "都道府県"
         = f.select :place_name, Post.place_names.keys, {}, {class: 'place'}
       .form-group
         = image_tag(@post.post_photo.url) if @post.post_photo?
         = f.label :post_photo, "写真"
-        = f.file_field :post_photo, autofocus: "off", class: "form-control photo_text"
+        = f.file_field :post_photo, class: "form-control photo_text"
         = f.hidden_field :post_photo_cache
       .form-group
         = f.label :shop_name, "店名"
-        = f.text_field :shop_name, autofocus: true, class: "form-control", placeholder: "(例 xxライダーカフェ"
+        = f.text_field :shop_name, class: "form-control", placeholder: "(例 xxライダーカフェ"
       .form-group
         = f.label :street_address, "住所"
-        = f.text_field :street_address, autofocus: "off", class: "form-control", placeholder: "(例 東京都中央区xxx町 1-1-1"
+        = f.text_field :street_address, class: "form-control", placeholder: "(例 東京都中央区xxx町 1-1-1"
       .form-group
         = f.label :time, "営業時間"
-        = f.text_field :time, autofocus: "off", class: "form-control", placeholder: "(例 9:00 ~ 19:00"
+        = f.text_field :time, class: "form-control", placeholder: "(例 9:00 ~ 19:00"
       .form-group
         = f.label :regular_holiday, "定休日"
-        = f.text_field :regular_holiday, autofocus: "off", class: "form-control", placeholder: "(例 月曜日"
+        = f.text_field :regular_holiday, class: "form-control", placeholder: "(例 月曜日"
       .form-group
         = f.label :url, "URL"
-        = f.text_field :url, autofocus: "off", class: "form-control"
+        = f.text_field :url, autofocus: "off", class: "form-control", placeholder: "(例 https://www.roadvel.com/"
       .form-group
         = f.label :category, "カテゴリ", class: "item-tag"
         = f.collection_check_boxes(:category_ids, Category.all, :id, :name, include_hidden: false) do |category|

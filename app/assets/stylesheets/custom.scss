@@ -263,11 +263,16 @@ input[type=email] {
   }
 }
 
+@media screen and (max-width: 640px) {
+  .btn_guest_user {
+    font-size: 10px;
+  }
+}
+
 .btn_guest_user {
   background: #909495;
   border: solid 4px #909495;
   margin-top: 10px;
-  font-size: 10px;
   a {
     text-decoration: none;
     color: $sub2_color;

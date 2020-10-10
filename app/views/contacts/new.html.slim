@@ -8,9 +8,9 @@
         = f.text_field :name, autofocus: true, class: "form-control", placeholder: "(例 田中 太郎"
       .form-group
         = f.label :email, "メールアドレス"
-        = f.text_field :email, autofocus: true, class: "form-control", placeholder: "(例 abcdef@xxxx.com"
+        = f.text_field :email, class: "form-control", placeholder: "(例 abcdef@xxxx.com"
       .form-group
         = f.label :body, "お問い合わせ内容"
-        = f.text_area :body, autofocus: true, class: "form-control-text", placeholder: "(例 xxxという投稿の内容の修正・削除を行いたいです。"
+        = f.text_area :body, class: "form-control-text", placeholder: "(例 xxxという投稿の内容の修正・削除を行いたいです。"
       div[style="text-align: center;"]
         = f.submit "送信する", class: "btn-square", data: { confirm: "本当に送信しますか？" }

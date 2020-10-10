@@ -7,7 +7,7 @@
       = f.hidden_field :user_id, value: current_user.id
       .form-group
         = f.label :title, "タイトル"
-        = f.text_field :title, autofocus: true, class: "form-control", placeholder: "(例 おすすめの時間帯はお昼頃です"
+        = f.text_field :title, class: "form-control", placeholder: "(例 おすすめの時間帯はお昼頃です"
       .form-group
         = f.label :body, "コメント"
         = f.text_area :body, autofocus: true, class: "form-control-text", placeholder: "(例 昼頃に行くと綺麗な山がはっきりと見えるので昼に行くことをおすすめいたします"

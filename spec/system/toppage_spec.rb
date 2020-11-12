@@ -26,7 +26,7 @@ RSpec.describe "Toppages", type: :system do
       end
 
       example "POSTボタンが表示されていること" do
-        expect(page).to have_content "POST"
+        expect(page).to have_content "投稿をみる"
       end
     end
 
@@ -36,11 +36,11 @@ RSpec.describe "Toppages", type: :system do
       end
 
       example "SIGNUPボタンが表示されていること" do
-        expect(page).to have_content "SIGN UP"
+        expect(page).to have_content "新規登録する"
       end
 
       example "POSTボタンが表示されていること" do
-        expect(page).to have_content "POST"
+        expect(page).to have_content "投稿をみる"
       end
     end
   end

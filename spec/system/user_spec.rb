@@ -159,7 +159,6 @@ RSpec.describe "Users", type: :system do
 
     example "ログアウトに成功する" do
       click_on "ログアウト"
-      sign_out user
       expect(page).to have_content "ログアウトしました。"
       expect(current_path).to eq root_path
     end

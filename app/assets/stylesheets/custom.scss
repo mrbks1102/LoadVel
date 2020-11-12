@@ -197,22 +197,27 @@ input[type=email] {
 
 .btn_top {
   display: inline-block;
-  padding: 8px 50px;
-  text-decoration: none;
-  width: auto;
+  font: normal normal 600 0.5em 'Open Sans';
+  margin: 20px;
   color: $main_color;
-  font-size: 20px;
-  background-color:rgba(255,255,255,0.5);
-  border-radius: 4px;
-  -webkit-transition: .3s all;
-  transition: .3s all;
-  color: $sub_color;
-  -webkit-appearance: none;
+  background-color: transparent;
+  border: 1.5px solid $main_color;
+  border-radius: 100px;
+  padding: .5em 2em;
+  background-size: 200% 100%;
+  background-image: linear-gradient(to right, transparent 50%, #FFA500 50%);
+  transition: background-position 0.3s cubic-bezier(0.19, 1, 0.22, 1) 0.1s,color 0.5s ease 0s,background-color 0.5s ease;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
 }
 
-.post_ml {
-  margin: 0 0 0 10px;
+a.btn_top:hover{
+  color:rgba(255, 255, 255, 1);
+  background-color: $main_color;
+  background-position: -100% 100%;
 }
+
 
 .btn-square {
   display: inline-block;

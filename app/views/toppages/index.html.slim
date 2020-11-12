@@ -1,11 +1,12 @@
 .main_top
   .contents_top_main
-    h1.main_title
-      | ROADVEL
-    h2.sub_title
-      | -ライダーの為の観光地共有サイト-
-    - if current_user.nil?
-      span = link_to "SIGN UP", new_user_registration_path, class: "btn_top"
-      span = link_to "POST", posts_path, class: "btn_top post_ml"
-    - else
-      span = link_to "POST", posts_path, class: "btn_top"
+   .top_main
+      h1.main_title
+        | ROADVEL
+      h2.sub_title
+        | -ライダーの為の観光地共有サイト-
+      - if current_user.nil?
+        a = link_to "新規登録する", new_user_registration_path, class: "btn_top"
+        a = link_to "投稿をみる", posts_path, class: "btn_top"
+      - else
+        a = link_to " 投稿をみる", posts_path, class: "btn_top"

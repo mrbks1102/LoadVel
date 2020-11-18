@@ -3,10 +3,7 @@ class UsersController < ApplicationController
   before_action :check_guest, only: [:destroy]
 
   def show
-    @user = User.find_by(id: params[:id])
-    @likes = Like.where(user_id: @user.id)
-    @posts = Post.where(user_id: @user.id)
-    @favorites = Favorite.where(user_id: @user.id)
+    @user = User.includes(:likes, :posts, :favorites).find_by(id: params[:id])
     @reviews = @user.reviews_posts.uniq
   end
 

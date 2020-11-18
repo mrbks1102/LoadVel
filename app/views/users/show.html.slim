@@ -25,9 +25,9 @@
       .user_contents_item.item_active
         .post
           .users_contents_item
-            - if @posts.present?
+            - if @user.posts.present?
                 .card_contents
-                  - @posts.each do |post|
+                  - @user.posts.each do |post|
                     = render "layouts/shared/post_card", post: post
             - else
               | まだ投稿はありません
@@ -43,7 +43,7 @@
       .user_contents_item
         .good
           .users_contents_item
-            - if @likes.present?
+            - if @user.likes.present?
               .card_contents
                 - @user.like_posts.each do |post|
                   = render "layouts/shared/post_card", post: post
@@ -52,7 +52,7 @@
       .user_contents_item
         .favorite
           .users_contents_item
-            - if @favorites.present?
+            - if @user.favorites.present?
               .card_contents
                 - @user.favorite_posts.each do |post|
                   = render "layouts/shared/post_card", post: post
